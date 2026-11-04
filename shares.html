@@ -338,27 +338,48 @@
     margin-bottom: 6px;
   }
 
-  .btn-youtube {
+  .feature-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+    align-items: center;
+  }
+  .btn-action {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    background: rgba(255, 68, 68, .12);
-    color: #ff8585;
-    border: 1px solid rgba(255, 68, 68, .32);
     border-radius: 4px;
     padding: 6px 14px;
     font-size: 13px;
     font-weight: 500;
     text-decoration: none;
     letter-spacing: .03em;
-    margin-top: 14px;
     transition: all .2s ease;
+  }
+  .btn-youtube {
+    background: rgba(255, 68, 68, .12);
+    color: #ff8585;
+    border: 1px solid rgba(255, 68, 68, .32);
+    margin-top: 0;
   }
   .btn-youtube:hover {
     background: #ff3333;
     color: #ffffff;
     border-color: #ff3333;
     box-shadow: 0 4px 14px rgba(255, 51, 51, .35);
+  }
+  .btn-wiki {
+    background: rgba(157, 184, 232, .1);
+    color: #c9dcff;
+    border: 1px solid rgba(157, 184, 232, .28);
+    margin-top: 0;
+  }
+  .btn-wiki:hover {
+    background: rgba(157, 184, 232, .25);
+    color: #ffffff;
+    border-color: #9db8e8;
+    box-shadow: 0 4px 14px rgba(157, 184, 232, .25);
   }
 
   .resource-category {
@@ -593,10 +614,16 @@
               Miles Davis was an American trumpeter, bandleader, and composer widely regarded as one of the most influential figures in the history of jazz. Renowned for his melancholic tone, masterly use of space, and visionary evolution, Davis continuously spearheaded major jazz developments across five decades.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=ylXk1LBvIqU" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=ylXk1LBvIqU" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听经典现场 (So What - Live 1959)
             </a>
+              <a href="https://zh.wikipedia.org/wiki/迈尔斯·戴维斯" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -624,10 +651,16 @@
               Bill Evans was an iconic American jazz pianist and composer whose use of impressionist harmony, inventive interpretation of traditional jazz repertoire, and block chord passages revolutionized modern jazz piano and trio dynamics.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=dH3GSrRmQC8" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=dH3GSrRmQC8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听名演 (Waltz for Debby)
             </a>
+              <a href="https://zh.wikipedia.org/wiki/比尔·埃文斯" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -655,10 +688,16 @@
               Thelonious Monk was an American jazz pianist and composer celebrated for his unique improvisational style and iconic compositions. His unorthodox approach featuring percussive attacks, unexpected silences, and dramatic dissonance cemented his legacy as a true jazz visionary.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=KshrtLXBdl8" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=KshrtLXBdl8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听名曲 ('Round Midnight - Solo)
             </a>
+              <a href="https://zh.wikipedia.org/wiki/塞隆尼斯·蒙克" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -686,10 +725,16 @@
               Charlie "Bird" Parker was an American jazz saxophonist and composer who transformed the musical landscape as a pioneer of bebop. Introducing lightning-fast tempos, sophisticated harmonic ideas, and virtuosic improvisation, Parker remains one of music's supreme innovators.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=02XTlJk8-aI" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=02XTlJk8-aI" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听名演 (Donna Lee / Hot House)
             </a>
+              <a href="https://zh.wikipedia.org/wiki/查理·帕克" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -717,10 +762,16 @@
               John Coltrane was an American jazz saxophonist and composer among the most iconic figures in music history. Pioneering the intense "sheets of sound" technique and exploring spiritual jazz, Coltrane continuously expanded the boundaries of musical expression.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=q6WwuxqAOfg" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=q6WwuxqAOfg" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听名曲 (My Favorite Things - Live 1961)
             </a>
+              <a href="https://zh.wikipedia.org/wiki/约翰·柯川" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -748,10 +799,16 @@
               Edward Kennedy "Duke" Ellington was an American composer, pianist, and leader of a jazz orchestra for five decades. Widely considered one of jazz's greatest composers, Ellington elevated jazz to an orchestral art form with timeless masterpieces.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=cb2w2m1JmCY" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=cb2w2m1JmCY" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听经典 (Take the "A" Train)
             </a>
+              <a href="https://zh.wikipedia.org/wiki/艾灵顿公爵" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -779,10 +836,16 @@
               Louis Armstrong was an American trumpeter and vocalist who was among the most influential figures in jazz. His charismatic gravelly voice, inventive trumpet solos, and infectious swing rhythms shifted jazz's focus from collective improvisation to solo virtuosity.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=Vjmbf_qR-P8" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=Vjmbf_qR-P8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听名作 (West End Blues / What a Wonderful World)
             </a>
+              <a href="https://zh.wikipedia.org/wiki/路易斯·阿姆斯特朗" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -810,10 +873,16 @@
               Chet Baker was an American jazz trumpeter and vocalist acclaimed as a leading figure in West Coast cool jazz. Known for his fragile, intimate tone and melancholic lyricism, Baker created some of the most hauntingly tender music in the jazz canon.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=jvXywh3AXcg" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=jvXywh3AXcg" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听名作 (My Funny Valentine - Live in Tokyo)
             </a>
+              <a href="https://zh.wikipedia.org/wiki/切特·贝克" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
       </section>
@@ -847,10 +916,16 @@
               Released in 1959, Miles Davis’s *Kind of Blue* stands as the best-selling and most celebrated jazz album of all time. Departing from complex chord sequences toward modal improvisation, this masterpiece brought together legends John Coltrane and Bill Evans to create an enduring sonic monument.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=F3W_alU3FdU" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=F3W_alU3FdU" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 完整聆听本专辑 (Full Album)
             </a>
+              <a href="https://zh.wikipedia.org/wiki/泛蓝调调" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -878,10 +953,16 @@
               Recorded in 1964 and released in 1965, John Coltrane's four-part suite *A Love Supreme* is widely hailed as a spiritual jazz tour de force. Serving as an expression of personal devotion and gratitude, Coltrane channeled his fiery improvisations into an unparalleled transcendental musical prayer.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=ll3CMgiUPac" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=ll3CMgiUPac" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 完整聆听本专辑 (Full Album)
             </a>
+              <a href="https://zh.wikipedia.org/wiki/A_Love_Supreme" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -909,10 +990,16 @@
               Recorded in 1957, *Blue Train* is John Coltrane's sole album as a leader for Blue Note Records and a certified hard bop cornerstone. Driven by fiery horn interplay with Lee Morgan and Curtis Fuller, the album showcases Coltrane's blossoming genius as a formidable composer and soloist.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=XpZHUAUtQnA" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=XpZHUAUtQnA" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听名盘 (Blue Train - Full Album)
             </a>
+              <a href="https://en.wikipedia.org/wiki/Blue_Train_(album)" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -940,10 +1027,16 @@
               Released in 1958 on Blue Note, *Somethin' Else* features alto sax giant Cannonball Adderley in a thrilling collaboration with Miles Davis. Their immortal rendition of "Autumn Leaves," pairing Davis's haunting muted trumpet with Adderley's blues-drenched warmth, is among the pinnacle moments in jazz.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=u37RF5xucS4" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=u37RF5xucS4" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听名篇 (Autumn Leaves)
             </a>
+              <a href="https://en.wikipedia.org/wiki/Somethin%27_Else_(Cannonball_Adderley_album)" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -971,10 +1064,16 @@
               Recorded live at the Village Vanguard in 1961, *Waltz for Debby* captured the Bill Evans Trio at their telepathic best. The ambient clinking of glasses enhances the poetic intimacy between Evans and bassist Scott LaFaro, who tragically died in a car crash days later, rendering this session an irreplaceable legend.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=dH3GSrRmQC8" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=dH3GSrRmQC8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听原声 (Waltz for Debby - Village Vanguard 1961)
             </a>
+              <a href="https://en.wikipedia.org/wiki/Waltz_for_Debby_(album)" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -1002,10 +1101,16 @@
               Released in 1959, Charles Mingus’s *Mingus Ah Um* is an electrifying masterpiece combining gospel fervor, hard-driving blues, and intricate composition. Featuring timeless tracks like "Goodbye Pork Pie Hat" and the politically charged "Fables of Faubus," it showcases Mingus at the height of his genius.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=JY3hJc4sKqs" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=JY3hJc4sKqs" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听名作 (Goodbye Pork Pie Hat)
             </a>
+              <a href="https://en.wikipedia.org/wiki/Mingus_Ah_Um" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
 
@@ -1033,10 +1138,16 @@
               Recorded in 1965 on Blue Note, Herbie Hancock’s *Maiden Voyage* is a celebrated oceanic concept album and a pinnacle of modal post-bop. Utilizing sus chords and expansive textures, Hancock captured the wonder and majesty of the sea in one of jazz's defining statements.
             </div>
 
-            <a href="https://www.youtube.com/watch?v=hwmRQ0PBtXU" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=hwmRQ0PBtXU" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               在 YouTube 聆听名作 (Maiden Voyage - Official Audio)
             </a>
+              <a href="https://en.wikipedia.org/wiki/Maiden_Voyage_(Herbie_Hancock_album)" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                维基百科 (Wikipedia)
+              </a>
+            </div>
           </div>
         </article>
       </section>
