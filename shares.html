@@ -215,11 +215,89 @@
     text-transform: uppercase;
   }
   .content-placeholder {
-    padding: 40px 0;
+    padding: 30px 0 0;
     border-top: 1px solid rgba(157, 184, 232, .2);
-    color: #b0c4de;
-    font-size: 16px;
-    line-height: 1.8;
+    color: #d2e0fa;
+  }
+  .resource-category {
+    margin-bottom: 50px;
+  }
+  .category-header {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .category-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: .03em;
+  }
+  .category-badge {
+    font-size: 12px;
+    color: #9db8e8;
+    background: rgba(157, 184, 232, .12);
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: .05em;
+  }
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .resource-card {
+    background: rgba(7, 15, 36, .65);
+    border: 1px solid rgba(157, 184, 232, .2);
+    border-radius: 6px;
+    padding: 18px 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .resource-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(157, 184, 232, .45);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .4);
+  }
+  .resource-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e8eefb;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+  .resource-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #8da6c9;
+  }
+  .btn-download-pdf {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: rgba(157, 184, 232, .12);
+    color: #c9d9f6;
+    border: 1px solid rgba(157, 184, 232, .28);
+    border-radius: 4px;
+    padding: 7px 12px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all .2s ease;
+  }
+  .btn-download-pdf:hover {
+    background: #9db8e8;
+    color: #070f24;
+    font-weight: 500;
+    border-color: #9db8e8;
   }
 
   @media (max-width: 768px) {
@@ -324,11 +402,209 @@
   </nav>
 
   <main class="page-container">
-    <div class="page-tag">Jazz Insights</div>
+    <div class="page-tag">Jazz Resources</div>
     <h1>爵士乐内容分享</h1>
-    <div class="en-sub">Appreciation, Theory, Stories & Recommended Recordings</div>
+    <div class="en-sub">Jazz Real Books, Transcriptions & Music Theory Textbooks</div>
     <div class="content-placeholder">
-      <p>内容筹备中，敬请期待...</p>
+
+      <!-- 分类 1：Real Book 经典标准曲集 -->
+      <section class="resource-category">
+        <div class="category-header">
+          <h2 class="category-title">Real Book 经典标准曲集</h2>
+          <span class="category-badge">7 本合集</span>
+        </div>
+        <div class="resource-grid">
+          <div class="resource-card">
+            <div class="resource-title">The Real Book (5th Edition)</div>
+            <div class="resource-meta"><span>PDF 电子书</span><span>54.4 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Real-Book.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (54.4MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">The New Real Book Vol. 1</div>
+            <div class="resource-meta"><span>Chuck Sher 编</span><span>48.3 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/The-New-Real-Book-Vol.1.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (48.3MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">The New Real Book Vol. 2</div>
+            <div class="resource-meta"><span>Chuck Sher 编</span><span>44.7 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/The-New-Real-Book-Vol.2.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (44.7MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">The New Real Book Vol. 3</div>
+            <div class="resource-meta"><span>Chuck Sher 编</span><span>42.7 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/The-New-Real-Book-Vol.3.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (42.7MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">The Real Bebop Book</div>
+            <div class="resource-meta"><span>Bebop 专集</span><span>44.4 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/The-Real-Bebop-Book.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (44.4MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">The Standards Real Book</div>
+            <div class="resource-meta"><span>C 调经典标准曲</span><span>52.8 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/The-Standards-Real-Book.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (52.8MB)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 分类 2：乐器调号分本 (Bb / Eb / C / Contrebasse) -->
+      <section class="resource-category">
+        <div class="category-header">
+          <h2 class="category-title">乐器调号分本（移调谱与低音提琴）</h2>
+          <span class="category-badge">9 册分本</span>
+        </div>
+        <div class="resource-grid">
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 1 - Bb 调本</div>
+            <div class="resource-meta"><span>次中音萨克斯/小号</span><span>76.7 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-1-Bb.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (76.7MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 1 - Eb 调本</div>
+            <div class="resource-meta"><span>中音萨克斯适用</span><span>77.2 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-1-Eb.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (77.2MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 1 - 低音提琴本</div>
+            <div class="resource-meta"><span>Contrebasse / Bass</span><span>55.4 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-1-contrebasse.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (55.4MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 2 - C 调本</div>
+            <div class="resource-meta"><span>钢琴/吉他/长笛</span><span>55.6 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-2-C.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (55.6MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 2 - Bb 调本</div>
+            <div class="resource-meta"><span>次中音萨克斯/小号</span><span>73.1 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-2-Bb.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (73.1MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 2 - Eb 调本</div>
+            <div class="resource-meta"><span>中音萨克斯适用</span><span>64.7 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-2-Eb.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (64.7MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 2 - 低音提琴本</div>
+            <div class="resource-meta"><span>Contrebasse / Bass</span><span>63.2 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-2-contrebasse.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (63.2MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 3 - C 调本</div>
+            <div class="resource-meta"><span>钢琴/吉他/长笛</span><span>29.7 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-3-C.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (29.7MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 3 - Bb 调本</div>
+            <div class="resource-meta"><span>次中音萨克斯/小号</span><span>42.2 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-3-Bb.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (42.2MB)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 分类 3：乐理理论、独奏与赏析教材 -->
+      <section class="resource-category">
+        <div class="category-header">
+          <h2 class="category-title">乐理理论、独奏与赏析教材</h2>
+          <span class="category-badge">4 本精选</span>
+        </div>
+        <div class="resource-grid">
+          <div class="resource-card">
+            <div class="resource-title">28首现代爵士小号独奏曲集 (28 Modern Jazz Trumpet Solos)</div>
+            <div class="resource-meta"><span>经典独奏采谱</span><span>6.6 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/28-Modern-Jazz-Trumpet-Solos.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (6.6MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">《爵士语法》</div>
+            <div class="resource-meta"><span>丁铌 编著 / 理论必备</span><span>78.4 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Jazz-Grammar-DingNi.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (78.4MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">爵士乐理与演奏技巧 (Jazz Music)</div>
+            <div class="resource-meta"><span>即兴演奏理论 通用教材</span><span>77.5 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Jazz-Music-Theory-And-Techniques.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (77.5MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">爵士乐：美国的古典音乐 · 现代爵士</div>
+            <div class="resource-meta"><span>爵士通识与名作赏析</span><span>25.0 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Jazz-American-Classical-Music.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (25.0MB)
+            </a>
+          </div>
+        </div>
+      </section>
+
     </div>
   </main>
 
