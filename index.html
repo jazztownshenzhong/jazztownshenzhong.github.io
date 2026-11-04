@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深圳中学 JazzTown 爵士乐俱乐部</title>
+<meta name="description" content="深圳中学 JazzTown 爵士乐俱乐部官网">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background: #070f24 url("background.jpg") no-repeat center center fixed;
+    background-size: cover;               /* 电脑端优先：整幅覆盖 */
+    color: #e8eefb;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+  }
+  /* 桌面端：左侧内容区压一层由左向右渐隐的深色遮罩，保证文字可读 */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(90deg,
+      rgba(4, 10, 26, .82) 0%,
+      rgba(4, 10, 26, .55) 34%,
+      rgba(4, 10, 26, .10) 60%,
+      rgba(4, 10, 26, .30) 100%);
+    pointer-events: none;
+  }
+  .hero { position: relative; z-index: 1; padding: 0 8vw; max-width: 980px; }
+  .eyebrow {
+    letter-spacing: .45em;
+    font-size: 15px;
+    color: #9db8e8;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-size: clamp(40px, 6.5vw, 92px);
+    font-weight: 700;
+    line-height: 1.12;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, .55);
+  }
+  h1 .en {
+    display: block;
+    font-size: .34em;
+    font-weight: 500;
+    letter-spacing: .18em;
+    color: #c9d9f6;
+    margin-top: 18px;
+    line-height: 1.6;
+  }
+  .credits {
+    position: fixed;
+    right: 18px;
+    bottom: 12px;
+    z-index: 1;
+    font-size: 11px;
+    color: rgba(190, 208, 240, .45);
+    text-align: right;
+  }
+
+  /* ---------- 手机端适配（优先保电脑端效果） ---------- */
+  @media (max-width: 768px) {
+    body {
+      background-attachment: scroll;        /* iOS 对 fixed 背景支持差 */
+      background-position: 74% center;      /* 窄屏右移，露出部分照片墙 */
+      align-items: flex-end;                /* 文字放下方，避开照片密集区 */
+      padding-bottom: 9vh;
+    }
+    body::before {
+      background: linear-gradient(180deg,
+        rgba(4, 10, 26, .45) 0%,
+        rgba(4, 10, 26, .78) 55%,
+        rgba(4, 10, 26, .88) 100%);
+    }
+    .hero { padding: 0 9vw; }
+    .eyebrow { font-size: 12px; letter-spacing: .3em; margin-bottom: 14px; }
+    h1 { font-size: clamp(30px, 8.5vw, 40px); }
+    h1 .l1, h1 .l2 { display: block; }      /* 手机端每段独立成行，避免溢出 */
+    h1 .l2 { margin: 2px 0; }
+    h1 .en { font-size: .30em; letter-spacing: .05em; margin-top: 14px; }
+    .credits { font-size: 10px; right: 12px; bottom: 8px; max-width: 78%; }
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="eyebrow">Shenzhen Middle School</div>
+    <h1><span class="l1">深圳中学</span> <span class="l2">JazzTown</span><br><span class="l3">爵士乐俱乐部</span><span class="en">SHENZHEN MIDDLE SCHOOL JAZZTOWN JAZZ CLUB</span></h1>
+  </div>
+  <div class="credits">Photos: William P. Gottlieb Collection, Library of Congress (public domain) · Bill Evans photo by Brian McMillen, CC BY-SA 3.0 · Dave Brubeck photo by Bert Verhoeff/Anefo, CC0</div>
+</body>
+</html>
