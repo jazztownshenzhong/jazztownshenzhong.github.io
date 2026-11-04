@@ -215,11 +215,139 @@
     text-transform: uppercase;
   }
   .content-placeholder {
-    padding: 40px 0;
+    padding: 30px 0 0;
     border-top: 1px solid rgba(157, 184, 232, .2);
-    color: #b0c4de;
-    font-size: 16px;
+    color: #d2e0fa;
+  }
+  .category-section {
+    margin-bottom: 60px;
+  }
+  .category-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: .04em;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .category-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background: #9db8e8;
+    border-radius: 2px;
+  }
+
+  /* 课程小分栏卡片 */
+  .lesson-card {
+    background: rgba(7, 15, 36, .65);
+    border: 1px solid rgba(157, 184, 232, .2);
+    border-radius: 8px;
+    padding: 26px 28px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    margin-bottom: 28px;
+  }
+  .lesson-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(157, 184, 232, .15);
+  }
+  .lesson-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: .03em;
+  }
+  .lesson-actions {
+    display: flex;
+    gap: 12px;
+  }
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(157, 184, 232, .15);
+    color: #e8eefb;
+    border: 1px solid rgba(157, 184, 232, .3);
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 13px;
+    text-decoration: none;
+    letter-spacing: .04em;
+    transition: all .2s ease;
+  }
+  .btn-download:hover {
+    background: #9db8e8;
+    color: #070f24;
+    font-weight: 500;
+  }
+
+  /* PDF 嵌入窗口 */
+  .pdf-viewer-container {
+    width: 100%;
+    height: 520px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgba(4, 10, 26, .85);
+    border: 1px solid rgba(157, 184, 232, .18);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .4);
+    margin-bottom: 16px;
+  }
+  .pdf-viewer-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* 底部提示与音视频展示区 */
+  .lesson-note {
+    font-size: 14px;
+    color: #9db8e8;
+    background: rgba(157, 184, 232, .08);
+    border-left: 3px solid #9db8e8;
+    padding: 12px 16px;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+
+  .media-archive-section {
+    margin-top: 70px;
+    padding-top: 36px;
+    border-top: 1px dashed rgba(157, 184, 232, .25);
+  }
+  .media-archive-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .media-archive-desc {
+    color: #8da6c9;
+    font-size: 14px;
     line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    .lesson-card {
+      padding: 20px 18px;
+    }
+    .pdf-viewer-container {
+      height: 380px;
+    }
   }
 
   @media (max-width: 768px) {
@@ -328,7 +456,40 @@
     <h1>社课记录</h1>
     <div class="en-sub">Jazz Club Lesson Archive & Highlights</div>
     <div class="content-placeholder">
-      <p>内容筹备中，敬请期待...</p>
+      
+      <!-- 主分栏 1：爵士乐史和爵士乐风格赏析 -->
+      <section class="category-section">
+        <h2 class="category-title">爵士乐史和爵士乐风格赏析</h2>
+        
+        <!-- 小分栏：第一课-爵士乐的起源 -->
+        <article class="lesson-card">
+          <div class="lesson-header">
+            <h3 class="lesson-title">第一课 - 爵士乐的起源</h3>
+            <div class="lesson-actions">
+              <a href="docs/jazz-origins.pdf" target="_blank" class="btn-download" download="第一课-爵士乐的起源.pdf">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                下载讲义 PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- PDF 在线浏览窗口 -->
+          <div class="pdf-viewer-container">
+            <iframe src="docs/jazz-origins.pdf#toolbar=1&navpanes=0" class="pdf-viewer-frame" title="第一课 - 爵士乐的起源 PPT 讲义"></iframe>
+          </div>
+
+          <div class="lesson-note">
+            💡 提示：所有社课涉及的音视频在本页最后展示。
+          </div>
+        </article>
+      </section>
+
+      <!-- 底部音视频归档区预留 -->
+      <section class="media-archive-section">
+        <h2 class="media-archive-title">社课音视频展示区</h2>
+        <p class="media-archive-desc">此处将统一收录各期社课所涉及的历史原声、现场录影与示范音视频资料，内容整理中，敬请期待...</p>
+      </section>
+
     </div>
   </main>
 
