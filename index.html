@@ -57,29 +57,99 @@
   .nav-brand:hover { opacity: .8; }
   .nav-links {
     display: flex;
+    align-items: center;
     gap: 32px;
     list-style: none;
   }
-  .nav-links a {
+  .nav-item {
+    position: relative;
+  }
+  .nav-links a, .nav-dropdown-btn {
     color: #c9d9f6;
     text-decoration: none;
     font-size: 14px;
     letter-spacing: .08em;
-    padding: 6px 0;
+    padding: 8px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     position: relative;
     transition: color .2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
   }
-  .nav-links a:hover {
+  .nav-links a:hover, .nav-dropdown-btn:hover {
     color: #ffffff;
   }
-  .nav-links a:hover::after {
+  .nav-links > li > a:hover::after,
+  .nav-dropdown-btn:hover::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: 2px;
     left: 0;
     right: 0;
     height: 2px;
     background: #9db8e8;
+  }
+  .dropdown-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    transition: transform .25s ease;
+  }
+  .nav-item.dropdown-open .dropdown-arrow,
+  .nav-item:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* 下拉菜单 */
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(7, 15, 36, .96);
+    border: 1px solid rgba(157, 184, 232, .25);
+    border-radius: 6px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    list-style: none;
+    padding: 8px 0;
+    min-width: 140px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  .nav-item:hover .dropdown-menu,
+  .nav-item.dropdown-open .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-menu li {
+    width: 100%;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 18px;
+    font-size: 13px;
+    color: #c9d9f6;
+    white-space: nowrap;
+    text-align: center;
+    transition: background .2s ease, color .2s ease;
+  }
+  .dropdown-menu a:hover {
+    background: rgba(157, 184, 232, .15);
+    color: #ffffff;
+  }
+  .dropdown-menu a::after {
+    display: none !important;
   }
 
   /* 移动端汉堡按钮 */
@@ -174,17 +244,48 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       flex-direction: column;
+      align-items: flex-start;
       padding: 90px 8vw 40px;
-      gap: 24px;
+      gap: 20px;
       transform: translateX(100%);
       transition: transform .3s ease;
       box-shadow: -10px 0 30px rgba(0, 0, 0, .5);
+      overflow-y: auto;
     }
     .nav-links.open {
       transform: translateX(0);
     }
-    .nav-links a {
+    .nav-item {
+      width: 100%;
+    }
+    .nav-links a, .nav-dropdown-btn {
       font-size: 16px;
+      padding: 8px 0;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .dropdown-menu {
+      position: static;
+      transform: none !important;
+      opacity: 1;
+      pointer-events: auto;
+      background: rgba(13, 27, 61, .4);
+      border: none;
+      border-left: 2px solid #9db8e8;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 4px 0 4px 16px;
+      margin-top: 6px;
+      display: none;
+      min-width: 0;
+      width: 100%;
+    }
+    .nav-item.dropdown-open .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu a {
+      text-align: left;
+      font-size: 15px;
       padding: 8px 0;
     }
     .hero { margin-left: 0; width: auto; padding: 0 9vw; }
@@ -207,9 +308,17 @@
       <span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="about.html">社团愿景和介绍</a></li>
-      <li><a href="classes.html">社课记录</a></li>
-      <li><a href="shares.html">爵士乐内容分享</a></li>
+      <li class="nav-item has-dropdown">
+        <button class="nav-dropdown-btn" id="dropdownBtn" aria-expanded="false">
+          社团愿景与介绍 <span class="dropdown-arrow"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="vision.html">社团愿景</a></li>
+          <li><a href="intro.html">社团介绍</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="classes.html">社课记录</a></li>
+      <li class="nav-item"><a href="shares.html">爵士乐内容分享</a></li>
     </ul>
   </nav>
 
@@ -222,9 +331,25 @@
   <script>
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownItem = dropdownBtn.parentElement;
+
     navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('open');
       navLinks.classList.toggle('open');
+    });
+
+    dropdownBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownItem.classList.toggle('dropdown-open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdownItem.contains(e.target)) {
+        if (window.innerWidth > 768) {
+          dropdownItem.classList.remove('dropdown-open');
+        }
+      }
     });
   </script>
 </body>
