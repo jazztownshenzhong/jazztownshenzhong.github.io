@@ -325,17 +325,34 @@
 
   /* 知识卡片通性格局 */
   .genre-card {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
     background: rgba(7, 15, 36, .82);
     border: 1px solid rgba(157, 184, 232, .2);
     border-radius: 8px;
-    padding: 24px 28px;
-    margin-bottom: 28px;
+    padding: 26px 28px;
+    margin-bottom: 30px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
     transition: border-color .2s ease, transform .2s ease;
   }
   .genre-card:hover {
     border-color: rgba(157, 184, 232, .4);
     transform: translateY(-2px);
+  }
+  .genre-cover {
+    width: 230px;
+    height: 270px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 6px;
+    border: 1px solid rgba(157, 184, 232, .25);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .45);
+    flex-shrink: 0;
+  }
+  .genre-content {
+    flex: 1;
+    min-width: 0;
   }
   .genre-header {
     margin-bottom: 16px;
@@ -512,7 +529,13 @@
       padding: 100px 5vw 60px;
     }
     .genre-card {
+      flex-direction: column;
       padding: 20px 18px;
+      gap: 18px;
+    }
+    .genre-cover {
+      width: 100%;
+      height: 220px;
     }
     .portal-card {
       padding: 20px 20px;
@@ -593,7 +616,9 @@
 
       <!-- 1. 根源爵士与早期蓝调 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-ragtime.jpg" alt="根源爵士与早期蓝调 (Scott Joplin / Early Blues)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">1. 根源爵士与早期蓝调 (Roots Jazz: Ragtime & Blues)</h3>
           <div class="genre-meta">19世纪末 ~ 20世纪初 · 切分钢琴律动 · 密西西比三角洲民间蓝调</div>
         </div>
@@ -619,11 +644,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 2. 新奥尔良传统爵士 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-new-orleans.jpg" alt="新奥尔良传统爵士 (New Orleans Brass Band / Dixieland)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">2. 新奥尔良传统爵士 / 迪克西兰 (New Orleans Traditional Jazz & Dixieland)</h3>
           <div class="genre-meta">1910s ~ 1920s · 集体复调即兴 · 行进铜管与独奏奠基</div>
         </div>
@@ -649,11 +677,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 3. 大乐队摇摆乐时代 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-swing.jpg" alt="大乐队摇摆乐时代 (Benny Goodman Big Band / Swing Era)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">3. 大乐队摇摆乐时代 (Swing & The Big Band Era)</h3>
           <div class="genre-meta">1930s ~ 1940s · 十余人大编制齐奏 · 华丽配器与四四拍跳动摇摆</div>
         </div>
@@ -679,11 +710,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 4. 比波普 / 咆哮乐 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-bebop.jpg" alt="比波普爵士乐 (Charlie Parker & Dizzy Gillespie)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">4. 比波普 / 咆哮乐 (Bebop)</h3>
           <div class="genre-meta">1940s 中叶 · 极速即兴与延伸和弦 · 爵士乐晋身严肃艺术之转折点</div>
         </div>
@@ -709,11 +743,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 5. 冷爵士 / 酷派爵士 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-cool-jazz.jpg" alt="冷爵士 / 酷派爵士 (The Dave Brubeck Quartet / Cool Jazz)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">5. 冷爵士 / 酷派爵士 (Cool Jazz)</h3>
           <div class="genre-meta">1940s 末 ~ 1950s · 典雅克制音色 · 古典对位与内省诗意</div>
         </div>
@@ -739,11 +776,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 6. 硬波普 / 硬咆哮爵士 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-hard-bop.jpg" alt="硬波普爵士乐 (Art Blakey & The Jazz Messengers / Hard Bop)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">6. 硬波普 / 硬咆哮爵士 (Hard Bop)</h3>
           <div class="genre-meta">1950s 中叶 · 蓝调与福音回潮 · 滚烫热烈之东岸律动</div>
         </div>
@@ -769,11 +809,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 7. 调式爵士 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-modal-jazz.jpg" alt="调式爵士 (Miles Davis, Cannonball Adderley & John Coltrane)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">7. 调式爵士 (Modal Jazz)</h3>
           <div class="genre-meta">1950s 末 · 摆脱频繁和弦桎梏 · 空灵写意与单调式即兴冥想</div>
         </div>
@@ -799,11 +842,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 8. 融合爵士 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-fusion.jpg" alt="融合爵士 (Weather Report / Jazz Fusion)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">8. 融合爵士 (Jazz Fusion)</h3>
           <div class="genre-meta">1960s 末 ~ 1970s · 电子乐器革新 · 摇滚力量与复杂爵士和声共铸</div>
         </div>
@@ -829,6 +875,7 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
     </section>
 
@@ -840,7 +887,9 @@
 
       <!-- 1. 福音爵士与圣乐根源 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-gospel.jpg" alt="福音圣乐与爵士 (Mahalia Jackson / Gospel & Sacred Jazz)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">1. 福音爵士与圣乐根源 (Gospel & Sacred Jazz)</h3>
           <div class="genre-meta">非裔教堂灵歌 · 炽热击掌呼应与精神超拔</div>
         </div>
@@ -901,11 +950,14 @@
             </a>
           </div>
         </div>
+        </div>
       </article>
 
       <!-- 2. 酸爵士 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-acid-jazz.jpg" alt="酸爵士 (Acid Jazz / Jamiroquai & Rare Groove)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">2. 酸爵士 (Acid Jazz)</h3>
           <div class="genre-meta">1980s 末英伦发端 · 黑胶采样 · 放克舞曲与灵魂乐摩登熔铸</div>
         </div>
@@ -931,11 +983,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 3. 波萨诺瓦与拉丁爵士 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-bossa-nova.jpg" alt="波萨诺瓦与拉丁爵士 (Bossa Nova / Stan Getz & Astrud Gilberto)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">3. 波萨诺瓦与拉丁爵士 (Bossa Nova & Latin Jazz)</h3>
           <div class="genre-meta">1950s 末巴西海岸 · 桑巴摇曳微醺律动 · 印象派温润爵士和弦</div>
         </div>
@@ -961,11 +1016,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 4. 自由爵士与前卫先锋 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-free-jazz.jpg" alt="自由爵士 (Ornette Coleman / Free Jazz Avant-Garde)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">4. 自由爵士与前卫先锋 (Free Jazz & Avant-Garde)</h3>
           <div class="genre-meta">1960s · 抛弃预设和弦走向与规整节拍 · 纯粹声音探索与无界即兴</div>
         </div>
@@ -991,11 +1049,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 5. 平滑爵士 / 轻柔爵士 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-smooth-jazz.jpg" alt="平滑爵士 (Grover Washington Jr. / Smooth Jazz)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">5. 平滑爵士 / 轻柔爵士 (Smooth Jazz)</h3>
           <div class="genre-meta">1980s · 都会电台黄金风潮 · 优美舒缓旋律与温润声学质感</div>
         </div>
@@ -1021,6 +1082,7 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
     </section>
 
@@ -1032,7 +1094,9 @@
 
       <!-- 1. 灵魂乐 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-soul.jpg" alt="灵魂乐 (Ray Charles / Soul Music)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">1. 灵魂乐之催生 (Soul Music)</h3>
           <div class="genre-meta">爵士管乐配器 · 布鲁斯音阶与福音情感的伟大交汇</div>
         </div>
@@ -1058,11 +1122,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 2. 节奏布鲁斯与当代 R&B -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-rnb.jpg" alt="节奏布鲁斯与当代R&B (Stevie Wonder / R&B & Neo-Soul)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">2. 节奏布鲁斯与当代 R&B / 新灵魂乐 (R&B & Neo-Soul)</h3>
           <div class="genre-meta">大七与延伸和弦美学 · 自由声乐跑音与深沉后波普律动</div>
         </div>
@@ -1088,11 +1155,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 3. 摇滚乐与前卫/数学摇滚 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-rock.jpg" alt="摇滚乐与爵士摇滚 (Steely Dan / Rock & Jazz Fusion)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">3. 摇滚乐与前卫/数学摇滚 (Rock, Progressive & Math Rock)</h3>
           <div class="genre-meta">调式即兴 · 奇数复拍子与爵士摇滚（Jazz Rock）史诗</div>
         </div>
@@ -1118,11 +1188,14 @@
             维基百科 (Wikipedia)
           </a>
         </div>
+        </div>
       </article>
 
       <!-- 4. 嘻哈与爵士说唱 -->
       <article class="genre-card">
-        <div class="genre-header">
+        <img src="images/genre-hiphop.jpg" alt="嘻哈与爵士说唱 (A Tribe Called Quest / Crate Digging & Jazz Rap)" class="genre-cover" loading="lazy">
+        <div class="genre-content">
+          <div class="genre-header">
           <h3 class="genre-title">4. 嘻哈与爵士说唱 (Hip-Hop & Jazz Rap)</h3>
           <div class="genre-meta">黄金年代淘黑胶（Crate Digging） · 萨克斯低音采样与街头诗意</div>
         </div>
@@ -1147,6 +1220,7 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
             维基百科 (Wikipedia)
           </a>
+        </div>
         </div>
       </article>
     </section>
