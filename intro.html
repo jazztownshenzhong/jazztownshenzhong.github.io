@@ -248,6 +248,91 @@
     line-height: 1.8;
   }
 
+  /* 人员卡片与小分栏 */
+  .members-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 18px;
+  }
+  .member-card {
+    background: rgba(7, 15, 36, .65);
+    border: 1px solid rgba(157, 184, 232, .2);
+    border-radius: 8px;
+    padding: 24px 28px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  }
+  .member-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(157, 184, 232, .15);
+  }
+  .member-role {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: .06em;
+  }
+  .member-body {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  .member-avatar {
+    width: 140px;
+    height: 186px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(157, 184, 232, .25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .4);
+    flex-shrink: 0;
+  }
+  .member-info {
+    color: #d2e0fa;
+    font-size: 15px;
+    line-height: 1.85;
+    flex: 1;
+  }
+  .member-info p {
+    margin-bottom: 12px;
+  }
+  .member-email {
+    color: #9db8e8;
+    text-decoration: none;
+    transition: color .2s;
+    word-break: break-all;
+  }
+  .member-email:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  .member-placeholder {
+    color: #7d96bd;
+    font-size: 14px;
+    font-style: italic;
+    padding: 8px 0;
+  }
+
+  @media (max-width: 768px) {
+    .member-body {
+      flex-direction: column;
+      align-items: center;
+      text-align: left;
+    }
+    .member-avatar {
+      width: 130px;
+      height: 173px;
+    }
+    .member-card {
+      padding: 20px 20px;
+    }
+  }
+
   @media (max-width: 768px) {
     body {
       background-attachment: scroll;
@@ -361,7 +446,42 @@
 
       <section class="section-block">
         <h2 class="section-title">人员介绍</h2>
-        <p class="section-desc">内容筹备中，敬请期待...</p>
+        <div class="members-grid">
+          <!-- 社长 -->
+          <article class="member-card">
+            <div class="member-header">
+              <span class="member-role">社长</span>
+            </div>
+            <div class="member-body">
+              <img src="garfield-president.jpg" alt="社长 Garfield" class="member-avatar" loading="lazy">
+              <div class="member-info">
+                <p><strong>社长：Garfield</strong>，2025级学生，爵士乐极度爱好者，喜欢听 bebop、cool jazz、gospel、hard bop、流行、摇滚音乐。</p>
+                <p>这个社长比较神秘，不打算留下更多信息。</p>
+                <p>工作邮箱：<a href="mailto:garfieldtang1@gmail.com" class="member-email">garfieldtang1@gmail.com</a></p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 副社长 1 -->
+          <article class="member-card">
+            <div class="member-header">
+              <span class="member-role">副社长</span>
+            </div>
+            <div class="member-body">
+              <div class="member-placeholder">内容筹备中，敬请期待...</div>
+            </div>
+          </article>
+
+          <!-- 副社长 2 -->
+          <article class="member-card">
+            <div class="member-header">
+              <span class="member-role">副社长</span>
+            </div>
+            <div class="member-body">
+              <div class="member-placeholder">内容筹备中，敬请期待...</div>
+            </div>
+          </article>
+        </div>
       </section>
     </div>
   </main>
