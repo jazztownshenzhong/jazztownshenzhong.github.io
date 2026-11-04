@@ -30,7 +30,7 @@
       rgba(4, 10, 26, .30) 100%);
     pointer-events: none;
   }
-  .hero { position: relative; z-index: 1; padding: 0 8vw; max-width: 980px; }
+  .hero { position: relative; z-index: 1; margin-left: 8vw; width: min(920px, 86vw); }
   .eyebrow {
     letter-spacing: .45em;
     font-size: 15px;
@@ -44,11 +44,12 @@
     line-height: 1.12;
     text-shadow: 0 4px 30px rgba(0, 0, 0, .55);
   }
+  h1 .line1 { white-space: nowrap; }
   h1 .en {
     display: block;
     font-size: .34em;
     font-weight: 500;
-    letter-spacing: .18em;
+    letter-spacing: .10em;
     color: #c9d9f6;
     margin-top: 18px;
     line-height: 1.6;
@@ -77,9 +78,10 @@
         rgba(4, 10, 26, .78) 55%,
         rgba(4, 10, 26, .88) 100%);
     }
-    .hero { padding: 0 9vw; }
+    .hero { margin-left: 0; width: auto; padding: 0 9vw; }
     .eyebrow { font-size: 12px; letter-spacing: .3em; margin-bottom: 14px; }
     h1 { font-size: clamp(30px, 8.5vw, 40px); }
+    h1 .line1 { white-space: normal; }
     h1 .l1, h1 .l2 { display: block; }      /* 手机端每段独立成行，避免溢出 */
     h1 .l2 { margin: 2px 0; }
     h1 .en { font-size: .30em; letter-spacing: .05em; margin-top: 14px; }
@@ -90,7 +92,7 @@
 <body>
   <div class="hero">
     <div class="eyebrow">Shenzhen Middle School</div>
-    <h1><span class="l1">深圳中学</span> <span class="l2">JazzTown</span><br><span class="l3">爵士乐俱乐部</span><span class="en">SHENZHEN MIDDLE SCHOOL JAZZTOWN JAZZ CLUB</span></h1>
+    <h1><span class="line1"><span class="l1">深圳中学</span> <span class="l2">JazzTown</span></span><br><span class="l3">爵士乐俱乐部</span><span class="en">SHENZHEN MIDDLE SCHOOL JAZZTOWN JAZZ CLUB</span></h1>
   </div>
   <div class="credits">Photos: William P. Gottlieb Collection, Library of Congress (public domain) · Bill Evans photo by Brian McMillen, CC BY-SA 3.0 · Dave Brubeck photo by Bert Verhoeff/Anefo, CC0</div>
 </body>
