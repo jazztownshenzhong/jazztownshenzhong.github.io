@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>爵士乐流派知识学习 - 深圳中学 JazzTown 爵士乐俱乐部</title>
+<meta name="description" content="深圳中学 JazzTown 爵士乐俱乐部 - 爵士乐流派知识学习系统指南，涵盖主流爵士乐流派、小流派及爵士乐对现代流行音乐的深远影响。">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { min-height: 100%; scroll-behavior: smooth; }
+  body {
+    background: #070f24 url("background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #e8eefb;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(90deg,
+      rgba(4, 10, 26, .88) 0%,
+      rgba(4, 10, 26, .72) 45%,
+      rgba(4, 10, 26, .45) 100%);
+    pointer-events: none;
+  }
+
+  /* 顶部导航 */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 6vw;
+    background: linear-gradient(180deg, rgba(4, 10, 26, .85) 0%, rgba(4, 10, 26, 0) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .nav-brand {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    color: #e8eefb;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .nav-brand:hover { opacity: .8; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-item {
+    position: relative;
+  }
+  .nav-links a, .nav-dropdown-btn {
+    color: #c9d9f6;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: .08em;
+    padding: 8px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    transition: color .2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .nav-links a:hover, .nav-dropdown-btn:hover,
+  .nav-links a.active, .nav-dropdown-btn.active {
+    color: #ffffff;
+  }
+  .nav-links > li > a.active::after,
+  .nav-links > li > a:hover::after,
+  .nav-dropdown-btn.active::after,
+  .nav-dropdown-btn:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #9db8e8;
+  }
+  .dropdown-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    transition: transform .25s ease;
+  }
+  .nav-item.dropdown-open .dropdown-arrow,
+  .nav-item:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* 下拉菜单 */
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(7, 15, 36, .96);
+    border: 1px solid rgba(157, 184, 232, .25);
+    border-radius: 6px;
+    padding: 8px 0;
+    min-width: 140px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .5);
+    list-style: none;
+  }
+  .nav-item.dropdown-open .dropdown-menu,
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #c9d9f6;
+    font-size: 13px;
+    letter-spacing: .06em;
+    white-space: nowrap;
+    transition: background .15s, color .15s;
+  }
+  .dropdown-menu li a:hover {
+    background: rgba(157, 184, 232, .12);
+    color: #ffffff;
+  }
+
+  /* 汉堡按钮 */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #e8eefb;
+    border-radius: 1px;
+    transition: transform .3s ease, opacity .3s ease;
+  }
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* 页面主体 */
+  .page-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 130px 6vw 90px;
+  }
+  .page-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: #9db8e8;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(157, 184, 232, .3);
+    padding-bottom: 4px;
+  }
+  h1 {
+    font-family: "Songti SC", "SimSun", "PingFang SC", serif;
+    font-size: clamp(30px, 4.2vw, 46px);
+    font-weight: 400;
+    letter-spacing: .05em;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+  .en-sub {
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #8da4cf;
+    margin-bottom: 28px;
+  }
+
+  /* 专栏快捷跳转导航条 */
+  .quick-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 45px;
+    padding: 14px 18px;
+    background: rgba(13, 27, 61, .6);
+    border: 1px solid rgba(157, 184, 232, .2);
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+  }
+  .quick-nav a {
+    color: #c9dcff;
+    text-decoration: none;
+    font-size: 13.5px;
+    padding: 6px 14px;
+    background: rgba(157, 184, 232, .08);
+    border: 1px solid rgba(157, 184, 232, .18);
+    border-radius: 4px;
+    transition: all .2s ease;
+    letter-spacing: .03em;
+  }
+  .quick-nav a:hover {
+    background: rgba(157, 184, 232, .22);
+    color: #ffffff;
+    border-color: #9db8e8;
+  }
+
+  /* 专栏外框 */
+  .article-section {
+    margin-bottom: 70px;
+  }
+  .section-main-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(157, 184, 232, .25);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-main-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 22px;
+    background: #9db8e8;
+    border-radius: 2px;
+  }
+
+  /* 专栏一：跳转传送卡片 */
+  .portal-card {
+    background: linear-gradient(135deg, rgba(13, 27, 61, .85) 0%, rgba(7, 15, 36, .92) 100%);
+    border: 1px solid rgba(157, 184, 232, .3);
+    border-radius: 8px;
+    padding: 28px 32px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .4);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .portal-card::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(157, 184, 232, .15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .portal-title {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .portal-desc {
+    color: #c9d9f6;
+    font-size: 14.5px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .btn-portal {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #1c3d7a 0%, #0f2552 100%);
+    color: #ffffff;
+    border: 1px solid rgba(157, 184, 232, .45);
+    border-radius: 4px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: .04em;
+    transition: all .25s ease;
+    box-shadow: 0 4px 14px rgba(15, 37, 82, .4);
+  }
+  .btn-portal:hover {
+    background: linear-gradient(135deg, #2b56a6 0%, #17387a 100%);
+    border-color: #9db8e8;
+    box-shadow: 0 6px 20px rgba(157, 184, 232, .3);
+    transform: translateY(-2px);
+  }
+
+  /* 知识卡片通性格局 */
+  .genre-card {
+    background: rgba(7, 15, 36, .82);
+    border: 1px solid rgba(157, 184, 232, .2);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .genre-card:hover {
+    border-color: rgba(157, 184, 232, .4);
+    transform: translateY(-2px);
+  }
+  .genre-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(157, 184, 232, .14);
+  }
+  .genre-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: .04em;
+    margin-bottom: 6px;
+  }
+  .genre-meta {
+    font-size: 12.5px;
+    color: #8fa8d6;
+    letter-spacing: .05em;
+  }
+
+  /* 三语展示块 */
+  .lang-box {
+    margin-bottom: 14px;
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 14.5px;
+    line-height: 1.85;
+  }
+  .lang-box:last-child {
+    margin-bottom: 0;
+  }
+  .lang-box.wenyan {
+    background: rgba(157, 184, 232, .06);
+    border-left: 3px solid #9db8e8;
+    color: #e2edff;
+    font-family: "Songti SC", "SimSun", "PingFang SC", serif;
+    letter-spacing: .03em;
+  }
+  .lang-box.modern {
+    background: rgba(4, 10, 26, .45);
+    border: 1px solid rgba(157, 184, 232, .15);
+    color: #d2e0fa;
+  }
+  .lang-box.english {
+    background: rgba(4, 10, 26, .35);
+    border: 1px solid rgba(157, 184, 232, .12);
+    color: #b5cbe8;
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+  .lang-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #9db8e8;
+    margin-bottom: 6px;
+  }
+
+  /* 按钮集合容器 */
+  .feature-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+    align-items: center;
+  }
+  .btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: .03em;
+    transition: all .2s ease;
+  }
+  .btn-youtube {
+    background: rgba(255, 68, 68, .12);
+    color: #ff8585;
+    border: 1px solid rgba(255, 68, 68, .32);
+  }
+  .btn-youtube:hover {
+    background: #ff3333;
+    color: #ffffff;
+    border-color: #ff3333;
+    box-shadow: 0 4px 14px rgba(255, 51, 51, .35);
+  }
+  .btn-wiki {
+    background: rgba(157, 184, 232, .1);
+    color: #c9dcff;
+    border: 1px solid rgba(157, 184, 232, .28);
+  }
+  .btn-wiki:hover {
+    background: rgba(157, 184, 232, .25);
+    color: #ffffff;
+    border-color: #9db8e8;
+    box-shadow: 0 4px 14px rgba(157, 184, 232, .25);
+  }
+
+  /* 响应式样式 */
+  @media (max-width: 768px) {
+    .site-nav { padding: 18px 5vw; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 78vw;
+      max-width: 300px;
+      background: rgba(7, 15, 36, .98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-left: 1px solid rgba(157, 184, 232, .2);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 90px 32px 32px;
+      gap: 20px;
+      transform: translateX(100%);
+      transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+    }
+    .nav-links.open {
+      transform: translateX(0);
+    }
+    .dropdown-menu {
+      position: static;
+      transform: none;
+      background: transparent;
+      border: none;
+      padding: 4px 0 0 16px;
+      box-shadow: none;
+      display: none;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-item.dropdown-open .dropdown-menu {
+      display: block;
+    }
+    .page-container {
+      padding: 100px 5vw 60px;
+    }
+    .genre-card {
+      padding: 20px 18px;
+    }
+    .portal-card {
+      padding: 20px 20px;
+    }
+    .feature-actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .btn-action {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">JAZZTOWN</a>
+    <button class="nav-toggle" id="navToggle" aria-label="切换菜单">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-item has-dropdown">
+        <button class="nav-dropdown-btn" id="dropdownBtn" aria-expanded="false">
+          社团愿景与介绍 <span class="dropdown-arrow"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="vision.html">社团愿景</a></li>
+          <li><a href="intro.html">社团介绍</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="classes.html">社课记录</a></li>
+      <li class="nav-item"><a href="shares.html">爵士乐内容分享</a></li>
+      <li class="nav-item"><a href="genres.html" class="active">爵士乐流派知识学习</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-container">
+    <div class="page-tag">Jazz History & Genre Studies</div>
+    <h1>爵士乐流派知识学习</h1>
+    <div class="en-sub">Chronicles, Sub-genres & Musical Influences Across a Century of Jazz</div>
+
+    <!-- 快捷导航条 -->
+    <div class="quick-nav">
+      <a href="#column-1">专栏一：爵士大师志</a>
+      <a href="#column-2">专栏二：主流爵士乐流派简介</a>
+      <a href="#column-3">专栏三：小流派爵士乐</a>
+      <a href="#column-4">专栏四：爵士乐影响</a>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 专栏一：爵士大师志 (Musician Profiles) -->
+    <!-- ========================================== -->
+    <section class="article-section" id="column-1">
+      <h2 class="section-main-title">专栏一：爵士大师志 (Musician Profiles)</h2>
+
+      <div class="portal-card">
+        <h3 class="portal-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+          已开设专栏：八位爵士乐宗师声响传奇
+        </h3>
+        <p class="portal-desc">
+          社团在<strong>“爵士乐内容分享”</strong>主专栏中，已系统整理了横跨半个多世纪的 8 位爵士巨匠（迈尔斯·戴维斯、比尔·埃文斯、塞隆尼斯·蒙克、查理·帕克、约翰·柯川、杜克·埃灵顿、路易斯·阿姆斯特朗、切特·贝克）的详尽三语生平传记、高清历史肖像以及精选 YouTube 经典现场录像与维基百科权威条目。
+        </p>
+        <a href="shares.html#musicians" class="btn-portal">
+          前往查阅 8 位爵士大师志与经典现场录像 (Musician Profiles) →
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 专栏二：主流爵士乐流派简介 -->
+    <!-- ========================================== -->
+    <section class="article-section" id="column-2">
+      <h2 class="section-main-title">专栏二：主流爵士乐流派简介 (Mainstream Jazz Genres)</h2>
+
+      <!-- 1. 根源爵士与早期蓝调 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">1. 根源爵士与早期蓝调 (Roots Jazz: Ragtime & Blues)</h3>
+          <div class="genre-meta">19世纪末 ~ 20世纪初 · 切分钢琴律动 · 密西西比三角洲民间蓝调</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          爵士之源，本乎黑人田夫行役之歌与祈祷哀吟。十九世纪末，拉格泰姆（Ragtime）起于密苏里，斯科特·乔普林操琴切分，左右异步，错落有致；南方密西西比三角洲则苦涩蓝调回荡，三音微降，感怀身世。二者交融，始奠百年爵士之基石。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          爵士乐发轫于19世纪末非裔美国人的灵歌、劳动号子与民间布鲁斯。以斯科特·乔普林（Scott Joplin）为代表的“拉格泰姆”（切分钢琴乐）带来了跳跃欢快的切分节奏，而密西西比三角洲布鲁斯则赋予了它深沉哀怨的微降三度/五度“蓝调音”。两者碰撞催生了爵士乐的原初灵魂。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          The roots of jazz lie in African American spirituals, work songs, and rural blues of the late 19th century. Ragtime, pioneered by Scott Joplin, introduced sophisticated syncopated rhythms on piano, while Delta blues contributed the soulful expressive bending of blue notes. Together, they laid the bedrock for all jazz that followed.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=pMAtL7n_-rc" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听拉格泰姆经典 (Scott Joplin - The Entertainer)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/拉格泰姆" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 2. 新奥尔良传统爵士 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">2. 新奥尔良传统爵士 / 迪克西兰 (New Orleans Traditional Jazz & Dixieland)</h3>
+          <div class="genre-meta">1910s ~ 1920s · 集体复调即兴 · 行进铜管与独奏奠基</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          密西西比河口新奥尔良，海纳百川，法西英非诸族杂居。号手、单簧与长号交错鸣奏，名为“集体即兴”（Collective Polyphony）。路易斯·阿姆斯特朗引吭高吹，始破众器齐鸣之局，树立独奏（Solo）之崇高法度，爵士之声遂响彻万邦。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          20世纪初，路易斯安那州新奥尔良港口的多元文化孕育了最早成型的爵士乐形态。以小号领奏旋律、单簧管飞旋环绕、长号滑音奠基的“集体复调即兴”为标志。随后路易斯·阿姆斯特朗将个人即兴独奏推向核心，确立了爵士乐最根本的表现方式。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Emerging in early 20th-century New Orleans, this foundational style blended marching brass bands, Creole melodies, and French quadrilles into polyphonic collective improvisation. Louis Armstrong’s dazzling virtuosity soon transformed jazz from an ensemble novelty into a profoundly expressive soloist's art form.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=W232OsTAMo8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听名演 (Louis Armstrong - West End Blues 1928)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/迪克西兰" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 3. 大乐队摇摆乐时代 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">3. 大乐队摇摆乐时代 (Swing & The Big Band Era)</h3>
+          <div class="genre-meta">1930s ~ 1940s · 十余人大编制齐奏 · 华丽配器与四四拍跳动摇摆</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          三十年代大萧条，天下郁郁，摇摆乐（Swing）应运而生。班尼·古德曼、杜克·埃灵顿、贝西伯爵率十余巨器，管乐齐发，声若洪钟，律动如行云流水。舞厅万人齐舞，爵士乐蔚为全美乃至世界流行之主流。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          1930至40年代，大乐队摇摆乐（Swing）成为主导欧美流行文化的黄金浪潮。由萨克斯声部、铜管声部与节奏组构成的庞大编制，演奏严谨华丽的配器与充满弹跳感的“摇摆（Swing）”切分律动，为大萧条与二战时期的人们注入了无尽的活力与慰藉。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Dominating the 1930s and '40s, the Swing Era saw jazz become mainstream popular music. Led by legends like Benny Goodman, Duke Ellington, and Count Basie, large 15-to-18-piece big bands energized dancehalls with swinging 4/4 walking basslines, intricate sectional call-and-response horn arrangements, and jubilant energy.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=r2S1I_ien6A" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听摇摆乐盛世 (Benny Goodman - Sing, Sing, Sing 1938)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/摇摆乐" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 4. 比波普 / 咆哮乐 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">4. 比波普 / 咆哮乐 (Bebop)</h3>
+          <div class="genre-meta">1940s 中叶 · 极速即兴与延伸和弦 · 爵士乐晋身严肃艺术之转折点</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          四十年代中叶，青年乐手苦于大乐队之拘挛，夜聚哈林酒吧角逐琴艺。“大鸟”帕克吹管如飞刃裂帛，迪齐·吉莱斯皮号声直插云霄。和弦百转，半音错杂，律动诡谲，爵士自此脱尽跳舞伴奏之皮囊，入严肃精妙之圣殿。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          二战中后期，以查理·帕克、迪齐·吉莱斯皮和塞隆尼斯·蒙克为先驱的波普爵士（Bebop）诞生。乐手们抛弃了商用大乐队程式，改用四至五人精炼重奏，采用极速的节奏、九/十一/十三级延伸和弦替代以及复杂的重音错位，彻底将爵士乐确立为供人深度聆赏的现代艺术。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Developed in the mid-1940s by Charlie Parker, Dizzy Gillespie, and Thelonious Monk, bebop was an intellectual revolt against swing commercialism. Featuring lightning-fast tempos, dissonant harmonic substitutions, and asymmetrical phrasing, bebop fundamentally transformed jazz into a modern, sophisticated listening music.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=02XTlJk8-aI" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听波普峰极 (Parker & Gillespie - Hot House)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/波普爵士乐" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 5. 冷爵士 / 酷派爵士 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">5. 冷爵士 / 酷派爵士 (Cool Jazz)</h3>
+          <div class="genre-meta">1940s 末 ~ 1950s · 典雅克制音色 · 古典对位与内省诗意</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          西海岸风清月朗，乐手厌咆哮之焦躁，复归含蓄冲淡。迈尔斯·戴维斯倡九重奏《酷之诞生》，切特·贝克低吟浅唱，布鲁贝克引古典对位入律。其音克制典雅，如深秋寒泉，静穆而有深味。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          20世纪40年代末至50年代，冷爵士（Cool Jazz）在西海岸与纽约兴起，作为对波普乐狂躁激进音量的反思。它借鉴古典室内乐严谨的对位和声与柔和音色，节奏平稳内省、音色轻柔圆润，代表人物包括迈尔斯·戴维斯、戴夫·布鲁贝克、切特·贝克与格里·马利根。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Emerging in the late 1940s and 1950s—most notably with Miles Davis's Birth of the Cool—cool jazz favored subtle dynamics, restrained vibrato, relaxed tempos, and classical counterpoint over bebop's frenetic heat. Celebrated figures like Dave Brubeck and Chet Baker brought an elegant, understated poise to the genre.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=vmDDOFXSgAs" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听酷派经典 (The Dave Brubeck Quartet - Take Five)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/冷爵士乐" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 6. 硬波普 / 硬咆哮爵士 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">6. 硬波普 / 硬咆哮爵士 (Hard Bop)</h3>
+          <div class="genre-meta">1950s 中叶 · 蓝调与福音回潮 · 滚烫热烈之东岸律动</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          五十年代中，东岸乐手再引黑人福音灵歌与蓝调泥土之气入波普，名曰硬波普（Hard Bop）。鼓王阿特·布莱基擂鼓如滚雷，柯川之号破空咆哮。音响沉实刚劲，律动深陷摇摆，气象浑厚不可逼视。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          50年代中期在东海岸崛起的硬波普（Hard Bop），是对冷爵士过度“欧化、斯文”的有力反弹。阿特·布莱基（Art Blakey）与贺拉斯·银（Horace Silver）等巨匠将原汁原味的蓝调根源、黑人教堂福音音乐与放克（Funk）律动重新注入波普和声体系，充满滚烫热烈的泥土生命力。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Originating in the mid-1950s on the East Coast, hard bop was a soulful reinvigoration of bebop, reconnecting the music with raw African American blues and gospel roots. Driven by heavy-hitting bandleaders like Art Blakey and Horace Silver, hard bop offered driving swing, hummable melodies, and earthy rhythmic groove.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=ynZDm5Gumjc" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听硬波普圣典 (Art Blakey & The Jazz Messengers - Moanin')
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/硬波普乐" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 7. 调式爵士 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">7. 调式爵士 (Modal Jazz)</h3>
+          <div class="genre-meta">1950s 末 · 摆脱频繁和弦桎梏 · 空灵写意与单调式即兴冥想</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          乐家苦于复杂和弦频繁更迭之累，戴维斯与埃文斯遂改以古代教会调式为纲。一曲之中，和弦寥寥，留白浩瀚，任乐手以单调式纵情写意。《Kind of Blue》一出，意境空灵高古，如入水墨画境。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          1950年代末，迈尔斯·戴维斯与比尔·埃文斯打破了波普乐依赖复杂快速和弦行进（Chord Progressions）的局限，创立“调式爵士（Modal Jazz）”。乐手在极少甚至单个调式（如多利亚调式）上拥有巨大的旋律自由度与留白空间，开创了超然冥想与无限延伸的全新美学。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Pioneered in the late 1950s by Miles Davis and Bill Evans—immortalized in 1959's Kind of Blue—modal jazz abandoned rapid chord changes in favor of musical modes as the harmonic framework. This breakthrough gave improvisers unprecedented melodic freedom, spaciousness, and meditative emotional depth.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=ylXk1LBvIqU" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听调式爵士开山之作 (Miles Davis - So What)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/调式爵士" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 8. 融合爵士 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">8. 融合爵士 (Jazz Fusion)</h3>
+          <div class="genre-meta">1960s 末 ~ 1970s · 电子乐器革新 · 摇滚力量与复杂爵士和声共铸</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          六十年代末，电声吉他、合成巨音与摇滚重击震撼天下。戴维斯开《Bitches Brew》之门，汉考克造《Head Hunters》之潮，“天气预报”融合万方。电子与爵士交辉，破门户之见，天马行空。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          1960年代末，随着摇滚乐与电子乐器席卷全球，爵士乐迎来了“融合爵士（Jazz Fusion）”革命。戴维斯、赫比·汉考克与天气预报乐队（Weather Report）将电吉他、电贝斯、合成器、强劲放克（Funk）节拍与复杂的爵士和声即兴相融合，彻底打破了声学乐器与传统流派壁垒。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Developed in the late 1960s and 1970s, jazz fusion combined jazz improvisation with the electric instruments, high volume, and driving funk/rock rhythms of the modern era. Led by Miles Davis's revolutionary Bitches Brew and iconic groups like Return to Forever and Weather Report, fusion expanded the sonic boundaries of jazz forever.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=Ae0nwSv6cTU" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听融合名曲 (Weather Report - Birdland)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/融合爵士乐" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 专栏三：小流派爵士乐 (Sub-genres & Crossover) -->
+    <!-- ========================================== -->
+    <section class="article-section" id="column-3">
+      <h2 class="section-main-title">专栏三：小流派与跨界爵士乐 (Sub-genres & Crossover Jazz)</h2>
+
+      <!-- 1. 福音爵士与圣乐根源 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">1. 福音爵士与圣乐根源 (Gospel & Sacred Jazz)</h3>
+          <div class="genre-meta">非裔教堂灵歌 · 炽热击掌呼应与精神超拔</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          福音圣乐（Gospel）本出黑人灵堂，呼号击掌，感天动地。杜克·埃灵顿作《圣乐音乐会》，马哈莉亚·杰克逊一曲《Come Sunday》声震寰宇。灵歌之精魄与爵士之织体相融，超拔凡尘，直通神圣。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          福音音乐源于非裔美国人教堂的灵性赞歌，以热烈呼应式人声（Call-and-Response）、炽热击掌与灵魂深处的信仰宣泄为特色。杜克·埃灵顿、查尔斯·明格斯等大师将其注入管弦乐与爵士即兴中，构成了爵士乐最根本的情感与灵性源泉。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Rooted in the African American church, gospel music contributed emotional fervor, call-and-response vocal structures, and sacred harmonies directly into jazz. Masterpieces like Duke Ellington’s Sacred Concerts and Mahalia Jackson's sublime performance of "Come Sunday" revealed the profound spiritual bond between the two traditions.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=rK9k_x0vY08" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听福音圣曲 (Mahalia Jackson & Duke Ellington - Come Sunday)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/福音音乐" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 2. 酸爵士 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">2. 酸爵士 (Acid Jazz)</h3>
+          <div class="genre-meta">1980s 末英伦发端 · 黑胶采样 · 放克舞曲与灵魂乐摩登熔铸</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          八十年代末，英伦夜总会唱片骑士拾旧波普黑胶，与当代放克、嘻哈碎拍相激荡，遂成酸爵士。Jamiroquai、Incognito 驰声海内，舞动不羁而风雅不减，古韵焕新，青年风靡。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          酸爵士于1980年代末在英国伦敦地下俱乐部发端。DJ与年轻乐手们将60/70年代罕见的爵士黑胶唱片采样、放克贝斯底槽、灵魂乐歌声与现代电子舞曲节奏巧妙嫁接，诞生了以 Jamiroquai、Incognito 为代表的时尚律动新浪潮。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Originating in London clubs in the late 1980s, acid jazz fused rare-groove jazz records, soul, funk, and hip-hop beats with live instrumentation. Exemplified by acts like Jamiroquai, Incognito, and Us3, it introduced traditional jazz harmonies and brass motifs to dancefloors worldwide.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=4JkIs3BM92s" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听酸爵士金曲 (Jamiroquai - Virtual Insanity)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/酸爵士" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 3. 波萨诺瓦与拉丁爵士 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">3. 波萨诺瓦与拉丁爵士 (Bossa Nova & Latin Jazz)</h3>
+          <div class="genre-meta">1950s 末巴西海岸 · 桑巴摇曳微醺律动 · 印象派温润爵士和弦</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          巴西海湾潮平风软，若昂·吉尔伯托抱吉他轻吟，安东尼奥·卡洛斯·若宾谱清和之韵，名为“新潮流（Bossa Nova）”。斯坦·盖茨萨克斯如微风拂水，《伊帕内玛女孩》传遍天下，淡远微醺，意趣天成。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          1950年代末诞生于巴西里约热内卢的“波萨诺瓦（Bossa Nova）”意为新浪潮。它将热烈复杂的巴西桑巴节奏提炼为轻盈微醺的摇曳律动，配以法国印象派风格的细腻爵士和弦，经由斯坦·盖茨（Stan Getz）引入美国后，彻底融入世界爵士标准曲库。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Born in late-1950s Brazil through the genius of Antônio Carlos Jobim and João Gilberto, Bossa Nova ("new trend") relaxed the feverish energy of samba into a cool, swaying acoustic guitar groove laced with complex jazz harmonies. Stan Getz's collaborations turned songs like "The Girl from Ipanema" into international anthems.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=c5QfXj5t4zc" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听波萨诺瓦原声 (The Girl From Ipanema)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/巴萨诺瓦" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 4. 自由爵士与前卫先锋 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">4. 自由爵士与前卫先锋 (Free Jazz & Avant-Garde)</h3>
+          <div class="genre-meta">1960s · 抛弃预设和弦走向与规整节拍 · 纯粹声音探索与无界即兴</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          六十年代风云幻变，奥奈特·科尔曼、塞西尔·泰勒诸子弃调性、和弦行进与固定节拍于不顾，直舒胸臆，放声长啸。音如惊涛骇浪，崩崖碎玉。虽毁誉交加，然辟即兴自由之极境。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          1960年代初由奥奈特·科尔曼（Ornette Coleman）和约翰·柯川晚期推动的“自由爵士（Free Jazz）”，彻底粉碎了传统调性中心、预设和弦走向与规则小节。乐手通过纯粹的声音色彩、无调性咆哮与极度自由的互相倾听，探索人类表达的最深处。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Spearheaded in the early 1960s by Ornette Coleman, Cecil Taylor, and late-period John Coltrane, free jazz dismantled established chord progressions, key centers, and regular meters. In doing so, it sought unfettered emotional expression and spontaneous collective communication beyond conventional harmonic boundaries.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=DNbD1JIH344" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听自由爵士先声 (Ornette Coleman - Lonely Woman)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/自由爵士乐" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 5. 平滑爵士 / 轻柔爵士 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">5. 平滑爵士 / 轻柔爵士 (Smooth Jazz)</h3>
+          <div class="genre-meta">1980s · 都会电台黄金风潮 · 优美舒缓旋律与温润声学质感</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          八十年代大众好清听，轻柔爵士（Smooth Jazz）顺流而生。小罗伯特·华盛顿、肯尼·基操吹管，引流行旋律入爵士和声。虽逊波普之奇崛，然优雅悦耳，广开大众接引之法门。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          20世纪80年代商业电台黄金期形成的平滑爵士（Smooth Jazz），将融合爵士、R&B和流行曲风融为一体。它强调优美流畅、极易被大众接受的旋律线条与温润抛光的声学质感，是当代都市生活中最为普适的背景听觉符号。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Gaining immense commercial popularity in the 1980s and '90s, smooth jazz combined pop production, polished R&B grooves, and accessible melodic hooks with jazz phrasing. While less complex than acoustic bebop, icons like Grover Washington Jr. and Kenny G introduced saxophone tones to millions across the globe.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=jEy6MGu3bIA" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听轻柔爵士经典 (Grover Washington Jr. - Just the Two of Us)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/平滑爵士" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 专栏四：爵士乐影响 (Jazz Influence & Legacy) -->
+    <!-- ========================================== -->
+    <section class="article-section" id="column-4">
+      <h2 class="section-main-title">专栏四：爵士乐影响 (Jazz Influence & Legacy)</h2>
+
+      <!-- 1. 灵魂乐 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">1. 灵魂乐之催生 (Soul Music)</h3>
+          <div class="genre-meta">爵士管乐配器 · 布鲁斯音阶与福音情感的伟大交汇</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          雷·查尔斯（Ray Charles）引福音之热烈与大乐队铜管相撞，始创灵魂乐之体。艾瑞莎·富兰克林引吭悲歌，气息转折尽得爵士声部配器之妙。灵魂乐之筋骨，半借爵士风骨以成。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          1950至60年代崛起的灵魂乐（Soul Music），直接吸收了爵士乐的大乐队铜管对位、即兴变奏和布鲁斯和声。盲人传奇雷·查尔斯与“灵魂歌后”艾瑞莎·富兰克林把爵士乐手的律动感和复杂音阶带入流行声乐，为当代黑人流行音乐奠定了神髓。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Soul music emerged in the 1950s and '60s when pioneers like Ray Charles fused African American gospel passion with jazz horn sections and blues changes. Jazz provided soul singers with nuanced vocal phrasing, complex chord substitutions, and swing feel, creating timeless anthems of love and civil rights.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=Thls_tMxXY8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听灵魂乐传世经典 (Ray Charles - Georgia On My Mind)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/灵魂乐" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 2. 节奏布鲁斯与当代 R&B -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">2. 节奏布鲁斯与当代 R&B / 新灵魂乐 (R&B & Neo-Soul)</h3>
+          <div class="genre-meta">大七与延伸和弦美学 · 自由声乐跑音与深沉后波普律动</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          史提夫·汪达琴转七九和弦，锦心绣腹；及至当代新灵魂乐（Neo-Soul），迪安吉洛、艾莉卡·芭朵诸子更引爵士不和谐音与切分深槽为衣钵。今世流行歌之繁和声，十有八九出诸爵士渊薮。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          从摩城经典到当代的节奏布鲁斯（R&B）与新灵魂乐（Neo-Soul），无不浸润在爵士乐的和声美学中。史提夫·汪达（Stevie Wonder）用大量七和弦、九和弦与转调构筑奇迹；而 D'Angelo、Robert Glasper 等新一代音乐人更将爵士即兴与嘻哈鼓点无缝熔铸。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          From Motown legends to contemporary R&B and Neo-Soul, R&B owes its sophisticated harmonic language—such as maj7, 9th, and 11th chords—directly to jazz. Masterminds like Stevie Wonder, D'Angelo, and modern trailblazer Robert Glasper weave jazz virtuosity and phrasing directly into modern urban music.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=6sIjSNTS7Fs" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听致敬爵士巨匠名曲 (Stevie Wonder - Sir Duke)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/当代节奏布鲁斯" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 3. 摇滚乐与前卫/数学摇滚 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">3. 摇滚乐与前卫/数学摇滚 (Rock, Progressive & Math Rock)</h3>
+          <div class="genre-meta">调式即兴 · 奇数复拍子与爵士摇滚（Jazz Rock）史诗</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          六十年代摇滚乐手求变，亨德里克斯悟戴维斯之调式，大门乐队汲冷爵士管风琴音，平克·弗洛伊德与斯蒂利·丹更引复杂爵士调性入录音室。摇滚之所以脱去三和弦之单调而登大雅，爵士之功不可没也。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          摇滚乐在发展过程中深受爵士乐滋养。吉米·亨德里克斯借鉴了调式即兴，大门乐队（The Doors）融入酷派爵士风琴与自由节拍；而前卫摇滚（Progressive Rock）巨擘平克·弗洛伊德与爵士摇滚天团斯蒂利·丹（Steely Dan）更将爵士乐复杂的降九和弦、异乎寻常的奇数拍带入现代摇滚世界。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          Rock music deepened dramatically when artists absorbed jazz principles. Jimi Hendrix studied modal improvisation, The Doors integrated cool jazz keyboards into psychedelic tracks, and Steely Dan crafted multi-platinum rock masterpieces built entirely on jazz chord extensions and premier jazz studio session players.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=k9q61U4c_C8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听爵士摇滚传奇 (Steely Dan - Aja feat. Wayne Shorter)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/爵士摇滚" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+
+      <!-- 4. 嘻哈与爵士说唱 -->
+      <article class="genre-card">
+        <div class="genre-header">
+          <h3 class="genre-title">4. 嘻哈与爵士说唱 (Hip-Hop & Jazz Rap)</h3>
+          <div class="genre-meta">黄金年代淘黑胶（Crate Digging） · 萨克斯低音采样与街头诗意</div>
+        </div>
+        <div class="lang-box wenyan">
+          <span class="lang-tag">【文言】</span><br>
+          八九十年代纽约金童，深入旧肆淘爵士黑胶碎屑以入音机。A Tribe Called Quest、Nas、Nujabes 采古贤低音与萨克斯清音，配以诗韵说唱。古器新声，如青铜镀金，开拓新世纪街头雅乐之盛景。
+        </div>
+        <div class="lang-box modern">
+          <span class="lang-tag">【白话】</span><br>
+          20世纪80年代末至90年代，嘻哈黄金年代的制作人们深入二手黑胶店（Crate Digging），大量采样五六十年代的爵士贝斯低音线条与萨克斯碎片。从 A Tribe Called Quest、Kendrick Lamar 到日本爵士嘻哈宗师 Nujabes，爵士说唱让古老声响在年轻一代街头文化中涅槃重生。
+        </div>
+        <div class="lang-box english">
+          <span class="lang-tag">【ENGLISH】</span><br>
+          During hip-hop's Golden Era in the late 1980s and '90s, visionary producers dug through dusty vinyl crates to sample classic jazz basslines and horn hooks. Pioneers like A Tribe Called Quest, Kendrick Lamar, and Japanese icon Nujabes created "Jazz Rap," proving jazz’s enduring vitality as the heartbeat of modern street poetry.
+        </div>
+        <div class="feature-actions">
+          <a href="https://www.youtube.com/watch?v=P_I2f72i0bM" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            在 YouTube 聆听爵士说唱经典 (A Tribe Called Quest - Jazz We've Got)
+          </a>
+          <a href="https://zh.wikipedia.org/wiki/爵士说唱" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+            维基百科 (Wikipedia)
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownItem = dropdownBtn.parentElement;
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    dropdownBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownItem.classList.toggle('dropdown-open');
+      dropdownBtn.setAttribute('aria-expanded', dropdownItem.classList.contains('dropdown-open'));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdownItem.contains(e.target)) {
+        dropdownItem.classList.remove('dropdown-open');
+        dropdownBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+</body>
+</html>
