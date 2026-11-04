@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社团愿景和介绍 - 深圳中学 JazzTown 爵士乐俱乐部</title>
+<meta name="description" content="深圳中学 JazzTown 爵士乐俱乐部 - 社团愿景和介绍">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    background: #070f24 url("background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #e8eefb;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(90deg,
+      rgba(4, 10, 26, .85) 0%,
+      rgba(4, 10, 26, .65) 45%,
+      rgba(4, 10, 26, .35) 100%);
+    pointer-events: none;
+  }
+
+  /* 顶部导航 */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 6vw;
+    background: linear-gradient(180deg, rgba(4, 10, 26, .75) 0%, rgba(4, 10, 26, 0) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .nav-brand {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    color: #e8eefb;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .nav-brand:hover { opacity: .8; }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: #c9d9f6;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: .08em;
+    padding: 6px 0;
+    position: relative;
+    transition: color .2s ease;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: #ffffff;
+  }
+  .nav-links a.active::after, .nav-links a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #9db8e8;
+  }
+
+  /* 移动端汉堡按钮 */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 110;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #e8eefb;
+    margin: 5px 0;
+    transition: transform .3s ease, opacity .3s ease;
+  }
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* 页面主体 */
+  .page-container {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 140px 6vw 80px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .page-tag {
+    letter-spacing: .45em;
+    font-size: 13px;
+    color: #9db8e8;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 700;
+    letter-spacing: .02em;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .en-sub {
+    font-size: 14px;
+    letter-spacing: .12em;
+    color: #9db8e8;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+  .content-placeholder {
+    padding: 40px 0;
+    border-top: 1px solid rgba(157, 184, 232, .2);
+    color: #b0c4de;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      background-attachment: scroll;
+      background-position: 74% center;
+    }
+    body::before {
+      background: linear-gradient(180deg,
+        rgba(4, 10, 26, .75) 0%,
+        rgba(4, 10, 26, .90) 60%,
+        rgba(4, 10, 26, .95) 100%);
+    }
+    .site-nav {
+      padding: 18px 6vw;
+    }
+    .nav-toggle {
+      display: block;
+    }
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 75%;
+      max-width: 300px;
+      height: 100vh;
+      background: rgba(7, 15, 36, .97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      flex-direction: column;
+      padding: 90px 8vw 40px;
+      gap: 24px;
+      transform: translateX(100%);
+      transition: transform .3s ease;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, .5);
+    }
+    .nav-links.open {
+      transform: translateX(0);
+    }
+    .nav-links a {
+      font-size: 16px;
+      padding: 8px 0;
+    }
+    .page-container {
+      padding: 110px 6vw 60px;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">JAZZTOWN</a>
+    <button class="nav-toggle" id="navToggle" aria-label="切换菜单">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html" class="active">社团愿景和介绍</a></li>
+      <li><a href="classes.html">社课记录</a></li>
+      <li><a href="shares.html">爵士乐内容分享</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-container">
+    <div class="page-tag">Vision & About</div>
+    <h1>社团愿景和介绍</h1>
+    <div class="en-sub">About JazzTown Shenzhen Middle School</div>
+    <div class="content-placeholder">
+      <p>内容筹备中，敬请期待...</p>
+    </div>
+  </main>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
