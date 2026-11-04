@@ -328,10 +328,10 @@
     border-top: 1px dashed rgba(157, 184, 232, .25);
   }
   .lesson-media-title {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
     color: #ffffff;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -339,8 +339,57 @@
   }
   .lesson-media-desc {
     color: #8da6c9;
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .audio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .audio-item {
+    background: rgba(4, 10, 26, .55);
+    border: 1px solid rgba(157, 184, 232, .18);
+    border-radius: 6px;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color .2s ease;
+  }
+  .audio-item:hover {
+    border-color: rgba(157, 184, 232, .38);
+  }
+  .audio-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .audio-name {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: #e8eefb;
+    letter-spacing: .02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .audio-tag {
+    font-size: 11px;
+    padding: 2px 7px;
+    background: rgba(157, 184, 232, .15);
+    color: #9db8e8;
+    border-radius: 3px;
+    letter-spacing: .05em;
+  }
+  .audio-player {
+    width: 100%;
+    height: 38px;
+    border-radius: 4px;
+    outline: none;
   }
 
   @media (max-width: 768px) {
@@ -482,8 +531,70 @@
 
           <!-- 课内音视频展示区 -->
           <div class="lesson-media-block">
-            <h4 class="lesson-media-title">社课音视频展示区</h4>
-            <p class="lesson-media-desc">本节课所涉及的历史原声、现场录影与示范音视频资料整理中，敬请期待...</p>
+            <h4 class="lesson-media-title">社课音频原声展示</h4>
+            <p class="lesson-media-desc">以下为本节社课所引用的核心历史原声与示范音频片段，社员可直接在线试听：</p>
+            
+            <div class="audio-list">
+              <!-- 音频 1 -->
+              <div class="audio-item">
+                <div class="audio-info">
+                  <span class="audio-name">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #9db8e8;"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                    社课音频片段 01
+                  </span>
+                  <span class="audio-tag">AUDIO 1</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                  <source src="audio/lesson1/2026-10-18%2012-48-34.m4a" type="audio/mp4">
+                  你的浏览器暂不支持音频播放。
+                </audio>
+              </div>
+
+              <!-- 音频 2 -->
+              <div class="audio-item">
+                <div class="audio-info">
+                  <span class="audio-name">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #9db8e8;"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                    社课音频片段 02
+                  </span>
+                  <span class="audio-tag">AUDIO 2</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                  <source src="audio/lesson1/2026-10-18%2012-54-38.m4a" type="audio/mp4">
+                  你的浏览器暂不支持音频播放。
+                </audio>
+              </div>
+
+              <!-- 音频 3 -->
+              <div class="audio-item">
+                <div class="audio-info">
+                  <span class="audio-name">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #9db8e8;"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                    社课音频片段 03
+                  </span>
+                  <span class="audio-tag">AUDIO 3</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                  <source src="audio/lesson1/2026-10-18%2012-58-27.m4a" type="audio/mp4">
+                  你的浏览器暂不支持音频播放。
+                </audio>
+              </div>
+
+              <!-- 音频 4 -->
+              <div class="audio-item">
+                <div class="audio-info">
+                  <span class="audio-name">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #9db8e8;"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                    社课音频片段 04
+                  </span>
+                  <span class="audio-tag">AUDIO 4</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                  <source src="audio/lesson1/2026-10-18%2013-03-02.m4a" type="audio/mp4">
+                  你的浏览器暂不支持音频播放。
+                </audio>
+              </div>
+            </div>
           </div>
         </article>
       </section>
