@@ -219,6 +219,125 @@
     border-top: 1px solid rgba(157, 184, 232, .2);
     color: #d2e0fa;
   }
+
+  /* 专栏主容器与卡片通用 */
+  .article-section {
+    margin-bottom: 70px;
+  }
+  .section-main-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: .04em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-main-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 22px;
+    background: #9db8e8;
+    border-radius: 2px;
+  }
+  .section-main-subtitle {
+    color: #8da6c9;
+    font-size: 14px;
+    margin-bottom: 30px;
+    letter-spacing: .05em;
+  }
+
+  .feature-card {
+    background: rgba(7, 15, 36, .68);
+    border: 1px solid rgba(157, 184, 232, .22);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 36px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+  .feature-cover {
+    width: 170px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(157, 184, 232, .25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
+    flex-shrink: 0;
+  }
+  .feature-cover.album-cover {
+    width: 190px;
+    height: 190px;
+  }
+  .feature-content {
+    flex: 1;
+    min-width: 0;
+  }
+  .feature-header {
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(157, 184, 232, .15);
+  }
+  .feature-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: .02em;
+    margin-bottom: 6px;
+  }
+  .feature-meta {
+    font-size: 13.5px;
+    color: #9db8e8;
+    letter-spacing: .04em;
+  }
+
+  /* 三语分栏展示块 */
+  .lang-box {
+    margin-bottom: 16px;
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 14.5px;
+    line-height: 1.85;
+  }
+  .lang-box:last-child {
+    margin-bottom: 0;
+  }
+  .lang-box.wenyan {
+    background: rgba(157, 184, 232, .06);
+    border-left: 3px solid #9db8e8;
+    color: #e2edff;
+    font-family: "Songti SC", "SimSun", "PingFang SC", serif;
+    letter-spacing: .03em;
+  }
+  .lang-box.modern {
+    background: rgba(4, 10, 26, .45);
+    border: 1px solid rgba(157, 184, 232, .15);
+    color: #d2e0fa;
+  }
+  .lang-box.english {
+    background: rgba(4, 10, 26, .35);
+    border: 1px solid rgba(157, 184, 232, .12);
+    color: #b5cbe8;
+    font-size: 13.5px;
+    line-height: 1.7;
+    font-style: normal;
+  }
+  .lang-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #9db8e8;
+    margin-bottom: 6px;
+  }
+
   .resource-category {
     margin-bottom: 50px;
   }
@@ -301,6 +420,22 @@
   }
 
   @media (max-width: 768px) {
+    .feature-card {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 18px;
+      gap: 20px;
+    }
+    .feature-cover, .feature-cover.album-cover {
+      width: 140px;
+      height: 180px;
+    }
+    .feature-cover.album-cover {
+      height: 140px;
+    }
+    .feature-header {
+      text-align: center;
+    }
     body {
       background-attachment: scroll;
       background-position: 74% center;
@@ -402,10 +537,159 @@
   </nav>
 
   <main class="page-container">
-    <div class="page-tag">Jazz Resources</div>
+    <div class="page-tag">Jazz Insights & Archive</div>
     <h1>爵士乐内容分享</h1>
-    <div class="en-sub">Jazz Real Books, Transcriptions & Music Theory Textbooks</div>
+    <div class="en-sub">Musician Profiles, Classic Albums & Real Book Archives</div>
     <div class="content-placeholder">
+
+      <!-- 专栏一：爵士大师志 -->
+      <section class="article-section">
+        <h2 class="section-main-title">专栏一：爵士大师志 (Musician Profiles)</h2>
+        <div class="section-main-subtitle">以文言、白话与英文三重视野，回溯爵士巨匠的声响传奇与生命轨迹。</div>
+
+        <!-- 音乐家 1：Miles Davis -->
+        <article class="feature-card">
+          <img src="images/miles-davis.jpg" alt="Miles Davis" class="feature-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">迈尔斯·戴维斯 (Miles Davis)</h3>
+              <div class="feature-meta">小号演奏家 · 乐队领袖 · 爵士乐现代革新者 (1926–1991)</div>
+            </div>
+            
+            <div class="lang-box wenyan">
+              <span class="lang-tag">【文言】</span><br>
+              戴维斯氏，密苏里人也。少投帕克门下，工小号。其声不求繁声促节，而取幽咽冷峻之意，如深秋寒木，余韵绵邈。氏生平凡七革其乐：初襄波普，旋创酷派，复辟调式之境，晚岁引电鸣雷霆入爵士，名震宇内。登台常背对观者，默无一言，世人畏其孤傲，更敬其神化。
+            </div>
+
+            <div class="lang-box modern">
+              <span class="lang-tag">【白话】</span><br>
+              迈尔斯·戴维斯是爵士乐史上最具革命性的巨人之一。从早期的波普（Bebop）、酷派（Cool Jazz）、硬波普（Hard Bop），到开创性的调式爵士（Modal Jazz）乃至后期的融合爵士（Fusion），他几乎单枪匹马推动了爵士乐半个世纪的演进，永远走在时代的最前沿。
+            </div>
+
+            <div class="lang-box english">
+              <span class="lang-tag">【ENGLISH】</span><br>
+              Miles Davis was an American trumpeter, bandleader, and composer widely regarded as one of the most influential figures in the history of jazz. Renowned for his melancholic tone, masterly use of space, and visionary evolution, Davis continuously spearheaded major jazz developments across five decades.
+            </div>
+          </div>
+        </article>
+
+        <!-- 音乐家 2：Bill Evans -->
+        <article class="feature-card">
+          <img src="images/bill-evans.jpg" alt="Bill Evans" class="feature-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">比尔·埃文斯 (Bill Evans)</h3>
+              <div class="feature-meta">钢琴家 · 作曲家 · 现代爵士和声导师 (1929–1980)</div>
+            </div>
+            
+            <div class="lang-box wenyan">
+              <span class="lang-tag">【文言】</span><br>
+              埃文斯氏，新泽西人也。幼贯西欧古典法度，尤深契德彪西、拉威尔之和声。后归心爵士，以琴艺名世。抚键若落清泉，含蓄内敛，独创省略根音与印象派织体之法。更立三重奏，与低音提琴、鼓相揖让，破旧日主从之拘，如鸣鹤在阴，答响互和，温润如玉。
+            </div>
+
+            <div class="lang-box modern">
+              <span class="lang-tag">【白话】</span><br>
+              比尔·埃文斯是重新定义现代爵士钢琴的大师。他将欧洲古典印象派的丰富和声融入即兴演奏中，琴音细腻沉静、充满诗意；他带领的经典三重奏彻底改变了乐手间的互动关系，打破了“钢琴伴奏、其他乐器陪衬”的传统模式。
+            </div>
+
+            <div class="lang-box english">
+              <span class="lang-tag">【ENGLISH】</span><br>
+              Bill Evans was an iconic American jazz pianist and composer whose use of impressionist harmony, inventive interpretation of traditional jazz repertoire, and block chord passages revolutionized modern jazz piano and trio dynamics.
+            </div>
+          </div>
+        </article>
+
+        <!-- 音乐家 3：Thelonious Monk -->
+        <article class="feature-card">
+          <img src="images/thelonious-monk.jpg" alt="Thelonious Monk" class="feature-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">塞隆尼斯·蒙克 (Thelonious Monk)</h3>
+              <div class="feature-meta">钢琴家 · 作曲家 · 爵士高古奇才 (1917–1982)</div>
+            </div>
+            
+            <div class="lang-box wenyan">
+              <span class="lang-tag">【文言】</span><br>
+              蒙克氏，北卡罗来纳人，纽约育之。姿容奇诡，喜异冠，常离席自旋而舞。鼓琴指如椎凿，顿挫错落，和声奇拔绝伦，善用不谐之音化为妙境。世初莫能通其奥，久之方知其开宗明义。所撰《子夜幽思》等调，皆成金科玉律，实天挺之怪杰也。
+            </div>
+
+            <div class="lang-box modern">
+              <span class="lang-tag">【白话】</span><br>
+              塞隆尼斯·蒙克以其独特的即兴风格与前卫的和声语言闻名于世。他的琴风充满棱角、休止与意想不到的不协和音程，曾一度被视为异类，最终却被奉为史上曲目被录制次数仅次于艾灵顿公爵的伟大爵士作曲巨匠。
+            </div>
+
+            <div class="lang-box english">
+              <span class="lang-tag">【ENGLISH】</span><br>
+              Thelonious Monk was an American jazz pianist and composer celebrated for his unique improvisational style and iconic compositions. His unorthodox approach featuring percussive attacks, unexpected silences, and dramatic dissonance cemented his legacy as a true jazz visionary.
+            </div>
+          </div>
+        </article>
+      </section>
+
+
+      <!-- 专栏二：名盘传世录 -->
+      <section class="article-section">
+        <h2 class="section-main-title">专栏二：名盘传世录 (Classic Albums)</h2>
+        <div class="section-main-subtitle">聆听黄金年代的经典留声，解读划时代录音背后的艺术哲思。</div>
+
+        <!-- 专辑 1：Kind of Blue -->
+        <article class="feature-card">
+          <img src="images/kind-of-blue.jpg" alt="Kind of Blue Album Cover" class="feature-cover album-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">《Kind of Blue》（泛蓝调调）</h3>
+              <div class="feature-meta">Miles Davis · Columbia Records · 1959年发行 · 调式爵士巅峰丰碑</div>
+            </div>
+            
+            <div class="lang-box wenyan">
+              <span class="lang-tag">【文言】</span><br>
+              岁在己亥（1959），迈尔斯合柯川、埃文斯诸宿，于纽约教堂录音室奏录此牒。摒繁复和弦之陈规，取调式音列为骨，即兴由心，虚室生白。全盘五曲，如《So What》《Blue in Green》，空灵苍茫，若幽潭映月，洗尽铅华，世推为爵士史冠冕之作。
+            </div>
+
+            <div class="lang-box modern">
+              <span class="lang-tag">【白话】</span><br>
+              1959年发行的《Kind of Blue》不仅是爵士乐历史上最畅销的经典唱片，也是整个现代音乐史的巅峰之作。迈尔斯率领全明星六重奏彻底摆脱了复杂的硬波普和弦变换，转向基于调式标尺的纯净留白与情绪沉淀，意境悠远而极富哲思。
+            </div>
+
+            <div class="lang-box english">
+              <span class="lang-tag">【ENGLISH】</span><br>
+              Released in 1959, Miles Davis’s *Kind of Blue* stands as the best-selling and most celebrated jazz album of all time. Departing from complex chord sequences toward modal improvisation, this masterpiece brought together legends John Coltrane and Bill Evans to create an enduring sonic monument.
+            </div>
+          </div>
+        </article>
+
+        <!-- 专辑 2：A Love Supreme -->
+        <article class="feature-card">
+          <img src="images/a-love-supreme.jpg" alt="A Love Supreme Album Cover" class="feature-cover album-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">《A Love Supreme》（至爱无上）</h3>
+              <div class="feature-meta">John Coltrane · Impulse! Records · 1965年发行 · 精神爵士不朽圣咏</div>
+            </div>
+            
+            <div class="lang-box wenyan">
+              <span class="lang-tag">【文言】</span><br>
+              甲辰之岁（1964），萨克斯大师约翰·柯川携四重奏作此鸿篇，分为四阕：承信、决心、追求与赞歌。柯川以萨克斯为祷文，呼天扣地，音浪汹涌澎湃，灵韵激荡，倾尽神魂以酬造化之至爱。此非独声乐也，实洗心向道之精神洗礼也。
+            </div>
+
+            <div class="lang-box modern">
+              <span class="lang-tag">【白话】</span><br>
+              约翰·柯川在1965年发行的组曲专辑《A Love Supreme》被誉为精神爵士（Spiritual Jazz）的最崇高之作。整张专辑分为四个章节，柯川用炽热滚烫的萨克斯即兴作为献给上苍的虔诚祈祷，将爵士乐的艺术表现力推向了近乎宗教信仰般的心灵升华。
+            </div>
+
+            <div class="lang-box english">
+              <span class="lang-tag">【ENGLISH】</span><br>
+              Recorded in 1964 and released in 1965, John Coltrane's four-part suite *A Love Supreme* is widely hailed as a spiritual jazz tour de force. Serving as an expression of personal devotion and gratitude, Coltrane channeled his fiery improvisations into an unparalleled transcendental musical prayer.
+            </div>
+          </div>
+        </article>
+      </section>
+
+
+      <!-- 原有资源分类：教材与乐谱资源库 -->
+      <section class="article-section">
+        <h2 class="section-main-title">专栏三：乐谱与教材资源库 (Sheet Music & Textbooks)</h2>
+        <div class="section-main-subtitle">全套标准曲 Real Book、各调乐器移调分本及经典乐理名著，社员可一键下载。</div>
 
       <!-- 分类 1：Real Book 经典标准曲集 -->
       <section class="resource-category">
