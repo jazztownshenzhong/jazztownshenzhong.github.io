@@ -312,7 +312,7 @@
     </button>
     <ul class="nav-links" id="navLinks">
       <li class="nav-item has-dropdown">
-        <button class="nav-dropdown-btn" id="dropdownBtn" aria-expanded="false">
+        <button class="nav-dropdown-btn" aria-expanded="false">
           社团愿景与介绍 <span class="dropdown-arrow"></span>
         </button>
         <ul class="dropdown-menu">
@@ -321,8 +321,15 @@
         </ul>
       </li>
       <li class="nav-item"><a href="classes.html">社课记录</a></li>
-      <li class="nav-item"><a href="shares.html">爵士乐内容分享</a></li>
-      <li class="nav-item"><a href="genres.html">爵士乐流派知识学习</a></li>
+      <li class="nav-item has-dropdown">
+        <button class="nav-dropdown-btn" aria-expanded="false">
+          爵士乐学习 <span class="dropdown-arrow"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="shares.html">爵士乐内容分享</a></li>
+          <li><a href="genres.html">爵士乐流派知识学习</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 
@@ -335,24 +342,38 @@
   <script>
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
-    const dropdownBtn = document.getElementById('dropdownBtn');
-    const dropdownItem = dropdownBtn.parentElement;
+    const dropdownButtons = document.querySelectorAll('.nav-dropdown-btn');
+    const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
 
     navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('open');
       navLinks.classList.toggle('open');
     });
 
-    dropdownBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      dropdownItem.classList.toggle('dropdown-open');
+    dropdownButtons.forEach((dropdownBtn) => {
+      dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const dropdownItem = dropdownBtn.parentElement;
+        const willOpen = !dropdownItem.classList.contains('dropdown-open');
+
+        dropdownItems.forEach((item) => {
+          item.classList.remove('dropdown-open');
+          item.querySelector('.nav-dropdown-btn').setAttribute('aria-expanded', 'false');
+        });
+
+        if (willOpen) {
+          dropdownItem.classList.add('dropdown-open');
+          dropdownBtn.setAttribute('aria-expanded', 'true');
+        }
+      });
     });
 
     document.addEventListener('click', (e) => {
-      if (!dropdownItem.contains(e.target)) {
-        if (window.innerWidth > 768) {
-          dropdownItem.classList.remove('dropdown-open');
-        }
+      if (!e.target.closest('.nav-item.has-dropdown') && window.innerWidth > 768) {
+        dropdownItems.forEach((item) => {
+          item.classList.remove('dropdown-open');
+          item.querySelector('.nav-dropdown-btn').setAttribute('aria-expanded', 'false');
+        });
       }
     });
   </script>
