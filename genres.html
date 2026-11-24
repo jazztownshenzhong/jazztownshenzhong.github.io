@@ -451,6 +451,51 @@
     letter-spacing: .05em;
   }
 
+  /* 流派入门歌单 */
+  .starter-playlist {
+    margin-bottom: 16px;
+    padding: 14px 18px;
+    background: rgba(157, 184, 232, .055);
+    border: 1px solid rgba(157, 184, 232, .16);
+    border-radius: 6px;
+  }
+  .starter-playlist-title {
+    margin-bottom: 8px;
+    color: #c9d9f6;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .05em;
+  }
+  .starter-track-list {
+    padding-left: 22px;
+    color: #b8cbe8;
+    font-size: 13.5px;
+    line-height: 1.85;
+  }
+  .starter-track-list li {
+    padding-left: 3px;
+    overflow-wrap: anywhere;
+  }
+  .starter-track-list a {
+    color: #e2edff;
+    text-decoration: underline;
+    text-decoration-color: rgba(157, 184, 232, .45);
+    text-underline-offset: 3px;
+  }
+  .starter-track-list a:hover { color: #ffffff; }
+  .key-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 6px;
+    border: 1px solid rgba(157, 184, 232, .3);
+    border-radius: 3px;
+    color: #9db8e8;
+    font-size: 10.5px;
+    line-height: 1.5;
+    vertical-align: 1px;
+    white-space: nowrap;
+  }
+
   /* 三语展示块 */
   .lang-box {
     margin-bottom: 14px;
@@ -616,6 +661,9 @@
       width: 100%;
       height: 220px;
     }
+    .starter-playlist { padding: 12px 14px; }
+    .starter-playlist-title { font-size: 12.5px; }
+    .starter-track-list { font-size: 12.5px; padding-left: 20px; }
     .genre-timeline { padding: 22px 18px; }
     .timeline-heading { font-size: 18px; }
     .timeline-list::before { left: 92px; }
@@ -787,6 +835,14 @@
           <h3 class="genre-title">1. 根源爵士与早期蓝调 (Roots Jazz: Ragtime & Blues)</h3>
           <div class="genre-meta">19世纪末 ~ 20世纪初 · 切分钢琴律动 · 密西西比三角洲民间蓝调</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=TSoXBkF832I" target="_blank" rel="noopener noreferrer">The Entertainer</a> — Scott Joplin <span class="key-badge">重点推荐</span></li>
+          <li>Maple Leaf Rag — Scott Joplin</li>
+          <li>St. Louis Blues — Bessie Smith</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           爵士之源，本乎黑人田夫行役之歌与祈祷哀吟。十九世纪末，拉格泰姆（Ragtime）起于密苏里，斯科特·乔普林操琴切分，左右异步，错落有致；南方密西西比三角洲则苦涩蓝调回荡，三音微降，感怀身世。二者交融，始奠百年爵士之基石。
@@ -800,7 +856,7 @@
           The roots of jazz lie in African American spirituals, work songs, and rural blues of the late 19th century. Ragtime, pioneered by Scott Joplin, introduced sophisticated syncopated rhythms on piano, while Delta blues contributed the soulful expressive bending of blue notes. Together, they laid the bedrock for all jazz that followed.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=pMAtL7n_-rc" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=TSoXBkF832I" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听拉格泰姆经典 (Scott Joplin - The Entertainer)
           </a>
@@ -819,6 +875,14 @@
           <div class="genre-header">
           <h3 class="genre-title">2. 新奥尔良传统爵士 / 迪克西兰 (New Orleans Traditional Jazz & Dixieland)</h3>
           <div class="genre-meta">1910s ~ 1920s · 集体复调即兴 · 行进铜管与独奏奠基</div>
+        </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=W232OsTAMo8" target="_blank" rel="noopener noreferrer">West End Blues</a> — Louis Armstrong <span class="key-badge">重点推荐</span></li>
+          <li>Dipper Mouth Blues — King Oliver</li>
+          <li>Livery Stable Blues — Original Dixieland Jazz Band</li>
+          </ol>
         </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
@@ -853,6 +917,14 @@
           <h3 class="genre-title">3. 大乐队摇摆乐时代 (Swing & The Big Band Era)</h3>
           <div class="genre-meta">1930s ~ 1940s · 十余人大编制齐奏 · 华丽配器与四四拍跳动摇摆</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=r2S1I_ien6A" target="_blank" rel="noopener noreferrer">Sing, Sing, Sing</a> — Benny Goodman <span class="key-badge">重点推荐</span></li>
+          <li>Take the A Train — Duke Ellington</li>
+          <li>One O’Clock Jump — Count Basie</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           三十年代大萧条，天下郁郁，摇摆乐（Swing）应运而生。班尼·古德曼、杜克·埃灵顿、贝西伯爵率十余巨器，管乐齐发，声若洪钟，律动如行云流水。舞厅万人齐舞，爵士乐蔚为全美乃至世界流行之主流。
@@ -886,6 +958,14 @@
           <h3 class="genre-title">4. 比波普 / 咆哮乐 (Bebop)</h3>
           <div class="genre-meta">1940s 中叶 · 极速即兴与延伸和弦 · 爵士乐晋身严肃艺术之转折点</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=4PiKHAEcEvM" target="_blank" rel="noopener noreferrer">Hot House</a> — Charlie Parker &amp; Dizzy Gillespie <span class="key-badge">重点推荐</span></li>
+          <li>Donna Lee — Charlie Parker</li>
+          <li>’Round Midnight — Thelonious Monk</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           四十年代中叶，青年乐手苦于大乐队之拘挛，夜聚哈林酒吧角逐琴艺。“大鸟”帕克吹管如飞刃裂帛，迪齐·吉莱斯皮号声直插云霄。和弦百转，半音错杂，律动诡谲，爵士自此脱尽跳舞伴奏之皮囊，入严肃精妙之圣殿。
@@ -899,7 +979,7 @@
           Developed in the mid-1940s by Charlie Parker, Dizzy Gillespie, and Thelonious Monk, bebop was an intellectual revolt against swing commercialism. Featuring lightning-fast tempos, dissonant harmonic substitutions, and asymmetrical phrasing, bebop fundamentally transformed jazz into a modern, sophisticated listening music.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=02XTlJk8-aI" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=4PiKHAEcEvM" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听波普峰极 (Parker & Gillespie - Hot House)
           </a>
@@ -919,6 +999,14 @@
           <h3 class="genre-title">5. 冷爵士 / 酷派爵士 (Cool Jazz)</h3>
           <div class="genre-meta">1940s 末 ~ 1950s · 典雅克制音色 · 古典对位与内省诗意</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=wC7HwYDIbLM" target="_blank" rel="noopener noreferrer">Take Five</a> — The Dave Brubeck Quartet <span class="key-badge">重点推荐</span></li>
+          <li>Boplicity — Miles Davis</li>
+          <li>My Funny Valentine — Chet Baker</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           西海岸风清月朗，乐手厌咆哮之焦躁，复归含蓄冲淡。迈尔斯·戴维斯倡九重奏《酷之诞生》，切特·贝克低吟浅唱，布鲁贝克引古典对位入律。其音克制典雅，如深秋寒泉，静穆而有深味。
@@ -932,7 +1020,7 @@
           Emerging in the late 1940s and 1950s—most notably with Miles Davis's Birth of the Cool—cool jazz favored subtle dynamics, restrained vibrato, relaxed tempos, and classical counterpoint over bebop's frenetic heat. Celebrated figures like Dave Brubeck and Chet Baker brought an elegant, understated poise to the genre.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=vmDDOFXSgAs" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=wC7HwYDIbLM" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听酷派经典 (The Dave Brubeck Quartet - Take Five)
           </a>
@@ -952,6 +1040,14 @@
           <h3 class="genre-title">6. 硬波普 / 硬咆哮爵士 (Hard Bop)</h3>
           <div class="genre-meta">1950s 中叶 · 蓝调与福音回潮 · 滚烫热烈之东岸律动</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=Cv9NSR-2DwM" target="_blank" rel="noopener noreferrer">Moanin’</a> — Art Blakey &amp; The Jazz Messengers <span class="key-badge">重点推荐</span></li>
+          <li>Song for My Father — Horace Silver</li>
+          <li>The Sidewinder — Lee Morgan</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           五十年代中，东岸乐手再引黑人福音灵歌与蓝调泥土之气入波普，名曰硬波普（Hard Bop）。鼓王阿特·布莱基擂鼓如滚雷，柯川之号破空咆哮。音响沉实刚劲，律动深陷摇摆，气象浑厚不可逼视。
@@ -965,7 +1061,7 @@
           Originating in the mid-1950s on the East Coast, hard bop was a soulful reinvigoration of bebop, reconnecting the music with raw African American blues and gospel roots. Driven by heavy-hitting bandleaders like Art Blakey and Horace Silver, hard bop offered driving swing, hummable melodies, and earthy rhythmic groove.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=ynZDm5Gumjc" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=Cv9NSR-2DwM" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听硬波普圣典 (Art Blakey & The Jazz Messengers - Moanin')
           </a>
@@ -984,6 +1080,14 @@
           <div class="genre-header">
           <h3 class="genre-title">7. 调式爵士 (Modal Jazz)</h3>
           <div class="genre-meta">1950s 末 · 摆脱频繁和弦桎梏 · 空灵写意与单调式即兴冥想</div>
+        </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=ylXk1LBvIqU" target="_blank" rel="noopener noreferrer">So What</a> — Miles Davis <span class="key-badge">重点推荐</span></li>
+          <li>Flamenco Sketches — Miles Davis</li>
+          <li>Impressions — John Coltrane</li>
+          </ol>
         </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
@@ -1018,6 +1122,14 @@
           <h3 class="genre-title">8. 融合爵士 (Jazz Fusion)</h3>
           <div class="genre-meta">1960s 末 ~ 1970s · 电子乐器革新 · 摇滚力量与复杂爵士和声共铸</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=_Fm10whccto" target="_blank" rel="noopener noreferrer">Birdland</a> — Weather Report <span class="key-badge">重点推荐</span></li>
+          <li>Chameleon — Herbie Hancock</li>
+          <li>Birds of Fire — Mahavishnu Orchestra</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           六十年代末，电声吉他、合成巨音与摇滚重击震撼天下。戴维斯开《Bitches Brew》之门，汉考克造《Head Hunters》之潮，“天气预报”融合万方。电子与爵士交辉，破门户之见，天马行空。
@@ -1031,7 +1143,7 @@
           Developed in the late 1960s and 1970s, jazz fusion combined jazz improvisation with the electric instruments, high volume, and driving funk/rock rhythms of the modern era. Led by Miles Davis's revolutionary Bitches Brew and iconic groups like Return to Forever and Weather Report, fusion expanded the sonic boundaries of jazz forever.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=Ae0nwSv6cTU" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=_Fm10whccto" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听融合名曲 (Weather Report - Birdland)
           </a>
@@ -1058,6 +1170,14 @@
           <h3 class="genre-title">1. 福音爵士与圣乐根源 (Gospel & Sacred Jazz)</h3>
           <div class="genre-meta">非裔教堂灵歌 · 炽热击掌呼应与精神超拔</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=cInnyr5hlhE" target="_blank" rel="noopener noreferrer">Come Sunday</a> — Mahalia Jackson &amp; Duke Ellington <span class="key-badge">重点推荐</span></li>
+          <li>Precious Lord, Take My Hand — Mahalia Jackson</li>
+          <li>Oh Happy Day — Edwin Hawkins Singers</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           福音圣乐（Gospel）本出黑人灵堂，呼号击掌，感天动地。杜克·埃灵顿作《圣乐音乐会》，马哈莉亚·杰克逊一曲《Come Sunday》声震寰宇。灵歌之精魄与爵士之织体相融，超拔凡尘，直通神圣。
@@ -1071,7 +1191,7 @@
           Rooted in the African American church, gospel music contributed emotional fervor, call-and-response vocal structures, and sacred harmonies directly into jazz. Masterpieces like Duke Ellington’s Sacred Concerts and Mahalia Jackson's sublime performance of "Come Sunday" revealed the profound spiritual bond between the two traditions.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=rK9k_x0vY08" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=cInnyr5hlhE" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听福音圣曲 (Mahalia Jackson & Duke Ellington - Come Sunday)
           </a>
@@ -1126,6 +1246,14 @@
           <h3 class="genre-title">2. 酸爵士 (Acid Jazz)</h3>
           <div class="genre-meta">1980s 末英伦发端 · 黑胶采样 · 放克舞曲与灵魂乐摩登熔铸</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=4JkIs37a2JE" target="_blank" rel="noopener noreferrer">Virtual Insanity</a> — Jamiroquai <span class="key-badge">重点推荐</span></li>
+          <li>Still a Friend of Mine — Incognito</li>
+          <li>Cantaloop (Flip Fantasia) — Us3</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           八十年代末，英伦夜总会唱片骑士拾旧波普黑胶，与当代放克、嘻哈碎拍相激荡，遂成酸爵士。Jamiroquai、Incognito 驰声海内，舞动不羁而风雅不减，古韵焕新，青年风靡。
@@ -1139,7 +1267,7 @@
           Originating in London clubs in the late 1980s, acid jazz fused rare-groove jazz records, soul, funk, and hip-hop beats with live instrumentation. Exemplified by acts like Jamiroquai, Incognito, and Us3, it introduced traditional jazz harmonies and brass motifs to dancefloors worldwide.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=4JkIs3BM92s" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=4JkIs37a2JE" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听酸爵士金曲 (Jamiroquai - Virtual Insanity)
           </a>
@@ -1159,6 +1287,14 @@
           <h3 class="genre-title">3. 波萨诺瓦与拉丁爵士 (Bossa Nova & Latin Jazz)</h3>
           <div class="genre-meta">1950s 末巴西海岸 · 桑巴摇曳微醺律动 · 印象派温润爵士和弦</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=s61-e29Vr6Q" target="_blank" rel="noopener noreferrer">The Girl from Ipanema</a> — Stan Getz &amp; Astrud Gilberto <span class="key-badge">重点推荐</span></li>
+          <li>Desafinado — João Gilberto</li>
+          <li>Wave — Antônio Carlos Jobim</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           巴西海湾潮平风软，若昂·吉尔伯托抱吉他轻吟，安东尼奥·卡洛斯·若宾谱清和之韵，名为“新潮流（Bossa Nova）”。斯坦·盖茨萨克斯如微风拂水，《伊帕内玛女孩》传遍天下，淡远微醺，意趣天成。
@@ -1172,7 +1308,7 @@
           Born in late-1950s Brazil through the genius of Antônio Carlos Jobim and João Gilberto, Bossa Nova ("new trend") relaxed the feverish energy of samba into a cool, swaying acoustic guitar groove laced with complex jazz harmonies. Stan Getz's collaborations turned songs like "The Girl from Ipanema" into international anthems.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=c5QfXj5t4zc" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=s61-e29Vr6Q" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听波萨诺瓦原声 (The Girl From Ipanema)
           </a>
@@ -1191,6 +1327,14 @@
           <div class="genre-header">
           <h3 class="genre-title">4. 自由爵士与前卫先锋 (Free Jazz & Avant-Garde)</h3>
           <div class="genre-meta">1960s · 抛弃预设和弦走向与规整节拍 · 纯粹声音探索与无界即兴</div>
+        </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=DNbD1JIH344" target="_blank" rel="noopener noreferrer">Lonely Woman</a> — Ornette Coleman <span class="key-badge">重点推荐</span></li>
+          <li>Ascension — John Coltrane</li>
+          <li>Ghosts — Albert Ayler</li>
+          </ol>
         </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
@@ -1225,6 +1369,14 @@
           <h3 class="genre-title">5. 平滑爵士 / 轻柔爵士 (Smooth Jazz)</h3>
           <div class="genre-meta">1980s · 都会电台黄金风潮 · 优美舒缓旋律与温润声学质感</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=v8oqbWrP1QY" target="_blank" rel="noopener noreferrer">Just the Two of Us</a> — Grover Washington Jr. <span class="key-badge">重点推荐</span></li>
+          <li>Breezin’ — George Benson</li>
+          <li>Songbird — Kenny G</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           八十年代大众好清听，轻柔爵士（Smooth Jazz）顺流而生。小罗伯特·华盛顿、肯尼·基操吹管，引流行旋律入爵士和声。虽逊波普之奇崛，然优雅悦耳，广开大众接引之法门。
@@ -1238,7 +1390,7 @@
           Gaining immense commercial popularity in the 1980s and '90s, smooth jazz combined pop production, polished R&B grooves, and accessible melodic hooks with jazz phrasing. While less complex than acoustic bebop, icons like Grover Washington Jr. and Kenny G introduced saxophone tones to millions across the globe.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=jEy6MGu3bIA" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=v8oqbWrP1QY" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听轻柔爵士经典 (Grover Washington Jr. - Just the Two of Us)
           </a>
@@ -1265,6 +1417,14 @@
           <h3 class="genre-title">1. 灵魂乐之催生 (Soul Music)</h3>
           <div class="genre-meta">爵士管乐配器 · 布鲁斯音阶与福音情感的伟大交汇</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=ggGzE5KfCio" target="_blank" rel="noopener noreferrer">Georgia On My Mind</a> — Ray Charles <span class="key-badge">重点推荐</span></li>
+          <li>Respect — Aretha Franklin</li>
+          <li>A Change Is Gonna Come — Sam Cooke</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           雷·查尔斯（Ray Charles）引福音之热烈与大乐队铜管相撞，始创灵魂乐之体。艾瑞莎·富兰克林引吭悲歌，气息转折尽得爵士声部配器之妙。灵魂乐之筋骨，半借爵士风骨以成。
@@ -1278,7 +1438,7 @@
           Soul music emerged in the 1950s and '60s when pioneers like Ray Charles fused African American gospel passion with jazz horn sections and blues changes. Jazz provided soul singers with nuanced vocal phrasing, complex chord substitutions, and swing feel, creating timeless anthems of love and civil rights.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=Thls_tMxXY8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=ggGzE5KfCio" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听灵魂乐传世经典 (Ray Charles - Georgia On My Mind)
           </a>
@@ -1298,6 +1458,14 @@
           <h3 class="genre-title">2. 节奏布鲁斯与当代 R&B / 新灵魂乐 (R&B & Neo-Soul)</h3>
           <div class="genre-meta">大七与延伸和弦美学 · 自由声乐跑音与深沉后波普律动</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=6sIjSNTS7qQ" target="_blank" rel="noopener noreferrer">Sir Duke</a> — Stevie Wonder <span class="key-badge">重点推荐</span></li>
+          <li>Brown Sugar — D’Angelo</li>
+          <li>On &amp; On — Erykah Badu</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           史提夫·汪达琴转七九和弦，锦心绣腹；及至当代新灵魂乐（Neo-Soul），迪安吉洛、艾莉卡·芭朵诸子更引爵士不和谐音与切分深槽为衣钵。今世流行歌之繁和声，十有八九出诸爵士渊薮。
@@ -1311,7 +1479,7 @@
           From Motown legends to contemporary R&B and Neo-Soul, R&B owes its sophisticated harmonic language—such as maj7, 9th, and 11th chords—directly to jazz. Masterminds like Stevie Wonder, D'Angelo, and modern trailblazer Robert Glasper weave jazz virtuosity and phrasing directly into modern urban music.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=6sIjSNTS7Fs" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=6sIjSNTS7qQ" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听致敬爵士巨匠名曲 (Stevie Wonder - Sir Duke)
           </a>
@@ -1331,6 +1499,14 @@
           <h3 class="genre-title">3. 摇滚乐与前卫/数学摇滚 (Rock, Progressive & Math Rock)</h3>
           <div class="genre-meta">调式即兴 · 奇数复拍子与爵士摇滚（Jazz Rock）史诗</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=fG2seugAgnU" target="_blank" rel="noopener noreferrer">Aja</a> — Steely Dan <span class="key-badge">重点推荐</span></li>
+          <li>Riders on the Storm — The Doors</li>
+          <li>Shine On You Crazy Diamond — Pink Floyd</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           六十年代摇滚乐手求变，亨德里克斯悟戴维斯之调式，大门乐队汲冷爵士管风琴音，平克·弗洛伊德与斯蒂利·丹更引复杂爵士调性入录音室。摇滚之所以脱去三和弦之单调而登大雅，爵士之功不可没也。
@@ -1344,7 +1520,7 @@
           Rock music deepened dramatically when artists absorbed jazz principles. Jimi Hendrix studied modal improvisation, The Doors integrated cool jazz keyboards into psychedelic tracks, and Steely Dan crafted multi-platinum rock masterpieces built entirely on jazz chord extensions and premier jazz studio session players.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=k9q61U4c_C8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=fG2seugAgnU" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听爵士摇滚传奇 (Steely Dan - Aja feat. Wayne Shorter)
           </a>
@@ -1364,6 +1540,14 @@
           <h3 class="genre-title">4. 嘻哈与爵士说唱 (Hip-Hop & Jazz Rap)</h3>
           <div class="genre-meta">黄金年代淘黑胶（Crate Digging） · 萨克斯低音采样与街头诗意</div>
         </div>
+        <div class="starter-playlist">
+          <div class="starter-playlist-title">入门小歌单 · 先听这三首</div>
+          <ol class="starter-track-list">
+          <li><a href="https://www.youtube.com/watch?v=cxN4nKk2cfk" target="_blank" rel="noopener noreferrer">Jazz (We’ve Got)</a> — A Tribe Called Quest <span class="key-badge">重点推荐</span></li>
+          <li>N.Y. State of Mind — Nas</li>
+          <li>Feather — Nujabes</li>
+          </ol>
+        </div>
         <div class="lang-box wenyan">
           <span class="lang-tag">【文言】</span><br>
           八九十年代纽约金童，深入旧肆淘爵士黑胶碎屑以入音机。A Tribe Called Quest、Nas、Nujabes 采古贤低音与萨克斯清音，配以诗韵说唱。古器新声，如青铜镀金，开拓新世纪街头雅乐之盛景。
@@ -1377,7 +1561,7 @@
           During hip-hop's Golden Era in the late 1980s and '90s, visionary producers dug through dusty vinyl crates to sample classic jazz basslines and horn hooks. Pioneers like A Tribe Called Quest, Kendrick Lamar, and Japanese icon Nujabes created "Jazz Rap," proving jazz’s enduring vitality as the heartbeat of modern street poetry.
         </div>
         <div class="feature-actions">
-          <a href="https://www.youtube.com/watch?v=P_I2f72i0bM" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+          <a href="https://www.youtube.com/watch?v=cxN4nKk2cfk" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             在 YouTube 聆听爵士说唱经典 (A Tribe Called Quest - Jazz We've Got)
           </a>
