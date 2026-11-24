@@ -323,6 +323,85 @@
     transform: translateY(-2px);
   }
 
+  /* 主流流派时间轴 */
+  .genre-timeline {
+    background: rgba(7, 15, 36, .82);
+    border: 1px solid rgba(157, 184, 232, .22);
+    border-radius: 8px;
+    padding: 26px 30px;
+    margin-bottom: 34px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  }
+  .timeline-heading {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: .03em;
+    margin-bottom: 8px;
+  }
+  .timeline-intro {
+    color: #9db8e8;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .timeline-list {
+    position: relative;
+    list-style: none;
+  }
+  .timeline-list::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 130px;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(157, 184, 232, .25), rgba(157, 184, 232, .75), rgba(157, 184, 232, .25));
+  }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 110px 40px minmax(0, 1fr);
+    position: relative;
+    padding-bottom: 22px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-year {
+    color: #9db8e8;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: .03em;
+    padding-top: 2px;
+  }
+  .timeline-marker { position: relative; }
+  .timeline-marker::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #9db8e8;
+    border: 2px solid #070f24;
+    box-shadow: 0 0 0 3px rgba(157, 184, 232, .2);
+  }
+  .timeline-content strong {
+    display: block;
+    color: #e8eefb;
+    font-size: 15.5px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 3px;
+  }
+  .timeline-content span {
+    display: block;
+    color: #b8cbe8;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
   /* 知识卡片通性格局 */
   .genre-card {
     display: flex;
@@ -537,6 +616,13 @@
       width: 100%;
       height: 220px;
     }
+    .genre-timeline { padding: 22px 18px; }
+    .timeline-heading { font-size: 18px; }
+    .timeline-list::before { left: 92px; }
+    .timeline-item { grid-template-columns: 78px 28px minmax(0, 1fr); }
+    .timeline-year { font-size: 11.5px; }
+    .timeline-content strong { font-size: 14.5px; }
+    .timeline-content span { font-size: 12.5px; }
     .portal-card {
       padding: 20px 20px;
     }
@@ -620,6 +706,78 @@
     <!-- ========================================== -->
     <section class="article-section" id="column-2">
       <h2 class="section-main-title">专栏二：主流爵士乐流派简介 (Mainstream Jazz Genres)</h2>
+
+      <!-- 主流流派时间轴：先建立年代脉络，再阅读详细卡片 -->
+      <section class="genre-timeline" aria-labelledby="timeline-title">
+        <h3 class="timeline-heading" id="timeline-title">爵士乐主要流派时间轴</h3>
+        <p class="timeline-intro">从拉格泰姆到融合爵士，先看清百年爵士的大致演进。年代表示流派兴起的主要时期；不同流派彼此交叠、持续影响，并非截然替代。</p>
+        <ol class="timeline-list">
+          <li class="timeline-item">
+            <div class="timeline-year">19世纪末<br>—20世纪初</div>
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>拉格泰姆与早期蓝调</strong>
+              <span>切分钢琴与蓝调音共同奠定爵士根源。</span>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-year">1910s—1920s</div>
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>新奥尔良传统爵士 / 迪克西兰</strong>
+              <span>集体复调即兴兴起，个人独奏逐渐成为核心。</span>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-year">1930s—1940s</div>
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>大乐队摇摆乐（Swing）</strong>
+              <span>大乐队与摇摆律动让爵士成为大众流行文化的主流。</span>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-year">1940s 中叶</div>
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>比波普（Bebop）</strong>
+              <span>小编制、高速即兴与复杂和声，让爵士转向深度聆听的艺术。</span>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-year">1940s 末—1950s</div>
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>冷爵士（Cool Jazz）</strong>
+              <span>以更克制的音色与编曲，强调空间、内敛和细腻表达。</span>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-year">1950s 中—1960s</div>
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>硬波普（Hard Bop）</strong>
+              <span>回归蓝调、福音与灵魂乐根源，节奏更强劲、表达更直接。</span>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-year">1950s 末—1960s</div>
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>调式爵士（Modal Jazz）</strong>
+              <span>以调式取代密集的和弦行进，为即兴释放更大的空间。</span>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-year">1960s 末—1970s</div>
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>融合爵士（Fusion）</strong>
+              <span>融合摇滚、放克与电子乐器，进一步拓展爵士的声响边界。</span>
+            </div>
+          </li>
+        </ol>
+      </section>
 
       <!-- 1. 根源爵士与早期蓝调 -->
       <article class="genre-card">
