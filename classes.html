@@ -321,10 +321,43 @@
     margin-top: 14px;
   }
 
+  /* 教案图片 */
+  .lesson-plan {
+    margin-top: 18px;
+    border-top: 1px solid rgba(157, 184, 232, .15);
+    padding-top: 16px;
+  }
+  .lesson-plan summary {
+    width: fit-content;
+    color: #c9d9f6;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 6px 0;
+  }
+  .lesson-plan-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .lesson-plan-grid a {
+    display: block;
+    overflow: hidden;
+    border: 1px solid rgba(157, 184, 232, .2);
+    border-radius: 6px;
+    background: #ffffff;
+  }
+  .lesson-plan-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
   @media (max-width: 768px) {
     .lesson-card {
       padding: 20px 18px;
     }
+    .lesson-plan-grid { grid-template-columns: 1fr; }
     .pdf-viewer-container {
       height: 380px;
     }
@@ -498,6 +531,36 @@
           <div class="pdf-viewer-container">
             <iframe src="docs/jazz-in-1939.pdf#toolbar=1&navpanes=0" class="pdf-viewer-frame" title="二战中的爵士乐 · 一九三九年讲义" loading="lazy"></iframe>
           </div>
+        </article>
+
+        <!-- 二战爵士乐系列：灭掉种族隔离 -->
+        <article class="lesson-card">
+          <div class="lesson-header">
+            <h3 class="lesson-title">二战中的爵士乐 · 灭掉种族隔离</h3>
+            <div class="lesson-actions">
+              <a href="docs/jim-crow/lesson.pdf" target="_blank" class="btn-download" download="灭掉种族隔离-讲义.pdf">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                下载讲义 PDF
+              </a>
+              <a href="docs/jim-crow/lesson.pptx" class="btn-download" download="JazzTown社课-灭掉种族隔离.pptx">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                下载原始 PPT
+              </a>
+            </div>
+          </div>
+          <div class="pdf-viewer-container">
+            <iframe src="docs/jim-crow/lesson.pdf#toolbar=1&navpanes=0" class="pdf-viewer-frame" title="灭掉种族隔离社课讲义" loading="lazy"></iframe>
+          </div>
+          <details class="lesson-plan">
+            <summary>查看教案图片（共 5 张，点击展开）</summary>
+            <div class="lesson-plan-grid">
+              <a href="docs/jim-crow/teaching-plan-01.png" target="_blank" rel="noopener"><img src="docs/jim-crow/teaching-plan-01.png" alt="灭掉种族隔离教案第 1 页" loading="lazy"></a>
+              <a href="docs/jim-crow/teaching-plan-02.png" target="_blank" rel="noopener"><img src="docs/jim-crow/teaching-plan-02.png" alt="灭掉种族隔离教案第 2 页" loading="lazy"></a>
+              <a href="docs/jim-crow/teaching-plan-03.png" target="_blank" rel="noopener"><img src="docs/jim-crow/teaching-plan-03.png" alt="灭掉种族隔离教案第 3 页" loading="lazy"></a>
+              <a href="docs/jim-crow/teaching-plan-04.png" target="_blank" rel="noopener"><img src="docs/jim-crow/teaching-plan-04.png" alt="灭掉种族隔离教案第 4 页" loading="lazy"></a>
+              <a href="docs/jim-crow/teaching-plan-05.png" target="_blank" rel="noopener"><img src="docs/jim-crow/teaching-plan-05.png" alt="灭掉种族隔离教案第 5 页" loading="lazy"></a>
+            </div>
+          </details>
         </article>
 
         <!-- 圣诞专题社课 -->
