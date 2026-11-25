@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Club Vision - Shenzhen Middle School JazzTown Jazz Club</title>
+<meta name="description" content="深圳中学 JazzTown 爵士乐俱乐部 - 社团愿景">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    background: #070f24 url("../background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #e8eefb;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(90deg,
+      rgba(4, 10, 26, .85) 0%,
+      rgba(4, 10, 26, .65) 45%,
+      rgba(4, 10, 26, .35) 100%);
+    pointer-events: none;
+  }
+
+  /* 顶部导航 */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 6vw;
+    background: linear-gradient(180deg, rgba(4, 10, 26, .75) 0%, rgba(4, 10, 26, 0) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .nav-brand {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    color: #e8eefb;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .nav-brand:hover { opacity: .8; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-item {
+    position: relative;
+  }
+  .nav-links a, .nav-dropdown-btn {
+    color: #c9d9f6;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: .08em;
+    padding: 8px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    transition: color .2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .nav-links a:hover, .nav-dropdown-btn:hover,
+  .nav-links a.active, .nav-dropdown-btn.active {
+    color: #ffffff;
+  }
+  .nav-links > li > a.active::after,
+  .nav-links > li > a:hover::after,
+  .nav-dropdown-btn.active::after,
+  .nav-dropdown-btn:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #9db8e8;
+  }
+  .dropdown-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    transition: transform .25s ease;
+  }
+  .nav-item.dropdown-open .dropdown-arrow,
+  .nav-item:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* 下拉菜单 */
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(7, 15, 36, .96);
+    border: 1px solid rgba(157, 184, 232, .25);
+    border-radius: 6px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    list-style: none;
+    padding: 8px 0;
+    min-width: 140px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  .nav-item:hover .dropdown-menu,
+  .nav-item.dropdown-open .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-menu li {
+    width: 100%;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 18px;
+    font-size: 13px;
+    color: #c9d9f6;
+    white-space: nowrap;
+    text-align: center;
+    transition: background .2s ease, color .2s ease;
+  }
+  .dropdown-menu a:hover, .dropdown-menu a.active {
+    background: rgba(157, 184, 232, .15);
+    color: #ffffff;
+  }
+  .dropdown-menu a::after {
+    display: none !important;
+  }
+
+  /* 移动端汉堡按钮 */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 110;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #e8eefb;
+    margin: 5px 0;
+    transition: transform .3s ease, opacity .3s ease;
+  }
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* 页面主体 */
+  .page-container {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 140px 6vw 80px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .page-tag {
+    letter-spacing: .45em;
+    font-size: 13px;
+    color: #9db8e8;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 700;
+    letter-spacing: .02em;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .en-sub {
+    font-size: 14px;
+    letter-spacing: .12em;
+    color: #9db8e8;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+  .content-placeholder {
+    padding: 40px 0;
+    border-top: 1px solid rgba(157, 184, 232, .2);
+    color: #d2e0fa;
+    font-size: 16.5px;
+    line-height: 2.05;
+    letter-spacing: .02em;
+    font-weight: 350;
+  }
+  .vision-lead {
+    font-size: 19px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.8;
+    margin-bottom: 28px;
+    padding-left: 18px;
+    border-left: 3px solid #9db8e8;
+  }
+  .content-placeholder p {
+    margin-bottom: 22px;
+    text-align: justify;
+  }
+  .content-placeholder p:last-child {
+    margin-bottom: 0;
+  }
+  .vision-image-wrapper {
+    margin-top: 48px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(157, 184, 232, .18);
+    display: flex;
+    justify-content: center;
+  }
+  .vision-image {
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .45);
+    border: 1px solid rgba(157, 184, 232, .2);
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      background-attachment: scroll;
+      background-position: 74% center;
+    }
+    body::before {
+      background: linear-gradient(180deg,
+        rgba(4, 10, 26, .75) 0%,
+        rgba(4, 10, 26, .90) 60%,
+        rgba(4, 10, 26, .95) 100%);
+    }
+    .site-nav {
+      padding: 18px 6vw;
+    }
+    .nav-toggle {
+      display: block;
+    }
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 75%;
+      max-width: 300px;
+      height: 100vh;
+      background: rgba(7, 15, 36, .97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 90px 8vw 40px;
+      gap: 20px;
+      transform: translateX(100%);
+      transition: transform .3s ease;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, .5);
+      overflow-y: auto;
+    }
+    .nav-links.open {
+      transform: translateX(0);
+    }
+    .nav-item {
+      width: 100%;
+    }
+    .nav-links a, .nav-dropdown-btn {
+      font-size: 16px;
+      padding: 8px 0;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .dropdown-menu {
+      position: static;
+      transform: none !important;
+      opacity: 1;
+      pointer-events: auto;
+      background: rgba(13, 27, 61, .4);
+      border: none;
+      border-left: 2px solid #9db8e8;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 4px 0 4px 16px;
+      margin-top: 6px;
+      display: none;
+      min-width: 0;
+      width: 100%;
+    }
+    .nav-item.dropdown-open .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu a {
+      text-align: left;
+      font-size: 15px;
+      padding: 8px 0;
+    }
+    .page-container {
+      padding: 110px 6vw 60px;
+    }
+  }
+
+  /* 语言切换按钮 (中/EN) */
+  .nav-lang-item {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+  }
+  .lang-switch-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(13, 27, 61, 0.75);
+    border: 1px solid rgba(157, 184, 232, 0.35);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(6px);
+  }
+  .lang-switch-box a.lang-opt {
+    color: #c9d9f6;
+    text-decoration: none;
+    opacity: 0.55;
+    padding: 0 !important;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .lang-switch-box a.lang-opt:hover {
+    opacity: 1;
+    color: #ffffff;
+  }
+  .lang-switch-box a.lang-opt.active {
+    opacity: 1;
+    color: #ffcc66 !important;
+    font-weight: 700;
+  }
+  .lang-switch-box a.lang-opt::after {
+    display: none !important;
+  }
+  .lang-switch-box .lang-sep {
+    color: #8da4cf;
+    opacity: 0.4;
+    font-weight: 400;
+  }
+  @media (max-width: 768px) {
+    .nav-lang-item {
+      margin-left: 0;
+      margin-top: 14px;
+    }
+    .lang-switch-box {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+
+</style>
+</head>
+<body>
+    <nav class="site-nav">
+    <a href="index.html" class="nav-brand">JAZZTOWN</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-item has-dropdown">
+        <button class="nav-dropdown-btn active" aria-expanded="false">
+          Vision & About <span class="dropdown-arrow"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="vision.html" class="active">Club Vision</a></li>
+          <li><a href="intro.html">About Us & Members</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="classes.html">Club Classes</a></li>
+      <li class="nav-item has-dropdown">
+        <button class="nav-dropdown-btn" aria-expanded="false">
+          Jazz Studies <span class="dropdown-arrow"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="shares.html">Music Shares & Artists</a></li>
+          <li><a href="genres.html">Genres & Culture</a></li>
+          <li><a href="theory.html">Interactive Theory Lab</a></li>
+          <li><a href="genres.html#column-6">Lore, Jargon & Standards</a></li>
+        </ul>
+      </li>
+      <li class="nav-item nav-lang-item">
+        <div class="lang-switch-box">
+          <a href="../vision.html" class="lang-opt">中</a>
+          <span class="lang-sep">/</span>
+          <a href="vision.html" class="lang-opt active">EN</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+    <main class="page-container">
+    <div class="page-tag">Club Vision</div>
+    <h1>Club Vision</h1>
+    <div class="en-sub">Vision & Mission of JazzTown</div>
+    <div class="content-placeholder">
+      <div class="vision-lead">Even in history's darkest moments, jazz has always offered humanity hope.</div>
+      <p>“Play it, Sam. Play it again!” In 1942, as audiences sat in darkened theaters watching <em>Casablanca</em> and heard Ilsa ask Sam to strike up that blues-drenched melody “As Time Goes By,” nobody knew how the war would end—whether London, Washington, or the rest of the world would also fall into despair.</p>
+      <p>Yet music knew. Jazz knew.</p>
+      <p>Compared to the grand three- and four-hour Wagnerian operas championed by Third Reich propaganda ministries, jazz might have appeared humble and unassuming. Yet when the war finally ceased, what marched into Paris, Berlin, and Nuremberg was neither Brünnhilde nor Siegfried, but Americans bearing carbines and vinyl jazz records—among them both Black and white soldiers standing shoulder to shoulder.</p>
+      <p>Jazz was born free. The refined saxophonist in immaculate tailoring under the lights of Madison Avenue, and the young trumpeter huddled in a crumbling corner of Harlem—both play jazz that breathes unrestrained liberty. They never cheapen their listeners with mechanical rehearsals or uninspired repetition.</p>
+      <p>From its first breath, jazz has been a magnificent hybrid: a fusion of West African sun-drenched rhythm, Gallic romantic spirit, and the indomitable African American quest for dignity and freedom. It is rebellious yet deeply courteous. It embraces classical traditions without prejudice—when Bill Evans reharmonized Khachaturian's <em>Spartacus</em> into an impressionistic piano piece, it was celebrated; it eagerly welcomes the warmth of Caribbean and Brazilian rhythms—Bossa Nova, infused with South American syncopation, captured hearts worldwide.</p>
+      <p>Jazz is generous and forgiving. It never nitpicks the humans who created it. Sometimes it is almost too magnanimous: New England puritans learned to embrace jazz music long before they could fully accept the human musicians who played it. The icons of jazz history often lived troubled childhoods and turbulent adult lives. Yet jazz faithfully mirrors the authentic trajectory of human existence—it is spontaneous, genuine, and devoid of pretension.</p>
+      <p>Jazz belongs to the night. Not because it can only be performed after sundown, but because it carries the introspection of nightfall. The roar of a big band and the gentle whisper of a solo clarinet both shimmer with a faint, bittersweet weariness beneath excitement. The essence of jazz lives not only in the playing, but in the breath between phrases—and perhaps most of all in that quiet moment after the show has ended, when musician and listener each share a quiet cigarette under a crescent moon. When the crowd disperses, jazz remains like a ghost of the night.</p>
+      <p>Chronicling this spirit is no simple task. Born during tumultuous times, jazz grew up alongside working-class street vendors and laborers. Fortunately, unlike some of its more insular musical cousins, jazz never looked down upon the world with small-town pettiness. New York infused ragtime into its early southern spontaneity; New Orleans provided the heartbeat, and northern directness gave it edge. The Great Depression did not break it—it forged the Big Band era. Swing music guided America rhythmically and purposefully through the turbulent 1930s. The war scattered jazz seeds to all corners of the earth, making it a spiritual home from Paris to Casablanca.</p>
+      <p>Jazz was a chapter of the American Dream. Yet in an age of supersonic jets and atomic bombs, big bands inevitably gave way to new horizons. Audiences sought intimacy and contemplation, giving rise to Miles Davis and cool jazz. The 1950s became a golden constellation of talent—as Louis Armstrong sang, “What a wonderful world.” Beneath the surface, currents swirled: bebop and hard bop reconnected jazz to fierce countercultural expression. Thelonious Monk, composing at his piano in a humble loft, signaled a parting of ways between pure jazz and comfortable middle-class complacency.</p>
+      <p>As rock and roll exploded and four young men from Liverpool crossed Abbey Road into EMI studios, the musical center of gravity shifted. Yet jazz never surrendered. Its inherent openness allowed it to absorb everything in its path. In the 1970s, Fusion emerged, wedding jazz improvisation to the thunderous pulse of rock. Today, contemporary and smooth jazz continue to evolve. Yet throughout its transformations, this phantom of music has preserved its most precious essence: boundless freedom.</p>
+      <p>Though born in America, jazz had already captivated Berlin and Moscow by the 1920s, and reached Shanghai in the 1930s. Sadly, for decades afterward, jazz in China was misunderstood as mere decadence. Over the past two decades, jazz has returned with vibrant energy. Visitors to Shanghai still climb to the roof of the Peace Hotel to witness veteran jazz bands playing the big band swing of 1945. Jazz is fundamentally an acoustic and listening art; while not everyone can travel to the Village Vanguard in New York or Montreal's festivals, our mission at JazzTown is simple: to bring authentic jazz back to you, right here, right now.</p>
+      <div class="vision-image-wrapper">
+        <img src="../garfield-guitar.jpg" alt="Garfield playing guitar" class="vision-image" loading="lazy">
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const dropdownButtons = document.querySelectorAll('.nav-dropdown-btn');
+    const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    dropdownButtons.forEach((dropdownBtn) => {
+      dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const dropdownItem = dropdownBtn.parentElement;
+        const willOpen = !dropdownItem.classList.contains('dropdown-open');
+
+        dropdownItems.forEach((item) => {
+          item.classList.remove('dropdown-open');
+          item.querySelector('.nav-dropdown-btn').setAttribute('aria-expanded', 'false');
+        });
+
+        if (willOpen) {
+          dropdownItem.classList.add('dropdown-open');
+          dropdownBtn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-item.has-dropdown') && window.innerWidth > 768) {
+        dropdownItems.forEach((item) => {
+          item.classList.remove('dropdown-open');
+          item.querySelector('.nav-dropdown-btn').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

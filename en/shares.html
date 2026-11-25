@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Jazz Music Shares & Artist Profiles - Shenzhen Middle School JazzTown Jazz Club</title>
+<meta name="description" content="深圳中学 JazzTown 爵士乐俱乐部 - 爵士乐内容分享">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    background: #070f24 url("../background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #e8eefb;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(90deg,
+      rgba(4, 10, 26, .85) 0%,
+      rgba(4, 10, 26, .65) 45%,
+      rgba(4, 10, 26, .35) 100%);
+    pointer-events: none;
+  }
+
+  /* 顶部导航 */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 6vw;
+    background: linear-gradient(180deg, rgba(4, 10, 26, .75) 0%, rgba(4, 10, 26, 0) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .nav-brand {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    color: #e8eefb;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .nav-brand:hover { opacity: .8; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-item {
+    position: relative;
+  }
+  .nav-links a, .nav-dropdown-btn {
+    color: #c9d9f6;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: .08em;
+    padding: 8px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    transition: color .2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .nav-links a:hover, .nav-dropdown-btn:hover,
+  .nav-links a.active, .nav-dropdown-btn.active {
+    color: #ffffff;
+  }
+  .nav-links > li > a.active::after,
+  .nav-links > li > a:hover::after,
+  .nav-dropdown-btn.active::after,
+  .nav-dropdown-btn:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #9db8e8;
+  }
+  .dropdown-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    transition: transform .25s ease;
+  }
+  .nav-item.dropdown-open .dropdown-arrow,
+  .nav-item:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* 下拉菜单 */
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(7, 15, 36, .96);
+    border: 1px solid rgba(157, 184, 232, .25);
+    border-radius: 6px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    list-style: none;
+    padding: 8px 0;
+    min-width: 140px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  .nav-item:hover .dropdown-menu,
+  .nav-item.dropdown-open .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-menu li {
+    width: 100%;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 18px;
+    font-size: 13px;
+    color: #c9d9f6;
+    white-space: nowrap;
+    text-align: center;
+    transition: background .2s ease, color .2s ease;
+  }
+  .dropdown-menu a:hover, .dropdown-menu a.active {
+    background: rgba(157, 184, 232, .15);
+    color: #ffffff;
+  }
+  .dropdown-menu a::after {
+    display: none !important;
+  }
+
+  /* 移动端汉堡按钮 */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 110;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #e8eefb;
+    margin: 5px 0;
+    transition: transform .3s ease, opacity .3s ease;
+  }
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* 页面主体 */
+  .page-container {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 140px 6vw 80px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .page-tag {
+    letter-spacing: .45em;
+    font-size: 13px;
+    color: #9db8e8;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 700;
+    letter-spacing: .02em;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .en-sub {
+    font-size: 14px;
+    letter-spacing: .12em;
+    color: #9db8e8;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+  .content-placeholder {
+    padding: 30px 0 0;
+    border-top: 1px solid rgba(157, 184, 232, .2);
+    color: #d2e0fa;
+  }
+
+  /* 专栏主容器与卡片通用 */
+  .article-section {
+    margin-bottom: 70px;
+  }
+  .section-main-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: .04em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-main-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 22px;
+    background: #9db8e8;
+    border-radius: 2px;
+  }
+  .section-main-subtitle {
+    color: #8da6c9;
+    font-size: 14px;
+    margin-bottom: 30px;
+    letter-spacing: .05em;
+  }
+
+  .feature-card {
+    background: rgba(7, 15, 36, .68);
+    border: 1px solid rgba(157, 184, 232, .22);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 36px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+  .feature-cover {
+    width: 170px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(157, 184, 232, .25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
+    flex-shrink: 0;
+  }
+  .feature-cover.album-cover {
+    width: 190px;
+    height: 190px;
+  }
+  .feature-content {
+    flex: 1;
+    min-width: 0;
+  }
+  .feature-header {
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(157, 184, 232, .15);
+  }
+  .feature-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: .02em;
+    margin-bottom: 6px;
+  }
+  .feature-meta {
+    font-size: 13.5px;
+    color: #9db8e8;
+    letter-spacing: .04em;
+  }
+
+  /* 三语分栏展示块 */
+  .lang-box {
+    margin-bottom: 16px;
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 14.5px;
+    line-height: 1.85;
+  }
+  .lang-box:last-child {
+    margin-bottom: 0;
+  }
+  .lang-box.wenyan {
+    background: rgba(157, 184, 232, .06);
+    border-left: 3px solid #9db8e8;
+    color: #e2edff;
+    font-family: "Songti SC", "SimSun", "PingFang SC", serif;
+    letter-spacing: .03em;
+  }
+  .lang-box.modern {
+    background: rgba(4, 10, 26, .45);
+    border: 1px solid rgba(157, 184, 232, .15);
+    color: #d2e0fa;
+  }
+  .lang-box.english {
+    background: rgba(4, 10, 26, .35);
+    border: 1px solid rgba(157, 184, 232, .12);
+    color: #b5cbe8;
+    font-size: 13.5px;
+    line-height: 1.7;
+    font-style: normal;
+  }
+  .lang-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #9db8e8;
+    margin-bottom: 6px;
+  }
+
+  .feature-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+    align-items: center;
+  }
+  .btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: .03em;
+    transition: all .2s ease;
+  }
+  .btn-youtube {
+    background: rgba(255, 68, 68, .12);
+    color: #ff8585;
+    border: 1px solid rgba(255, 68, 68, .32);
+    margin-top: 0;
+  }
+  .btn-youtube:hover {
+    background: #ff3333;
+    color: #ffffff;
+    border-color: #ff3333;
+    box-shadow: 0 4px 14px rgba(255, 51, 51, .35);
+  }
+  .btn-wiki {
+    background: rgba(157, 184, 232, .1);
+    color: #c9dcff;
+    border: 1px solid rgba(157, 184, 232, .28);
+    margin-top: 0;
+  }
+  .btn-wiki:hover {
+    background: rgba(157, 184, 232, .25);
+    color: #ffffff;
+    border-color: #9db8e8;
+    box-shadow: 0 4px 14px rgba(157, 184, 232, .25);
+  }
+
+  .resource-category {
+    margin-bottom: 50px;
+  }
+  .category-header {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .category-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: .03em;
+  }
+  .category-badge {
+    font-size: 12px;
+    color: #9db8e8;
+    background: rgba(157, 184, 232, .12);
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: .05em;
+  }
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .resource-card {
+    background: rgba(7, 15, 36, .65);
+    border: 1px solid rgba(157, 184, 232, .2);
+    border-radius: 6px;
+    padding: 18px 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .resource-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(157, 184, 232, .45);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .4);
+  }
+  .resource-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e8eefb;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+  .resource-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #8da6c9;
+  }
+  .btn-download-pdf {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: rgba(157, 184, 232, .12);
+    color: #c9d9f6;
+    border: 1px solid rgba(157, 184, 232, .28);
+    border-radius: 4px;
+    padding: 7px 12px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all .2s ease;
+  }
+  .btn-download-pdf:hover {
+    background: #9db8e8;
+    color: #070f24;
+    font-weight: 500;
+    border-color: #9db8e8;
+  }
+
+  @media (max-width: 768px) {
+    .feature-card {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 18px;
+      gap: 20px;
+    }
+    .feature-cover, .feature-cover.album-cover {
+      width: 140px;
+      height: 180px;
+    }
+    .feature-cover.album-cover {
+      height: 140px;
+    }
+    .feature-header {
+      text-align: center;
+    }
+    body {
+      background-attachment: scroll;
+      background-position: 74% center;
+    }
+    body::before {
+      background: linear-gradient(180deg,
+        rgba(4, 10, 26, .75) 0%,
+        rgba(4, 10, 26, .90) 60%,
+        rgba(4, 10, 26, .95) 100%);
+    }
+    .site-nav {
+      padding: 18px 6vw;
+    }
+    .nav-toggle {
+      display: block;
+    }
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 75%;
+      max-width: 300px;
+      height: 100vh;
+      background: rgba(7, 15, 36, .97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 90px 8vw 40px;
+      gap: 20px;
+      transform: translateX(100%);
+      transition: transform .3s ease;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, .5);
+      overflow-y: auto;
+    }
+    .nav-links.open {
+      transform: translateX(0);
+    }
+    .nav-item {
+      width: 100%;
+    }
+    .nav-links a, .nav-dropdown-btn {
+      font-size: 16px;
+      padding: 8px 0;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .dropdown-menu {
+      position: static;
+      transform: none !important;
+      opacity: 1;
+      pointer-events: auto;
+      background: rgba(13, 27, 61, .4);
+      border: none;
+      border-left: 2px solid #9db8e8;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 4px 0 4px 16px;
+      margin-top: 6px;
+      display: none;
+      min-width: 0;
+      width: 100%;
+    }
+    .nav-item.dropdown-open .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu a {
+      text-align: left;
+      font-size: 15px;
+      padding: 8px 0;
+    }
+    .page-container {
+      padding: 110px 6vw 60px;
+    }
+  }
+
+  /* 语言切换按钮 (中/EN) */
+  .nav-lang-item {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+  }
+  .lang-switch-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(13, 27, 61, 0.75);
+    border: 1px solid rgba(157, 184, 232, 0.35);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(6px);
+  }
+  .lang-switch-box a.lang-opt {
+    color: #c9d9f6;
+    text-decoration: none;
+    opacity: 0.55;
+    padding: 0 !important;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .lang-switch-box a.lang-opt:hover {
+    opacity: 1;
+    color: #ffffff;
+  }
+  .lang-switch-box a.lang-opt.active {
+    opacity: 1;
+    color: #ffcc66 !important;
+    font-weight: 700;
+  }
+  .lang-switch-box a.lang-opt::after {
+    display: none !important;
+  }
+  .lang-switch-box .lang-sep {
+    color: #8da4cf;
+    opacity: 0.4;
+    font-weight: 400;
+  }
+  @media (max-width: 768px) {
+    .nav-lang-item {
+      margin-left: 0;
+      margin-top: 14px;
+    }
+    .lang-switch-box {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+
+</style>
+</head>
+<body>
+    <nav class="site-nav">
+    <a href="index.html" class="nav-brand">JAZZTOWN</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-item has-dropdown">
+        <button class="nav-dropdown-btn" aria-expanded="false">
+          Vision & About <span class="dropdown-arrow"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="vision.html">Club Vision</a></li>
+          <li><a href="intro.html">About Us & Members</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="classes.html">Club Classes</a></li>
+      <li class="nav-item has-dropdown">
+        <button class="nav-dropdown-btn active" aria-expanded="false">
+          Jazz Studies <span class="dropdown-arrow"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="shares.html" class="active">Music Shares & Artists</a></li>
+          <li><a href="genres.html">Genres & Culture</a></li>
+          <li><a href="theory.html">Interactive Theory Lab</a></li>
+          <li><a href="genres.html#column-6">Lore, Jargon & Standards</a></li>
+        </ul>
+      </li>
+      <li class="nav-item nav-lang-item">
+        <div class="lang-switch-box">
+          <a href="../shares.html" class="lang-opt">中</a>
+          <span class="lang-sep">/</span>
+          <a href="shares.html" class="lang-opt active">EN</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="page-container">
+    <div class="page-tag">Jazz Insights & Archive</div>
+    <h1>Jazz Music Shares & Artist Profiles</h1>
+    <div class="en-sub">Musician Profiles, Classic Albums & Real Book Archives</div>
+    <div class="content-placeholder">
+
+      <!-- 专栏一：爵士大师志 -->
+      <section class="article-section" id="musicians">
+        <h2 class="section-main-title">Column 1: Jazz Musician Profiles</h2>
+
+        <!-- 音乐家 1：Miles Davis -->
+        <article class="feature-card">
+          <img src="../images/miles-davis.jpg" alt="Miles Davis" class="feature-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">迈尔斯·戴维斯 (Miles Davis)</h3>
+              <div class="feature-meta">小号演奏家 · 乐队领袖 · 爵士乐现代革新者 (1926–1991)</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Miles Davis was an American trumpeter, bandleader, and composer widely regarded as one of the most influential figures in the history of jazz. Renowned for his melancholic tone, masterly use of space, and visionary evolution, Davis continuously spearheaded major jazz developments across five decades.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=ylXk1LBvIqU" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (So What - Live 1959)
+            </a>
+              <a href="https://zh.wikipedia.org/wiki/迈尔斯·戴维斯" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 音乐家 2：Bill Evans -->
+        <article class="feature-card">
+          <img src="../images/bill-evans.jpg" alt="Bill Evans" class="feature-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">比尔·埃文斯 (Bill Evans)</h3>
+              <div class="feature-meta">钢琴家 · 作曲家 · 现代爵士和声导师 (1929–1980)</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Bill Evans was an iconic American jazz pianist and composer whose use of impressionist harmony, inventive interpretation of traditional jazz repertoire, and block chord passages revolutionized modern jazz piano and trio dynamics.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=dH3GSrRmQC8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (Waltz for Debby)
+            </a>
+              <a href="https://zh.wikipedia.org/wiki/比尔·埃文斯" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 音乐家 3：Thelonious Monk -->
+        <article class="feature-card">
+          <img src="../images/thelonious-monk.jpg" alt="Thelonious Monk" class="feature-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">塞隆尼斯·蒙克 (Thelonious Monk)</h3>
+              <div class="feature-meta">钢琴家 · 作曲家 · 爵士高古奇才 (1917–1982)</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Thelonious Monk was an American jazz pianist and composer celebrated for his unique improvisational style and iconic compositions. His unorthodox approach featuring percussive attacks, unexpected silences, and dramatic dissonance cemented his legacy as a true jazz visionary.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=KshrtLXBdl8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube ('Round Midnight - Solo)
+            </a>
+              <a href="https://zh.wikipedia.org/wiki/塞隆尼斯·蒙克" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 音乐家 4：Charlie Parker -->
+        <article class="feature-card">
+          <img src="../images/charlie-parker.jpg" alt="Charlie Parker" class="feature-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">查理·帕克 (Charlie "Bird" Parker)</h3>
+              <div class="feature-meta">中音萨克斯宗师 · 波普爵士之父 · 绰号“大鸟” (1920–1955)</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Charlie "Bird" Parker was an American jazz saxophonist and composer who transformed the musical landscape as a pioneer of bebop. Introducing lightning-fast tempos, sophisticated harmonic ideas, and virtuosic improvisation, Parker remains one of music's supreme innovators.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=02XTlJk8-aI" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (Donna Lee / Hot House)
+            </a>
+              <a href="https://zh.wikipedia.org/wiki/查理·帕克" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 音乐家 5：John Coltrane -->
+        <article class="feature-card">
+          <img src="../images/john-coltrane.jpg" alt="John Coltrane" class="feature-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">约翰·柯川 (John Coltrane)</h3>
+              <div class="feature-meta">次中音/高音萨克斯巨匠 · 精神爵士先驱 · “音响之席”缔造者 (1926–1967)</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              John Coltrane was an American jazz saxophonist and composer among the most iconic figures in music history. Pioneering the intense "sheets of sound" technique and exploring spiritual jazz, Coltrane continuously expanded the boundaries of musical expression.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=q6WwuxqAOfg" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (My Favorite Things - Live 1961)
+            </a>
+              <a href="https://zh.wikipedia.org/wiki/约翰·柯川" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 音乐家 6：Duke Ellington -->
+        <article class="feature-card">
+          <img src="../images/duke-ellington.jpg" alt="Duke Ellington" class="feature-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">杜克·艾灵顿 (Duke Ellington)</h3>
+              <div class="feature-meta">作曲家 · 大乐队领袖 · 爵士乐殿堂公爵 (1899–1974)</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Edward Kennedy "Duke" Ellington was an American composer, pianist, and leader of a jazz orchestra for five decades. Widely considered one of jazz's greatest composers, Ellington elevated jazz to an orchestral art form with timeless masterpieces.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=cb2w2m1JmCY" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (Take the "A" Train)
+            </a>
+              <a href="https://zh.wikipedia.org/wiki/艾灵顿公爵" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 音乐家 7：Louis Armstrong -->
+        <article class="feature-card">
+          <img src="../images/louis-armstrong.jpg" alt="Louis Armstrong" class="feature-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">路易斯·阿姆斯特朗 (Louis "Satchmo" Armstrong)</h3>
+              <div class="feature-meta">小号演奏家 · 歌手 · 爵士乐奠基鼻祖 · 绰号“书包嘴” (1901–1971)</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Louis Armstrong was an American trumpeter and vocalist who was among the most influential figures in jazz. His charismatic gravelly voice, inventive trumpet solos, and infectious swing rhythms shifted jazz's focus from collective improvisation to solo virtuosity.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=Vjmbf_qR-P8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (West End Blues / What a Wonderful World)
+            </a>
+              <a href="https://zh.wikipedia.org/wiki/路易斯·阿姆斯特朗" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 音乐家 8：Chet Baker -->
+        <article class="feature-card">
+          <img src="../images/chet-baker.jpg" alt="Chet Baker" class="feature-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">切特·贝克 (Chet Baker)</h3>
+              <div class="feature-meta">小号家 · 歌手 · 西海岸酷派抒情诗人 (1929–1988)</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Chet Baker was an American jazz trumpeter and vocalist acclaimed as a leading figure in West Coast cool jazz. Known for his fragile, intimate tone and melancholic lyricism, Baker created some of the most hauntingly tender music in the jazz canon.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=jvXywh3AXcg" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (My Funny Valentine - Live in Tokyo)
+            </a>
+              <a href="https://zh.wikipedia.org/wiki/切特·贝克" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+
+      <!-- 专栏二：名盘传世录 -->
+      <section class="article-section">
+        <h2 class="section-main-title">专栏二：名盘传世录 (Classic Albums)</h2>
+
+        <!-- 专辑 1：Kind of Blue -->
+        <article class="feature-card">
+          <img src="../images/kind-of-blue.jpg" alt="Kind of Blue Album Cover" class="feature-cover album-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">《Kind of Blue》（泛蓝调调）</h3>
+              <div class="feature-meta">Miles Davis · Columbia Records · 1959年发行 · 调式爵士巅峰丰碑</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Released in 1959, Miles Davis’s *Kind of Blue* stands as the best-selling and most celebrated jazz album of all time. Departing from complex chord sequences toward modal improvisation, this masterpiece brought together legends John Coltrane and Bill Evans to create an enduring sonic monument.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=F3W_alU3FdU" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              在 YouTube 完整聆听本专辑 (Full Album)
+            </a>
+              <a href="https://zh.wikipedia.org/wiki/泛蓝调调" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 专辑 2：A Love Supreme -->
+        <article class="feature-card">
+          <img src="../images/a-love-supreme.jpg" alt="A Love Supreme Album Cover" class="feature-cover album-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">《A Love Supreme》（至爱无上）</h3>
+              <div class="feature-meta">John Coltrane · Impulse! Records · 1965年发行 · 精神爵士不朽圣咏</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Recorded in 1964 and released in 1965, John Coltrane's four-part suite *A Love Supreme* is widely hailed as a spiritual jazz tour de force. Serving as an expression of personal devotion and gratitude, Coltrane channeled his fiery improvisations into an unparalleled transcendental musical prayer.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=ll3CMgiUPac" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              在 YouTube 完整聆听本专辑 (Full Album)
+            </a>
+              <a href="https://zh.wikipedia.org/wiki/A_Love_Supreme" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 专辑 3：Blue Train -->
+        <article class="feature-card">
+          <img src="../images/blue-train.jpg" alt="Blue Train Album Cover" class="feature-cover album-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">《Blue Train》（蓝色列车）</h3>
+              <div class="feature-meta">John Coltrane · Blue Note Records · 1957年发行 · 硬波普纯正经典</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Recorded in 1957, *Blue Train* is John Coltrane's sole album as a leader for Blue Note Records and a certified hard bop cornerstone. Driven by fiery horn interplay with Lee Morgan and Curtis Fuller, the album showcases Coltrane's blossoming genius as a formidable composer and soloist.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=XpZHUAUtQnA" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (Blue Train - Full Album)
+            </a>
+              <a href="https://en.wikipedia.org/wiki/Blue_Train_(album)" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 专辑 4：Somethin' Else -->
+        <article class="feature-card">
+          <img src="../images/somethin-else.jpg" alt="Somethin' Else Album Cover" class="feature-cover album-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">《Somethin' Else》（不同凡响）</h3>
+              <div class="feature-meta">Cannonball Adderley · Blue Note Records · 1958年发行 · 酷派与硬波普之交响</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Released in 1958 on Blue Note, *Somethin' Else* features alto sax giant Cannonball Adderley in a thrilling collaboration with Miles Davis. Their immortal rendition of "Autumn Leaves," pairing Davis's haunting muted trumpet with Adderley's blues-drenched warmth, is among the pinnacle moments in jazz.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=u37RF5xucS4" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (Autumn Leaves)
+            </a>
+              <a href="https://en.wikipedia.org/wiki/Somethin%27_Else_(Cannonball_Adderley_album)" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 专辑 5：Waltz for Debby -->
+        <article class="feature-card">
+          <img src="../images/waltz-for-debby.png" alt="Waltz for Debby Album Cover" class="feature-cover album-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">《Waltz for Debby》（黛比的华尔兹）</h3>
+              <div class="feature-meta">Bill Evans Trio · Riverside Records · 1961年录制 · 现场爵士抒情极致</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Recorded live at the Village Vanguard in 1961, *Waltz for Debby* captured the Bill Evans Trio at their telepathic best. The ambient clinking of glasses enhances the poetic intimacy between Evans and bassist Scott LaFaro, who tragically died in a car crash days later, rendering this session an irreplaceable legend.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=dH3GSrRmQC8" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (Waltz for Debby - Village Vanguard 1961)
+            </a>
+              <a href="https://en.wikipedia.org/wiki/Waltz_for_Debby_(album)" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 专辑 6：Mingus Ah Um -->
+        <article class="feature-card">
+          <img src="../images/mingus-ah-um.jpg" alt="Mingus Ah Um Album Cover" class="feature-cover album-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">《Mingus Ah Um》（明格斯 阿 嗯）</h3>
+              <div class="feature-meta">Charles Mingus · Columbia Records · 1959年发行 · 后波普与福音黑人灵歌狂想</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Released in 1959, Charles Mingus’s *Mingus Ah Um* is an electrifying masterpiece combining gospel fervor, hard-driving blues, and intricate composition. Featuring timeless tracks like "Goodbye Pork Pie Hat" and the politically charged "Fables of Faubus," it showcases Mingus at the height of his genius.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=JY3hJc4sKqs" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (Goodbye Pork Pie Hat)
+            </a>
+              <a href="https://en.wikipedia.org/wiki/Mingus_Ah_Um" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 专辑 7：Maiden Voyage -->
+        <article class="feature-card">
+          <img src="../images/maiden-voyage.jpg" alt="Maiden Voyage Album Cover" class="feature-cover album-cover" loading="lazy">
+          <div class="feature-content">
+            <div class="feature-header">
+              <h3 class="feature-title">《Maiden Voyage》（处女航）</h3>
+              <div class="feature-meta">Herbie Hancock · Blue Note Records · 1965年发行 · 调式后波普概念海洋史诗</div>
+            </div>
+            
+            
+
+            
+
+            <div class="lang-box english">
+              
+              Recorded in 1965 on Blue Note, Herbie Hancock’s *Maiden Voyage* is a celebrated oceanic concept album and a pinnacle of modal post-bop. Utilizing sus chords and expansive textures, Hancock captured the wonder and majesty of the sea in one of jazz's defining statements.
+            </div>
+
+            <div class="feature-actions">
+  <a href="https://www.youtube.com/watch?v=hwmRQ0PBtXU" target="_blank" rel="noopener noreferrer" class="btn-action btn-youtube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Listen on YouTube (Maiden Voyage - Official Audio)
+            </a>
+              <a href="https://en.wikipedia.org/wiki/Maiden_Voyage_(Herbie_Hancock_album)" target="_blank" rel="noopener noreferrer" class="btn-action btn-wiki">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.09 13.124l2.621-6.666h2.152l-3.67 8.761c-.347.828-.75 1.408-1.208 1.741-.458.333-1.037.5-1.737.5-.473 0-.913-.075-1.32-.224v-1.63c.324.116.637.174.938.174.407 0 .736-.11.988-.328.252-.218.497-.61.736-1.176l-3.69-7.818h2.17l2.02 6.666zm-7.666-6.666h2.152l2.62 6.666 2.02-6.666h2.17l-3.69 7.818c.24.566.485.958.736 1.176.252.218.581.328.988.328.301 0 .614-.058.938-.174v1.63c-.407.149-.847.224-1.32.224-.7 0-1.28-.167-1.737-.5-.458-.333-.861-.913-1.208-1.741l-3.67-8.761zm-2.02 0h1.847l3.228 8.448-1.282 3.125-3.793-11.573zm17.192 0h1.847l-3.793 11.573-1.282-3.125 3.228-8.448z"/></svg>
+                Wikipedia Profile
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+
+      <!-- 原有资源分类：教材与乐谱资源库 -->
+      <section class="article-section">
+        <h2 class="section-main-title">专栏三：乐谱与教材资源库 (Sheet Music & Textbooks)</h2>
+
+      <!-- 分类 1：Real Book 经典标准曲集 -->
+      <section class="resource-category">
+        <div class="category-header">
+          <h2 class="category-title">Real Book 经典标准曲集</h2>
+          <span class="category-badge">7 本合集</span>
+        </div>
+        <div class="resource-grid">
+          <div class="resource-card">
+            <div class="resource-title">The Real Book (5th Edition)</div>
+            <div class="resource-meta"><span>PDF 电子书</span><span>54.4 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Real-Book.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (54.4MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">The New Real Book Vol. 1</div>
+            <div class="resource-meta"><span>Chuck Sher 编</span><span>48.3 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/The-New-Real-Book-Vol.1.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (48.3MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">The New Real Book Vol. 2</div>
+            <div class="resource-meta"><span>Chuck Sher 编</span><span>44.7 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/The-New-Real-Book-Vol.2.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (44.7MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">The New Real Book Vol. 3</div>
+            <div class="resource-meta"><span>Chuck Sher 编</span><span>42.7 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/The-New-Real-Book-Vol.3.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (42.7MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">The Real Bebop Book</div>
+            <div class="resource-meta"><span>Bebop 专集</span><span>44.4 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/The-Real-Bebop-Book.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (44.4MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">The Standards Real Book</div>
+            <div class="resource-meta"><span>C 调经典标准曲</span><span>52.8 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/The-Standards-Real-Book.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (52.8MB)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 分类 2：乐器调号分本 (Bb / Eb / C / Contrebasse) -->
+      <section class="resource-category">
+        <div class="category-header">
+          <h2 class="category-title">乐器调号分本（移调谱与低音提琴）</h2>
+          <span class="category-badge">9 册分本</span>
+        </div>
+        <div class="resource-grid">
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 1 - Bb 调本</div>
+            <div class="resource-meta"><span>次中音萨克斯/小号</span><span>76.7 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-1-Bb.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (76.7MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 1 - Eb 调本</div>
+            <div class="resource-meta"><span>中音萨克斯适用</span><span>77.2 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-1-Eb.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (77.2MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 1 - 低音提琴本</div>
+            <div class="resource-meta"><span>Contrebasse / Bass</span><span>55.4 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-1-contrebasse.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (55.4MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 2 - C 调本</div>
+            <div class="resource-meta"><span>钢琴/吉他/长笛</span><span>55.6 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-2-C.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (55.6MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 2 - Bb 调本</div>
+            <div class="resource-meta"><span>次中音萨克斯/小号</span><span>73.1 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-2-Bb.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (73.1MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 2 - Eb 调本</div>
+            <div class="resource-meta"><span>中音萨克斯适用</span><span>64.7 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-2-Eb.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (64.7MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 2 - 低音提琴本</div>
+            <div class="resource-meta"><span>Contrebasse / Bass</span><span>63.2 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-2-contrebasse.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (63.2MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 3 - C 调本</div>
+            <div class="resource-meta"><span>钢琴/吉他/长笛</span><span>29.7 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-3-C.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (29.7MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">Real Book Vol. 3 - Bb 调本</div>
+            <div class="resource-meta"><span>次中音萨克斯/小号</span><span>42.2 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Volume-3-Bb.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (42.2MB)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 分类 3：乐理理论、独奏与赏析教材 -->
+      <section class="resource-category">
+        <div class="category-header">
+          <h2 class="category-title">乐理理论、独奏与赏析教材</h2>
+          <span class="category-badge">4 本精选</span>
+        </div>
+        <div class="resource-grid">
+          <div class="resource-card">
+            <div class="resource-title">28首现代爵士小号独奏曲集 (28 Modern Jazz Trumpet Solos)</div>
+            <div class="resource-meta"><span>经典独奏采谱</span><span>6.6 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/28-Modern-Jazz-Trumpet-Solos.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (6.6MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">《爵士语法》</div>
+            <div class="resource-meta"><span>丁铌 编著 / 理论必备</span><span>78.4 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Jazz-Grammar-DingNi.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (78.4MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">爵士乐理与演奏技巧 (Jazz Music)</div>
+            <div class="resource-meta"><span>即兴演奏理论 通用教材</span><span>77.5 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Jazz-Music-Theory-And-Techniques.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (77.5MB)
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-title">爵士乐：美国的古典音乐 · 现代爵士</div>
+            <div class="resource-meta"><span>爵士通识与名作赏析</span><span>25.0 MB</span></div>
+            <a href="https://github.com/jazztownshenzhong/jazztownshenzhong.github.io/releases/download/v1.0-resources/Jazz-American-Classical-Music.pdf" class="btn-download-pdf" target="_blank" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              下载 PDF (25.0MB)
+            </a>
+          </div>
+        </div>
+      </section>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const dropdownButtons = document.querySelectorAll('.nav-dropdown-btn');
+    const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    dropdownButtons.forEach((dropdownBtn) => {
+      dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const dropdownItem = dropdownBtn.parentElement;
+        const willOpen = !dropdownItem.classList.contains('dropdown-open');
+
+        dropdownItems.forEach((item) => {
+          item.classList.remove('dropdown-open');
+          item.querySelector('.nav-dropdown-btn').setAttribute('aria-expanded', 'false');
+        });
+
+        if (willOpen) {
+          dropdownItem.classList.add('dropdown-open');
+          dropdownBtn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-item.has-dropdown') && window.innerWidth > 768) {
+        dropdownItems.forEach((item) => {
+          item.classList.remove('dropdown-open');
+          item.querySelector('.nav-dropdown-btn').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

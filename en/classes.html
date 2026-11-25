@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Club Classes - Shenzhen Middle School JazzTown Jazz Club</title>
+<meta name="description" content="深圳中学 JazzTown 爵士乐俱乐部 - 社课记录">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    background: #070f24 url("../background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #e8eefb;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(90deg,
+      rgba(4, 10, 26, .85) 0%,
+      rgba(4, 10, 26, .65) 45%,
+      rgba(4, 10, 26, .35) 100%);
+    pointer-events: none;
+  }
+
+  /* 顶部导航 */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 6vw;
+    background: linear-gradient(180deg, rgba(4, 10, 26, .75) 0%, rgba(4, 10, 26, 0) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .nav-brand {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    color: #e8eefb;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .nav-brand:hover { opacity: .8; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-item {
+    position: relative;
+  }
+  .nav-links a, .nav-dropdown-btn {
+    color: #c9d9f6;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: .08em;
+    padding: 8px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    transition: color .2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .nav-links a:hover, .nav-dropdown-btn:hover,
+  .nav-links a.active, .nav-dropdown-btn.active {
+    color: #ffffff;
+  }
+  .nav-links > li > a.active::after,
+  .nav-links > li > a:hover::after,
+  .nav-dropdown-btn.active::after,
+  .nav-dropdown-btn:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #9db8e8;
+  }
+  .dropdown-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    transition: transform .25s ease;
+  }
+  .nav-item.dropdown-open .dropdown-arrow,
+  .nav-item:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* 下拉菜单 */
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(7, 15, 36, .96);
+    border: 1px solid rgba(157, 184, 232, .25);
+    border-radius: 6px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    list-style: none;
+    padding: 8px 0;
+    min-width: 140px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  .nav-item:hover .dropdown-menu,
+  .nav-item.dropdown-open .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-menu li {
+    width: 100%;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 18px;
+    font-size: 13px;
+    color: #c9d9f6;
+    white-space: nowrap;
+    text-align: center;
+    transition: background .2s ease, color .2s ease;
+  }
+  .dropdown-menu a:hover, .dropdown-menu a.active {
+    background: rgba(157, 184, 232, .15);
+    color: #ffffff;
+  }
+  .dropdown-menu a::after {
+    display: none !important;
+  }
+
+  /* 移动端汉堡按钮 */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 110;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #e8eefb;
+    margin: 5px 0;
+    transition: transform .3s ease, opacity .3s ease;
+  }
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* 页面主体 */
+  .page-container {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 140px 6vw 80px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .page-tag {
+    letter-spacing: .45em;
+    font-size: 13px;
+    color: #9db8e8;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 700;
+    letter-spacing: .02em;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .en-sub {
+    font-size: 14px;
+    letter-spacing: .12em;
+    color: #9db8e8;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+  .content-placeholder {
+    padding: 30px 0 0;
+    border-top: 1px solid rgba(157, 184, 232, .2);
+    color: #d2e0fa;
+  }
+  .category-section {
+    margin-bottom: 60px;
+  }
+  .category-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: .04em;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .category-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background: #9db8e8;
+    border-radius: 2px;
+  }
+
+  /* 课程小分栏卡片 */
+  .lesson-card {
+    background: rgba(7, 15, 36, .65);
+    border: 1px solid rgba(157, 184, 232, .2);
+    border-radius: 8px;
+    padding: 26px 28px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    margin-bottom: 28px;
+  }
+  .lesson-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(157, 184, 232, .15);
+  }
+  .lesson-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: .03em;
+  }
+  .lesson-actions {
+    display: flex;
+    gap: 12px;
+  }
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(157, 184, 232, .15);
+    color: #e8eefb;
+    border: 1px solid rgba(157, 184, 232, .3);
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 13px;
+    text-decoration: none;
+    letter-spacing: .04em;
+    transition: all .2s ease;
+  }
+  .btn-download:hover {
+    background: #9db8e8;
+    color: #070f24;
+    font-weight: 500;
+  }
+
+  /* PDF 嵌入窗口 */
+  .pdf-viewer-container {
+    width: 100%;
+    height: 520px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgba(4, 10, 26, .85);
+    border: 1px solid rgba(157, 184, 232, .18);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .4);
+    margin-bottom: 16px;
+  }
+  .pdf-viewer-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* 底部提示与音视频展示区 */
+  .lesson-note {
+    font-size: 14px;
+    color: #9db8e8;
+    background: rgba(157, 184, 232, .08);
+    border-left: 3px solid #9db8e8;
+    padding: 12px 16px;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+
+  /* 教案图片 */
+  .lesson-plan {
+    margin-top: 18px;
+    border-top: 1px solid rgba(157, 184, 232, .15);
+    padding-top: 16px;
+  }
+  .lesson-plan summary {
+    width: fit-content;
+    color: #c9d9f6;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 6px 0;
+  }
+  .lesson-plan-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .lesson-plan-grid a {
+    display: block;
+    overflow: hidden;
+    border: 1px solid rgba(157, 184, 232, .2);
+    border-radius: 6px;
+    background: #ffffff;
+  }
+  .lesson-plan-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .lesson-card {
+      padding: 20px 18px;
+    }
+    .lesson-plan-grid { grid-template-columns: 1fr; }
+    .pdf-viewer-container {
+      height: 380px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      background-attachment: scroll;
+      background-position: 74% center;
+    }
+    body::before {
+      background: linear-gradient(180deg,
+        rgba(4, 10, 26, .75) 0%,
+        rgba(4, 10, 26, .90) 60%,
+        rgba(4, 10, 26, .95) 100%);
+    }
+    .site-nav {
+      padding: 18px 6vw;
+    }
+    .nav-toggle {
+      display: block;
+    }
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 75%;
+      max-width: 300px;
+      height: 100vh;
+      background: rgba(7, 15, 36, .97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 90px 8vw 40px;
+      gap: 20px;
+      transform: translateX(100%);
+      transition: transform .3s ease;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, .5);
+      overflow-y: auto;
+    }
+    .nav-links.open {
+      transform: translateX(0);
+    }
+    .nav-item {
+      width: 100%;
+    }
+    .nav-links a, .nav-dropdown-btn {
+      font-size: 16px;
+      padding: 8px 0;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .dropdown-menu {
+      position: static;
+      transform: none !important;
+      opacity: 1;
+      pointer-events: auto;
+      background: rgba(13, 27, 61, .4);
+      border: none;
+      border-left: 2px solid #9db8e8;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 4px 0 4px 16px;
+      margin-top: 6px;
+      display: none;
+      min-width: 0;
+      width: 100%;
+    }
+    .nav-item.dropdown-open .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu a {
+      text-align: left;
+      font-size: 15px;
+      padding: 8px 0;
+    }
+    .page-container {
+      padding: 110px 6vw 60px;
+    }
+  }
+
+  /* 语言切换按钮 (中/EN) */
+  .nav-lang-item {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+  }
+  .lang-switch-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(13, 27, 61, 0.75);
+    border: 1px solid rgba(157, 184, 232, 0.35);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(6px);
+  }
+  .lang-switch-box a.lang-opt {
+    color: #c9d9f6;
+    text-decoration: none;
+    opacity: 0.55;
+    padding: 0 !important;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .lang-switch-box a.lang-opt:hover {
+    opacity: 1;
+    color: #ffffff;
+  }
+  .lang-switch-box a.lang-opt.active {
+    opacity: 1;
+    color: #ffcc66 !important;
+    font-weight: 700;
+  }
+  .lang-switch-box a.lang-opt::after {
+    display: none !important;
+  }
+  .lang-switch-box .lang-sep {
+    color: #8da4cf;
+    opacity: 0.4;
+    font-weight: 400;
+  }
+  @media (max-width: 768px) {
+    .nav-lang-item {
+      margin-left: 0;
+      margin-top: 14px;
+    }
+    .lang-switch-box {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+
+</style>
+</head>
+<body>
+    <nav class="site-nav">
+    <a href="index.html" class="nav-brand">JAZZTOWN</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-item has-dropdown">
+        <button class="nav-dropdown-btn" aria-expanded="false">
+          Vision & About <span class="dropdown-arrow"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="vision.html">Club Vision</a></li>
+          <li><a href="intro.html">About Us & Members</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="classes.html" class="active">Club Classes</a></li>
+      <li class="nav-item has-dropdown">
+        <button class="nav-dropdown-btn" aria-expanded="false">
+          Jazz Studies <span class="dropdown-arrow"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="shares.html">Music Shares & Artists</a></li>
+          <li><a href="genres.html">Genres & Culture</a></li>
+          <li><a href="theory.html">Interactive Theory Lab</a></li>
+          <li><a href="genres.html#column-6">Lore, Jargon & Standards</a></li>
+        </ul>
+      </li>
+      <li class="nav-item nav-lang-item">
+        <div class="lang-switch-box">
+          <a href="../classes.html" class="lang-opt">中</a>
+          <span class="lang-sep">/</span>
+          <a href="classes.html" class="lang-opt active">EN</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+    <main class="page-container">
+    <div class="page-tag">Club Sessions</div>
+    <h1>Club Classes & Archives</h1>
+    <div class="en-sub">Jazz Club Lesson Archive & Highlights</div>
+    <div class="content-placeholder">
+      
+      <!-- Section 1 -->
+      <section class="category-section">
+        <h2 class="category-title">Jazz History & Genre Appreciation</h2>
+        
+        <!-- Lesson 1: Origins -->
+        <article class="lesson-card">
+          <div class="lesson-header">
+            <h3 class="lesson-title">Lesson 1 - The Origins of Jazz</h3>
+            <div class="lesson-actions">
+              <a href="../docs/jazz-origins.pdf" target="_blank" class="btn-download" download="Lesson-1-Origins-of-Jazz.pdf">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Slides (PDF)
+              </a>
+            </div>
+          </div>
+          <div class="pdf-viewer-container">
+            <iframe src="../docs/jazz-origins.pdf#toolbar=1&navpanes=0" class="pdf-viewer-frame" title="Lesson 1 - Origins of Jazz Slides" loading="lazy"></iframe>
+          </div>
+        </article>
+
+        <!-- Topic: Gospel Music -->
+        <article class="lesson-card">
+          <div class="lesson-header">
+            <h3 class="lesson-title">Special Topic - Gospel Music</h3>
+            <div class="lesson-actions">
+              <a href="../docs/gospel-music.pdf" target="_blank" class="btn-download" download="Special-Topic-Gospel-Music.pdf">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Slides (PDF)
+              </a>
+            </div>
+          </div>
+          <div class="pdf-viewer-container">
+            <iframe src="../docs/gospel-music.pdf#toolbar=1&navpanes=0" class="pdf-viewer-frame" title="Gospel Music Special Slides" loading="lazy"></iframe>
+          </div>
+        </article>
+
+        <!-- WWII Jazz 1939 -->
+        <article class="lesson-card">
+          <div class="lesson-header">
+            <h3 class="lesson-title">Jazz in WWII · The Year 1939</h3>
+            <div class="lesson-actions">
+              <a href="../docs/jazz-in-1939.pdf" target="_blank" class="btn-download" download="Jazz-in-WWII-1939.pdf">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Slides (PDF)
+              </a>
+            </div>
+          </div>
+          <div class="pdf-viewer-container">
+            <iframe src="../docs/jazz-in-1939.pdf#toolbar=1&navpanes=0" class="pdf-viewer-frame" title="Jazz in WWII · 1939 Slides" loading="lazy"></iframe>
+          </div>
+        </article>
+
+        <!-- WWII Jazz Jim Crow -->
+        <article class="lesson-card">
+          <div class="lesson-header">
+            <h3 class="lesson-title">Jazz in WWII · Dismantling Segregation</h3>
+            <div class="lesson-actions">
+              <a href="../docs/jim-crow/lesson.pdf" target="_blank" class="btn-download" download="Dismantling-Segregation-Slides.pdf">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Slides (PDF)
+              </a>
+              <a href="../docs/jim-crow/lesson.pptx" class="btn-download" download="JazzTown-Dismantling-Segregation.pptx">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Original PPTX
+              </a>
+            </div>
+          </div>
+          <div class="pdf-viewer-container">
+            <iframe src="../docs/jim-crow/lesson.pdf#toolbar=1&navpanes=0" class="pdf-viewer-frame" title="Dismantling Segregation Lesson Slides" loading="lazy"></iframe>
+          </div>
+          <details class="lesson-plan">
+            <summary>View Lesson Plan Manuscripts (5 pages, click to expand)</summary>
+            <div class="lesson-plan-grid">
+              <a href="../docs/jim-crow/teaching-plan-01.png" target="_blank" rel="noopener"><img src="../docs/jim-crow/teaching-plan-01.png" alt="Lesson Plan Page 1" loading="lazy"></a>
+              <a href="../docs/jim-crow/teaching-plan-02.png" target="_blank" rel="noopener"><img src="../docs/jim-crow/teaching-plan-02.png" alt="Lesson Plan Page 2" loading="lazy"></a>
+              <a href="../docs/jim-crow/teaching-plan-03.png" target="_blank" rel="noopener"><img src="../docs/jim-crow/teaching-plan-03.png" alt="Lesson Plan Page 3" loading="lazy"></a>
+              <a href="../docs/jim-crow/teaching-plan-04.png" target="_blank" rel="noopener"><img src="../docs/jim-crow/teaching-plan-04.png" alt="Lesson Plan Page 4" loading="lazy"></a>
+              <a href="../docs/jim-crow/teaching-plan-05.png" target="_blank" rel="noopener"><img src="../docs/jim-crow/teaching-plan-05.png" alt="Lesson Plan Page 5" loading="lazy"></a>
+            </div>
+          </details>
+        </article>
+
+        <!-- Christmas Jazz -->
+        <article class="lesson-card">
+          <div class="lesson-header">
+            <h3 class="lesson-title">Christmas Special · When Jazz Meets Christmas</h3>
+            <div class="lesson-actions">
+              <a href="../docs/christmas-jazz.pdf" target="_blank" class="btn-download" download="Christmas-Jazz-Special.pdf">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Slides (PDF)
+              </a>
+            </div>
+          </div>
+          <div class="pdf-viewer-container">
+            <iframe src="../docs/christmas-jazz.pdf#toolbar=1&navpanes=0" class="pdf-viewer-frame" title="Christmas Jazz Special Slides" loading="lazy"></iframe>
+          </div>
+        </article>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const dropdownButtons = document.querySelectorAll('.nav-dropdown-btn');
+    const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    dropdownButtons.forEach((dropdownBtn) => {
+      dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const dropdownItem = dropdownBtn.parentElement;
+        const willOpen = !dropdownItem.classList.contains('dropdown-open');
+
+        dropdownItems.forEach((item) => {
+          item.classList.remove('dropdown-open');
+          item.querySelector('.nav-dropdown-btn').setAttribute('aria-expanded', 'false');
+        });
+
+        if (willOpen) {
+          dropdownItem.classList.add('dropdown-open');
+          dropdownBtn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-item.has-dropdown') && window.innerWidth > 768) {
+        dropdownItems.forEach((item) => {
+          item.classList.remove('dropdown-open');
+          item.querySelector('.nav-dropdown-btn').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

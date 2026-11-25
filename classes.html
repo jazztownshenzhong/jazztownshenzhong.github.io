@@ -439,6 +439,61 @@
       padding: 110px 6vw 60px;
     }
   }
+
+  /* 语言切换按钮 (中/EN) */
+  .nav-lang-item {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+  }
+  .lang-switch-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(13, 27, 61, 0.75);
+    border: 1px solid rgba(157, 184, 232, 0.35);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(6px);
+  }
+  .lang-switch-box a.lang-opt {
+    color: #c9d9f6;
+    text-decoration: none;
+    opacity: 0.55;
+    padding: 0 !important;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .lang-switch-box a.lang-opt:hover {
+    opacity: 1;
+    color: #ffffff;
+  }
+  .lang-switch-box a.lang-opt.active {
+    opacity: 1;
+    color: #ffcc66 !important;
+    font-weight: 700;
+  }
+  .lang-switch-box a.lang-opt::after {
+    display: none !important;
+  }
+  .lang-switch-box .lang-sep {
+    color: #8da4cf;
+    opacity: 0.4;
+    font-weight: 400;
+  }
+  @media (max-width: 768px) {
+    .nav-lang-item {
+      margin-left: 0;
+      margin-top: 14px;
+    }
+    .lang-switch-box {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -451,30 +506,37 @@
     </button>
     <ul class="nav-links" id="navLinks">
       <li class="nav-item has-dropdown">
-        <button class="nav-dropdown-btn" aria-expanded="false"><span data-i18n="nav.vision_intro">社团愿景与介绍</span> <span class="dropdown-arrow"></span>
+        <button class="nav-dropdown-btn" aria-expanded="false"><span>社团愿景与介绍</span> <span class="dropdown-arrow"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a href="vision.html" data-i18n="nav.vision">社团愿景</a></li>
-          <li><a href="intro.html" data-i18n="nav.intro">社团介绍</a></li>
+          <li><a href="vision.html">社团愿景</a></li>
+          <li><a href="intro.html">社团介绍</a></li>
         </ul>
       </li>
-      <li class="nav-item"><a href="classes.html" class="active" data-i18n="nav.classes">社课记录</a></li>
+      <li class="nav-item"><a href="classes.html" class="active">社课记录</a></li>
       <li class="nav-item has-dropdown">
-        <button class="nav-dropdown-btn" aria-expanded="false"><span data-i18n="nav.study">爵士乐学习</span> <span class="dropdown-arrow"></span>
+        <button class="nav-dropdown-btn" aria-expanded="false"><span>爵士乐学习</span> <span class="dropdown-arrow"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a href="shares.html" data-i18n="nav.shares">爵士乐内容分享</a></li>
-          <li><a href="genres.html" data-i18n="nav.genres">爵士乐流派知识学习</a></li>
-          <li><a href="theory.html" data-i18n="nav.theory">互动爵士乐理速查</a></li>
-          <li><a href="genres.html#column-6" data-i18n="nav.lore">黑话、轶事与标准曲</a></li>
+          <li><a href="shares.html">爵士乐内容分享</a></li>
+          <li><a href="genres.html">爵士乐流派知识学习</a></li>
+          <li><a href="theory.html">互动爵士乐理速查</a></li>
+          <li><a href="genres.html#column-6">黑话、轶事与标准曲</a></li>
         </ul>
+      </li>
+      <li class="nav-item nav-lang-item">
+        <div class="lang-switch-box">
+          <a href="classes.html" class="lang-opt active">中</a>
+          <span class="lang-sep">/</span>
+          <a href="en/classes.html" class="lang-opt">EN</a>
+        </div>
       </li>
     </ul>
   </nav>
 
   <main class="page-container">
     <div class="page-tag">Club Sessions</div>
-    <h1 data-i18n="classes.title">社课记录</h1>
+    <h1>社课记录</h1>
     <div class="en-sub">Jazz Club Lesson Archive & Highlights</div>
     <div class="content-placeholder">
       
@@ -621,6 +683,5 @@
       }
     });
   </script>
-  <script src="i18n.js"></script>
 </body>
 </html>
