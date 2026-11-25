@@ -1334,6 +1334,462 @@
     }
   }
 
+
+  /* ========================================== */
+  /* 专栏六：爵士黑话、大师轶事与标准曲速查指南 */
+  /* ========================================== */
+  .lore-hero-card {
+    background: linear-gradient(135deg, rgba(22, 38, 77, 0.88) 0%, rgba(13, 27, 61, 0.95) 50%, rgba(7, 15, 36, 0.98) 100%);
+    border: 1px solid rgba(255, 204, 102, 0.3);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    position: relative;
+    overflow: hidden;
+  }
+  .lore-hero-card::after {
+    content: "LORE & TRIVIA";
+    position: absolute;
+    right: 20px;
+    bottom: -15px;
+    font-size: 64px;
+    font-weight: 900;
+    font-family: "Georgia", serif;
+    color: rgba(255, 204, 102, 0.04);
+    pointer-events: none;
+    letter-spacing: 0.08em;
+  }
+  .lore-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(255, 204, 102, 0.15);
+    border: 1px solid rgba(255, 204, 102, 0.4);
+    color: #ffcc66;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .lore-title {
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+  .lore-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #b8cde8;
+    max-width: 900px;
+  }
+
+  /* 子分栏导航选项卡 */
+  .lore-tab-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(157, 184, 232, 0.18);
+    padding-bottom: 12px;
+  }
+  .lore-tab-btn {
+    background: rgba(13, 27, 61, 0.6);
+    border: 1px solid rgba(157, 184, 232, 0.2);
+    color: #c0d3f2;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+  }
+  .lore-tab-btn:hover {
+    background: rgba(157, 184, 232, 0.15);
+    color: #ffffff;
+    border-color: rgba(157, 184, 232, 0.4);
+    transform: translateY(-1px);
+  }
+  .lore-tab-btn.active {
+    background: linear-gradient(135deg, rgba(255, 204, 102, 0.2) 0%, rgba(180, 140, 60, 0.3) 100%);
+    color: #ffffff;
+    border-color: #ffcc66;
+    box-shadow: 0 4px 16px rgba(255, 204, 102, 0.25);
+  }
+  .lore-tab-panel {
+    display: none;
+    animation: fadeIn 0.25s ease-out;
+  }
+  .lore-tab-panel.active {
+    display: block;
+  }
+
+  /* 1. 黑话词典样式 */
+  .jargon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .jargon-card {
+    background: rgba(11, 23, 52, 0.75);
+    border: 1px solid rgba(157, 184, 232, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .jargon-card:hover {
+    border-color: #ffcc66;
+    background: rgba(16, 32, 70, 0.85);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+  .jargon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .jargon-term {
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: "Georgia", serif;
+    letter-spacing: 0.02em;
+  }
+  .jargon-tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: rgba(255, 204, 102, 0.15);
+    color: #ffcc66;
+    border: 1px solid rgba(255, 204, 102, 0.3);
+    white-space: nowrap;
+  }
+  .jargon-translation {
+    font-size: 13px;
+    font-weight: 600;
+    color: #9db8e8;
+    margin-bottom: 8px;
+  }
+  .jargon-body {
+    font-size: 13px;
+    line-height: 1.75;
+    color: #c4d7f5;
+  }
+  .jargon-quote {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: rgba(7, 15, 36, 0.6);
+    border-left: 2px solid #9db8e8;
+    border-radius: 0 4px 4px 0;
+    font-size: 12px;
+    color: #8da4cf;
+    font-style: italic;
+  }
+
+  /* 现场礼仪避坑卡 */
+  .etiquette-box {
+    background: linear-gradient(135deg, rgba(16, 32, 68, 0.8) 0%, rgba(9, 18, 42, 0.9) 100%);
+    border: 1px solid rgba(157, 184, 232, 0.25);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-top: 20px;
+  }
+  .etiquette-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffcc66;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .etiquette-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .etiquette-item {
+    background: rgba(7, 15, 36, 0.6);
+    border: 1px solid rgba(157, 184, 232, 0.12);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: #c9dbf8;
+  }
+  .etiquette-item strong {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 13px;
+  }
+
+  /* 2. 奇闻轶事与名言卡片 */
+  .quote-generator-box {
+    background: linear-gradient(135deg, rgba(16, 32, 70, 0.9) 0%, rgba(8, 18, 42, 0.95) 100%);
+    border: 1px solid rgba(255, 204, 102, 0.35);
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-bottom: 24px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+  .quote-mark {
+    font-size: 48px;
+    line-height: 1;
+    font-family: "Georgia", serif;
+    color: #ffcc66;
+    opacity: 0.6;
+    margin-bottom: -10px;
+  }
+  .quote-text-display {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 500;
+    line-height: 1.8;
+    color: #ffffff;
+    font-family: "PingFang SC", "Georgia", serif;
+    margin-bottom: 14px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .quote-author-display {
+    font-size: 14px;
+    color: #ffcc66;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+  .quote-btn-random {
+    background: linear-gradient(135deg, #a67c1e 0%, #7d590d 100%);
+    border: 1px solid #ffcc66;
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 24px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.22s ease;
+    font-family: inherit;
+  }
+  .quote-btn-random:hover {
+    background: linear-gradient(135deg, #bd8e24 0%, #916810 100%);
+    box-shadow: 0 4px 18px rgba(255, 204, 102, 0.4);
+    transform: translateY(-2px);
+  }
+  .quote-btn-random:active {
+    transform: translateY(0);
+  }
+
+  /* 轶事卡片画廊 */
+  .trivia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+  }
+  .trivia-card {
+    background: rgba(11, 23, 52, 0.75);
+    border: 1px solid rgba(157, 184, 232, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.2s ease;
+  }
+  .trivia-card:hover {
+    border-color: #9db8e8;
+    background: rgba(16, 32, 70, 0.85);
+    transform: translateY(-2px);
+  }
+  .trivia-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .trivia-avatar-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 204, 102, 0.15);
+    border: 1px solid rgba(255, 204, 102, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .trivia-hero-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  .trivia-hero-title {
+    font-size: 11.5px;
+    color: #8da4cf;
+  }
+  .trivia-body {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #c4d7f5;
+  }
+  .trivia-body strong {
+    color: #ffcc66;
+  }
+
+  /* 4. 标准曲速查雷达指南 */
+  .standard-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(157, 184, 232, 0.14);
+  }
+  .standard-filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .standard-filter-btn {
+    background: rgba(7, 15, 36, 0.65);
+    border: 1px solid rgba(157, 184, 232, 0.2);
+    color: #c0d3f2;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .standard-filter-btn:hover {
+    background: rgba(157, 184, 232, 0.15);
+    color: #ffffff;
+  }
+  .standard-filter-btn.active {
+    background: #ffcc66;
+    color: #070f24;
+    font-weight: 700;
+    border-color: #ffcc66;
+  }
+
+  .standards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 18px;
+  }
+  .standard-card {
+    background: rgba(11, 23, 52, 0.75);
+    border: 1px solid rgba(157, 184, 232, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s;
+  }
+  .standard-card:hover {
+    border-color: #9db8e8;
+    background: rgba(16, 32, 70, 0.85);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  .standard-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .standard-song-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: "Georgia", serif;
+  }
+  .standard-level-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .level-bronze {
+    background: rgba(205, 127, 50, 0.18);
+    color: #e09855;
+    border: 1px solid rgba(205, 127, 50, 0.4);
+  }
+  .level-silver {
+    background: rgba(192, 192, 192, 0.18);
+    color: #d8e4f5;
+    border: 1px solid rgba(192, 192, 192, 0.4);
+  }
+  .level-boss {
+    background: rgba(255, 80, 80, 0.18);
+    color: #ff7878;
+    border: 1px solid rgba(255, 80, 80, 0.4);
+  }
+  .standard-composer {
+    font-size: 12px;
+    color: #8da4cf;
+    margin-bottom: 12px;
+  }
+  .standard-meta-row {
+    font-size: 12.5px;
+    color: #c9dbf8;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  .standard-meta-row strong {
+    color: #ffcc66;
+  }
+  .standard-points-box {
+    background: rgba(7, 15, 36, 0.6);
+    border: 1px solid rgba(157, 184, 232, 0.12);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #b8cde8;
+  }
+  .standard-points-box strong {
+    color: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    .lore-hero-card {
+      padding: 20px 18px;
+    }
+    .lore-tab-btn {
+      flex: 1 1 calc(50% - 6px);
+      padding: 8px 10px;
+      font-size: 12px;
+      justify-content: center;
+    }
+    .jargon-grid, .trivia-grid, .standards-grid {
+      grid-template-columns: 1fr;
+    }
+    .etiquette-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -1362,7 +1818,8 @@
         <ul class="dropdown-menu">
           <li><a href="shares.html">爵士乐内容分享</a></li>
           <li><a href="genres.html" class="active">爵士乐流派知识学习</a></li>
-          <li><a href="genres.html#column-5">互动爵士乐理速查</a></li>
+          <li><a href="theory.html">互动爵士乐理速查</a></li>
+          <li><a href="genres.html#column-6">黑话、轶事与标准曲</a></li>
         </ul>
       </li>
     </ul>
@@ -1380,6 +1837,7 @@
       <a href="#column-3">专栏三：小流派爵士乐</a>
       <a href="#column-4">专栏四：爵士乐影响</a>
       <a href="#column-5">专栏五：互动爵士乐理速查卡</a>
+      <a href="#column-6">专栏六：黑话、轶事与标准曲</a>
     </div>
 
     <!-- ========================================== -->
@@ -2501,6 +2959,287 @@
       </div>
     </section>
 
+
+    <!-- ========================================== -->
+    <!-- 专栏六：爵士黑话、大师轶事与标准曲速查指南 -->
+    <!-- ========================================== -->
+    <section class="article-section" id="column-6">
+      <h2 class="section-main-title">专栏六：爵士黑话、大师轶事与标准曲速查指南 (Lore, Jargon & Standards)</h2>
+
+      <div class="lore-hero-card">
+        <div class="lore-badge">JAZZ CULTURE & STANDARD SONGBOOK</div>
+        <h3 class="lore-title">百载爵士江湖 · 乐手行话 · 奇闻逸事与新手排练指南</h3>
+        <p class="lore-desc">
+          爵士乐不只有精妙深奥的调式和弦，更是一门充满街头生命力与幽默感的活态文化。本专栏收录排练场与 Jam Session 最常听到的<strong>爵士“黑话”与现场礼仪避坑指南</strong>、一代宗师们的<strong>传奇奇闻轶事与金句</strong>，以及为社团成员量身定制的<strong>分级标准曲库（Standard Songbook）通关图谱</strong>。
+        </p>
+      </div>
+
+      <!-- 选项卡导航 -->
+      <div class="lore-tab-nav" role="tablist">
+        <button class="lore-tab-btn active" data-tab="tab-jargon" role="tab" aria-selected="true">
+          <span>🎷</span> 1. 爵士黑话与排练场防翻车指南
+        </button>
+        <button class="lore-tab-btn" data-tab="tab-trivia" role="tab" aria-selected="false">
+          <span>✨</span> 2. 大师奇闻轶事与随机金句录
+        </button>
+        <button class="lore-tab-btn" data-tab="tab-standards" role="tab" aria-selected="false">
+          <span>🗺️</span> 3. 爵士标准曲通关雷达指南 (Standards)
+        </button>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- TAB 1: 爵士黑话与现场礼仪 -->
+      <!-- ========================================== -->
+      <div class="lore-tab-panel active" id="tab-jargon" role="tabpanel">
+        <div class="jargon-grid">
+          <!-- 卡片 1: Butter Notes -->
+          <div class="jargon-card">
+            <div>
+              <div class="jargon-header">
+                <span class="jargon-term">The "Butter Notes"</span>
+                <span class="jargon-tag">大师开悟梗</span>
+              </div>
+              <div class="jargon-translation">直译：黄油音 ｜ 涵义：别弹那些理所当然的常规导音</div>
+              <div class="jargon-body">
+                Miles Davis 曾低头对 23 岁初入乐团的钢琴手 Herbie Hancock 叮嘱道：“<em>Don't play the butter notes.</em>” Hancock 以为 Miles 叫他不要弹“油腻的音”，于是试着完全拿掉常规三音和七音，改用悬浮四度和声，自此开启了现代和声的新天地！
+              </div>
+            </div>
+            <div class="jargon-quote">“把最显而易见的音拿掉，音乐的空间才真正诞生。”</div>
+          </div>
+
+          <!-- 卡片 2: Woodshedding -->
+          <div class="jargon-card">
+            <div>
+              <div class="jargon-header">
+                <span class="jargon-term">Woodshedding / Shed</span>
+                <span class="jargon-tag">练习黑话</span>
+              </div>
+              <div class="jargon-translation">直译：在柴房劈柴 ｜ 涵义：闭关苦练、死磕音阶</div>
+              <div class="jargon-body">
+                早期乐手为不扰民，常常钻进后院木柴棚（Woodshed）里通宵扒带、练转调。如今当一位爵士乐手说“<em>I need to hit the shed</em>”，意味着他要闭关修炼了。
+              </div>
+            </div>
+            <div class="jargon-quote">“台上一分钟的漫不经心，来自柴房里一千小时的披荆斩棘。”</div>
+          </div>
+
+          <!-- 卡片 3: A Clinker / Crap Note -->
+          <div class="jargon-card">
+            <div>
+              <div class="jargon-header">
+                <span class="jargon-term">A "Clinker" (错音)</span>
+                <span class="jargon-tag">即兴哲学</span>
+              </div>
+              <div class="jargon-translation">直译：哑音/错音 ｜ 涵义：没有弹错的音，只有不及时的解决</div>
+              <div class="jargon-body">
+                正如 Thelonious Monk 的传世名言：“爵士乐里没有完全错误的音符，只看你紧接着把它解决（Resolve）到了哪里。”哪怕按错半音，只要顺势滑进目标调内音，就成了神级半音趋近（Chromatic Approach）！
+              </div>
+            </div>
+            <div class="jargon-quote">“如果你弹错了一个音，立刻以同样的自信再弹一次，观众就会以为那是艺术。”</div>
+          </div>
+
+          <!-- 卡片 4: Trading Fours -->
+          <div class="jargon-card">
+            <div>
+              <div class="jargon-header">
+                <span class="jargon-term">Trading Fours / Eights</span>
+                <span class="jargon-tag">舞台互动</span>
+              </div>
+              <div class="jargon-translation">直译：交替四小节 ｜ 涵义：乐手与鼓手之间的即兴对决</div>
+              <div class="jargon-body">
+                在独奏段落的高潮，独奏乐器（如萨克斯、小号、吉他）会与鼓手轮流演奏 4 个小节或 8 个小节，像神仙打架般的音乐说唱对战（Cypher），往往是现场最炸裂的环节。
+              </div>
+            </div>
+            <div class="jargon-quote">“别光顾着炫技，听清上一位乐手的问句，并在你的四小节里给出精彩的答复。”</div>
+          </div>
+
+          <!-- 卡片 5: The Head -->
+          <div class="jargon-card">
+            <div>
+              <div class="jargon-header">
+                <span class="jargon-term">The Head (乐曲头部)</span>
+                <span class="jargon-tag">结构行话</span>
+              </div>
+              <div class="jargon-translation">直译：曲头 ｜ 涵义：标准曲的主旋律部分</div>
+              <div class="jargon-body">
+                爵士演奏的标准公式永远是：<strong>Head In（奏出主旋律）→ Solos（全员依次即兴）→ Head Out（重聚主旋律收尾）</strong>。台上乐手摸摸头顶，就是在提示：“兄弟们，准备接回主旋律结束啦！”
+              </div>
+            </div>
+            <div class="jargon-quote">“迷失在和弦迷宫里时，深吸一口气，找回 Head 的指引。”</div>
+          </div>
+
+          <!-- 卡片 6: Comping -->
+          <div class="jargon-card">
+            <div>
+              <div class="jargon-header">
+                <span class="jargon-term">Comping (切音伴奏)</span>
+                <span class="jargon-tag">伴奏艺术</span>
+              </div>
+              <div class="jargon-translation">来自 Accompanying（伴奏）与 Complementing（互补）</div>
+              <div class="jargon-body">
+                钢琴与吉他在管乐即兴时的切分和弦节奏伴奏。优秀的 Comping 绝不是机械打拍子，而像一位睿智的捧哏，在管乐停顿的气口送上一记精准的切分和弦支撑。
+              </div>
+            </div>
+            <div class="jargon-quote">“不弹比弹更考验功力；给独奏者留足呼吸的空气。”</div>
+          </div>
+        </div>
+
+        <!-- 现场排练与 Jam Session 防翻车指南 -->
+        <div class="etiquette-box">
+          <div class="etiquette-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            Jam Session 舞台现场防翻车“暗号与礼仪” (Survival Guide)
+          </div>
+          <div class="etiquette-list">
+            <div class="etiquette-item">
+              <strong>1. 鼓掌的时机</strong>
+              在爵士现场，不要等到整首歌演完才鼓掌！当萨克斯或钢琴手完成了一段精彩的即兴独奏（Solo）退回一步时，就可以立刻鼓掌或欢呼致意。
+            </div>
+            <div class="etiquette-item">
+              <strong>2. 摸头与击头暗号</strong>
+              台上演出时如果领奏者用手拍自己的头顶，意思是<strong>“Head In / Head Out（回到主旋律）”</strong>，准备结束独奏收尾，千万别再傻傻开新一轮 Solo！
+            </div>
+            <div class="etiquette-item">
+              <strong>3. 千万别在第 1、3 拍鼓掌</strong>
+              摇摆乐（Swing）的灵魂在<strong>第 2 拍和第 4 拍（反拍 Backbeat）</strong>！在 1、3 拍打响指是古典乐与流行乐的惯性，在爵士乐迷眼里会瞬间“出戏”。
+            </div>
+            <div class="etiquette-item">
+              <strong>4. 尊重低音贝斯（Bass Solo）</strong>
+              当贝斯手开始 Solo 时，鼓手请立刻收轻力度换用钢刷（Brushes），钢琴手停止左手低音。贝斯声学音量小，全场请保持静听，切忌继续大声说话。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- TAB 2: 大师奇闻轶事与随机金句录 -->
+      <!-- ========================================== -->
+      <div class="lore-tab-panel" id="tab-trivia" role="tabpanel">
+        <!-- 随机金句生成器 -->
+        <div class="quote-generator-box">
+          <div class="quote-mark">“</div>
+          <div class="quote-text-display" id="displayQuoteText">
+            Do not fear mistakes. There are none.（不要害怕犯错。在爵士乐里根本没有错误这回事。）
+          </div>
+          <div class="quote-author-display" id="displayQuoteAuthor">
+            —— Miles Davis (迈尔斯·戴维斯)
+          </div>
+          <button class="quote-btn-random" id="btnNextQuote">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            🎲 随机摇一句大师金句 (Next Quote)
+          </button>
+        </div>
+
+        <!-- 传奇轶事网格 -->
+        <div class="trivia-grid">
+          <!-- 1. Monk -->
+          <div class="trivia-card">
+            <div class="trivia-header">
+              <div class="trivia-avatar-icon">🎹</div>
+              <div>
+                <div class="trivia-hero-name">塞隆尼斯·蒙克 (Thelonious Monk)</div>
+                <div class="trivia-hero-title">高顶礼帽与琴凳上的自转陀螺</div>
+              </div>
+            </div>
+            <div class="trivia-body">
+              蒙克弹琴时手指笔直得像锤子，喜欢用肘部敲击琴键以发出奇怪的不协和音。更绝的是，每当别的乐手独奏到酣畅处，蒙克经常直接离开琴凳，在台上像陀螺一样张开双臂自转跳舞，等管乐吹完最后一小节，他再以分秒不差的精准度坐回琴凳，敲下下一个和弦！
+            </div>
+          </div>
+
+          <!-- 2. Charlie Parker -->
+          <div class="trivia-card">
+            <div class="trivia-header">
+              <div class="trivia-avatar-icon">🎷</div>
+              <div>
+                <div class="trivia-hero-name">查理·帕克 (Charlie Parker)</div>
+                <div class="trivia-hero-title">“大鸟”的塑料萨克斯与炸鸡奇遇</div>
+              </div>
+            </div>
+            <div class="trivia-body">
+              帕克的外号“Bird”不仅因为他能以 300 BPM 的光速吹奏波普乐，还因为他极度痴迷吃炸鸡。由于生活窘迫，他经常演出前把萨克斯当掉换饭钱，临开演半小时再去借或赎。在 1953 年传奇的梅西音乐厅音乐会上，他就是用一支廉价的<strong>塑料 Grafton 萨克斯</strong>吹出了载入史册的绝响。
+            </div>
+          </div>
+
+          <!-- 3. Chet Baker -->
+          <div class="trivia-card">
+            <div class="trivia-header">
+              <div class="trivia-avatar-icon">🎺</div>
+              <div>
+                <div class="trivia-hero-name">切特·贝克 (Chet Baker)</div>
+                <div class="trivia-hero-title">被打落门牙后的西海岸气声神话</div>
+              </div>
+            </div>
+            <div class="trivia-body">
+              小号对嘴唇和牙齿的要求极高。1966 年切特·贝克在旧金山街头冲突中被打落门牙，几乎丧失吹奏能力。在加油站打工数年后，他装上假牙，硬是靠肌肉记忆重新摸索出了一种更贴近麦克风、气声迷离、脆弱深情的独特音色，反而铸就了晚年无可复制的传奇。
+            </div>
+          </div>
+
+          <!-- 4. Bill Evans -->
+          <div class="trivia-card">
+            <div class="trivia-header">
+              <div class="trivia-avatar-icon">🎼</div>
+              <div>
+                <div class="trivia-hero-name">比尔·埃文斯 (Bill Evans)</div>
+                <div class="trivia-hero-title">潜伏在爵士世界里的古典印象派特务</div>
+              </div>
+            </div>
+            <div class="trivia-body">
+              埃文斯把德彪西和拉威尔的古典印象派色彩完全带入了爵士乐。当录制《Kind of Blue》中的《Blue in Green》时，戴维斯只写了两个和弦草稿，埃文斯却在五分钟内谱写出了如林间晨雾般的四度和声开篇。他是最孤独的诗人，弹琴时头低得几乎贴到琴键上。
+            </div>
+          </div>
+
+          <!-- 5. Herbie Hancock -->
+          <div class="trivia-card">
+            <div class="trivia-header">
+              <div class="trivia-avatar-icon">⚡</div>
+              <div>
+                <div class="trivia-hero-name">赫比·汉考克 (Herbie Hancock)</div>
+                <div class="trivia-hero-title">弹错音如何成为世纪神来之笔</div>
+              </div>
+            </div>
+            <div class="trivia-body">
+              在斯德哥尔摩的一场音乐会上，Miles Davis 正在吹奏极度高亢的小号，年轻的汉考克在伴奏时按错了一个巨大且刺耳的不和谐音，汉考克当时心想：“完了，我把演出全毁了！”然而 Miles 毫不停顿，吹出了一连串恰好把这个错音合理化解释为属张力音的绝妙乐句，化腐朽为神奇！
+            </div>
+          </div>
+
+          <!-- 6. Charles Mingus -->
+          <div class="trivia-card">
+            <div class="trivia-header">
+              <div class="trivia-avatar-icon">🎻</div>
+              <div>
+                <div class="trivia-hero-name">查尔斯·明格斯 (Charles Mingus)</div>
+                <div class="trivia-hero-title">摔琴、打架与爵士乐狂怒低音</div>
+              </div>
+            </div>
+            <div class="trivia-body">
+              明格斯被誉为“爵士乐最愤怒的男人”。如果在俱乐部演出时台下观众交头接耳，他会当场砸烂价值连城的低音提琴或者对着台下大喊“闭嘴！”但他也是最深情的作曲家，写下了为悼念莱斯特·杨而作的催泪名曲《Goodbye Pork Pie Hat》。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- TAB 3: 标准曲速查雷达指南 -->
+      <!-- ========================================== -->
+      <div class="lore-tab-panel" id="tab-standards" role="tabpanel">
+        <div class="standard-filter-bar">
+          <div class="control-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            段位难度筛选 (Level Filter)
+          </div>
+          <div class="standard-filter-pills" id="standardFilterPills">
+            <button class="standard-filter-btn active" data-level="all">全部曲目</button>
+            <button class="standard-filter-btn" data-level="bronze">🥉 青铜级（排练必修）</button>
+            <button class="standard-filter-btn" data-level="silver">🥈 白银级（旋律大师）</button>
+            <button class="standard-filter-btn" data-level="boss">🔥 王者社死级（慎点）</button>
+          </div>
+        </div>
+
+        <div class="standards-grid" id="standardsGrid">
+          <!-- 动态标准曲卡片由 JS 渲染 -->
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <script>
@@ -3441,6 +4180,212 @@
     updateViewModes();
 
     renderChordFormulaGrid();
+  })();
+
+
+  // ==========================================
+  // 专栏六：爵士黑话、大师轶事与标准曲速查交互逻辑
+  // ==========================================
+  (function initJazzLoreAndStandards() {
+    // 1. 选项卡切换
+    const tabButtons = document.querySelectorAll('.lore-tab-btn');
+    const tabPanels = document.querySelectorAll('.lore-tab-panel');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        const targetId = btn.getAttribute('data-tab');
+        const targetPanel = document.getElementById(targetId);
+        if (targetPanel) {
+          targetPanel.classList.add('active');
+        }
+      });
+    });
+
+    // 2. 随机金句生成器
+    const QUOTES = [
+      { text: "Do not fear mistakes. There are none.（不要害怕犯错。在爵士乐里根本没有错误这回事。）", author: "Miles Davis (迈尔斯·戴维斯)" },
+      { text: "It's taken me all my life to learn what not to play.（我花了一整辈子的时间，才学会哪些音不要去弹。）", author: "Dizzy Gillespie (迪齐·吉莱斯皮)" },
+      { text: "The wrong note played right is a right note.（如果你用恰当的自信弹出一个错音，它就是对的音。）", author: "Thelonious Monk (塞隆尼斯·蒙克)" },
+      { text: "If you have to ask what jazz is, you'll never know.（如果你非得问爵士乐到底是什么，那你永远也不会懂得它。）", author: "Louis Armstrong (路易斯·阿姆斯特朗)" },
+      { text: "Master your instrument, master the music, and then forget all that crap and just play.（熟练掌握你的乐器，吃透所有的乐理，然后把那些规矩全忘掉，痛快去吹吧。）", author: "Charlie Parker (查理·帕克)" },
+      { text: "Jazz is not what you play, it's how you play it.（爵士乐不在于你演奏了什么，而在于你如何将它演奏出来。）", author: "Duke Ellington (杜克·埃灵顿)" },
+      { text: "Simplicity is the most difficult thing to secure in that it requires absolute discipline.（简约是最难企及的境界，因为那需要绝对的克制与自律。）", author: "Bill Evans (比尔·埃文斯)" },
+      { text: "Jazz is the only music in which the same note can be played night after night but differently each time.（爵士是唯一的这样一种音乐：同一个音符夜复一夜被奏响，却每一次都焕发出截然不同的生命。）", author: "Ornette Coleman (奥奈特·科尔曼)" },
+      { text: "A genius is the one most like himself.（所谓天才，就是最像他自己本色的人。）", author: "Thelonious Monk (塞隆尼斯·蒙克)" }
+    ];
+
+    let currentQuoteIdx = 0;
+    const displayQuoteText = document.getElementById('displayQuoteText');
+    const displayQuoteAuthor = document.getElementById('displayQuoteAuthor');
+    const btnNextQuote = document.getElementById('btnNextQuote');
+
+    if (btnNextQuote && displayQuoteText && displayQuoteAuthor) {
+      btnNextQuote.addEventListener('click', () => {
+        let newIdx;
+        do {
+          newIdx = Math.floor(Math.random() * QUOTES.length);
+        } while (newIdx === currentQuoteIdx && QUOTES.length > 1);
+
+        currentQuoteIdx = newIdx;
+        displayQuoteText.style.opacity = 0;
+        displayQuoteAuthor.style.opacity = 0;
+
+        setTimeout(() => {
+          displayQuoteText.textContent = QUOTES[currentQuoteIdx].text;
+          displayQuoteAuthor.textContent = "—— " + QUOTES[currentQuoteIdx].author;
+          displayQuoteText.style.opacity = 1;
+          displayQuoteAuthor.style.opacity = 1;
+        }, 180);
+      });
+      displayQuoteText.style.transition = "opacity 0.2s ease";
+      displayQuoteAuthor.style.transition = "opacity 0.2s ease";
+    }
+
+    // 3. 标准曲速查雷达数据与渲染
+    const STANDARDS_DATA = [
+      {
+        name: "Autumn Leaves (秋叶)",
+        composer: "Joseph Kosma",
+        level: "bronze",
+        levelText: "🥉 青铜必修",
+        levelClass: "level-bronze",
+        form: "32 小节 AABC 曲式",
+        key: "G 小调 / B♭ 大调 (调号两降)",
+        tempo: "Medium Swing (中速摇摆) ~ 120-140 BPM",
+        points: "<strong>排练必修考点：</strong>最经典的大调 ii-V-I 与关系小调 iiø7-V7-i 的无缝切换。新手乐手通关的第一首入门圣经！"
+      },
+      {
+        name: "C Jam Blues (C 调布鲁斯)",
+        composer: "Duke Ellington",
+        level: "bronze",
+        levelText: "🥉 青铜必修",
+        levelClass: "level-bronze",
+        form: "12 小节标准大调布鲁斯",
+        key: "C 调 (C7 - F7 - G7 框架)",
+        tempo: "Medium / Up Swing ~ 130-180 BPM",
+        points: "<strong>排练必修考点：</strong>旋律全曲几乎只有 G 和 C 两个音，极度考验独奏者的节奏切分（Time Feel）与布鲁斯音阶对话能力。"
+      },
+      {
+        name: "Take the 'A' Train (乘上 A 号列车)",
+        composer: "Billy Strayhorn / Duke Ellington",
+        level: "bronze",
+        levelText: "🥉 青铜必修",
+        levelClass: "level-bronze",
+        form: "32 小节 AABA 曲式",
+        key: "C 大调",
+        tempo: "Up-tempo Swing ~ 160-190 BPM",
+        points: "<strong>排练必修考点：</strong>A 段第三小节著名的重属和弦 II7（D7♯11）全音阶声响，明快充满大都市列车飞驰感。"
+      },
+      {
+        name: "Blue Bossa (蓝色波萨)",
+        composer: "Kenny Dorham",
+        level: "silver",
+        levelText: "🥈 白银大师",
+        levelClass: "level-silver",
+        form: "16 小节紧凑结构",
+        key: "C 小调 转向 D♭ 大调",
+        tempo: "Bossa Nova (波萨诺瓦律动) ~ 130-150 BPM",
+        points: "<strong>排练必修考点：</strong>前 8 小节 C 小调，第 9-12 小节突然半音离调到 D♭ 大调 ii-V-I，再切回 C 小调。拉美律动与转调控制首选。"
+      },
+      {
+        name: "Fly Me to the Moon (带我飞向月球)",
+        composer: "Bart Howard",
+        level: "silver",
+        levelText: "🥈 白银大师",
+        levelClass: "level-silver",
+        form: "32 小节 ABAB' 循环",
+        key: "A 小调 / C 大调",
+        tempo: "Medium Swing ~ 120 BPM",
+        points: "<strong>排练必修考点：</strong>五度圈模进（Circle of Fifths Progression）的完美教科书。旋律优美通俗，即兴空间极度开阔。"
+      },
+      {
+        name: "So What (那又怎样)",
+        composer: "Miles Davis",
+        level: "silver",
+        levelText: "🥈 白银大师",
+        levelClass: "level-silver",
+        form: "32 小节 AABA (调式爵士)",
+        key: "D Dorian (A段 16小节) → E♭ Dorian (B段 8小节)",
+        tempo: "Medium Swing ~ 135 BPM",
+        points: "<strong>排练必修考点：</strong>完全摆脱和弦密集跳跃！全曲只有两个调式，逼迫乐手彻底依靠旋律线条的起伏和调式特征音（大六度）来即兴。"
+      },
+      {
+        name: "Giant Steps (巨人步)",
+        composer: "John Coltrane",
+        level: "boss",
+        levelText: "🔥 王者社死",
+        levelClass: "level-boss",
+        form: "16 小节极速 Coltrane Changes",
+        key: "B - G - E♭ 三大中心调大三度极速轮转",
+        tempo: "Fast Swing ~ 250-290 BPM (极速飞行)",
+        points: "<strong>排练必修考点：</strong>爵士即兴的“珠穆朗玛峰”。每两拍转一个相隔大三度的调，钢琴家 Tommy Flanagan 录音时曾当场懵掉。新手慎点！"
+      },
+      {
+        name: "Donna Lee (唐娜·莉)",
+        composer: "Charlie Parker / Miles Davis",
+        level: "boss",
+        levelText: "🔥 王者社死",
+        levelClass: "level-boss",
+        form: "32 小节 ABAC 曲式",
+        key: "A♭ 大调",
+        tempo: "Fast Bebop ~ 220-250 BPM",
+        points: "<strong>排练必修考点：</strong>密集十六分音符半音阶爬音的马拉松。对管乐吐音手指协调、贝斯右手扒带是地狱级测试题。"
+      }
+    ];
+
+    const standardsGrid = document.getElementById('standardsGrid');
+    const filterPills = document.getElementById('standardFilterPills');
+
+    function renderStandards(filterLevel = "all") {
+      if (!standardsGrid) return;
+      standardsGrid.innerHTML = "";
+
+      const filtered = filterLevel === "all" 
+        ? STANDARDS_DATA 
+        : STANDARDS_DATA.filter(item => item.level === filterLevel);
+
+      filtered.forEach(song => {
+        const card = document.createElement('div');
+        card.className = "standard-card";
+        card.innerHTML = `
+          <div>
+            <div class="standard-card-header">
+              <span class="standard-song-name">${song.name}</span>
+              <span class="standard-level-badge ${song.levelClass}">${song.levelText}</span>
+            </div>
+            <div class="standard-composer">作曲：${song.composer}</div>
+            <div class="standard-meta-row"><strong>曲式结构：</strong> ${song.form}</div>
+            <div class="standard-meta-row"><strong>推荐调性：</strong> ${song.key}</div>
+            <div class="standard-meta-row"><strong>参考速度：</strong> ${song.tempo}</div>
+          </div>
+          <div class="standard-points-box">
+            ${song.points}
+          </div>
+        `;
+        standardsGrid.appendChild(card);
+      });
+    }
+
+    if (filterPills) {
+      filterPills.querySelectorAll('.standard-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterPills.querySelectorAll('.standard-filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const level = btn.getAttribute('data-level');
+          renderStandards(level);
+        });
+      });
+    }
+
+    renderStandards();
   })();
 
   </script>
